@@ -18,6 +18,11 @@ This mod adds new genes that interact with water, new abilities themed around wa
       <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
     </li>
     <li>
+      <packageId>pathfinding.framework</packageId>
+      <displayName>Pathfinding Framework</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3070914628</steamWorkshopUrl>
+    </li>
+    <li>
       <packageId>Ludeon.RimWorld.Biotech</packageId>
       <displayName>Biotech</displayName>
     </li>

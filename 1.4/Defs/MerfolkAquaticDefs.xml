@@ -28,6 +28,20 @@
         <exclusionTags>
             <li>FireDamage</li>
         </exclusionTags>
+        <modExtensions>
+            <!-- Gives pawns with this gene the PF_Movement_Merren movement type. -->
+            <li Class="PathfindingFramework.MovementExtension">
+                <movementDef>PF_Movement_Merren</movementDef>
+            </li>
+        </modExtensions>
+        <conditionalStatAffecters>
+            <!-- Applies a -3 move speed debuff to pawns with this gene not in water. -->
+            <li Class="StagzMerfolk.ConditionalStatEffector_NotWater">
+                <statOffsets>
+                    <MoveSpeed>-3</MoveSpeed>
+                </statOffsets>
+            </li>
+        </conditionalStatAffecters>
     </GeneDef>
     <NeedDef>
         <defName>Stagz_NeedAquatic</defName>
