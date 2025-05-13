@@ -13,7 +13,7 @@ public class MeditationFocusDef_EnablingThingsExplanation_Patch
 
         if (__instance == StagzDefOf.Stagz_Water)
         {
-            if (pawn.genes != null && pawn.genes.HasGene(StagzDefOf.Stagz_Raincaller))
+            if (pawn.genes?.HasGene(StagzDefOf.Stagz_Raincaller) == true)
             {
                 __result += "\n  - " + "Stagz_UnlockedByGene".Translate() + " " + StagzDefOf.Stagz_Raincaller.LabelCap + ".";
             }
@@ -30,10 +30,7 @@ public class MeditationFocusTypeAvailabilityCache_PawnCanUseInt_Patch
 
         if (type == StagzDefOf.Stagz_Water)
         {
-            if (p.genes != null && p.genes.HasGene(StagzDefOf.Stagz_Raincaller))
-            {
-                __result = true;
-            }
+            __result = p.genes?.HasGene(StagzDefOf.Stagz_Raincaller) == true;
         }
     }
 }
