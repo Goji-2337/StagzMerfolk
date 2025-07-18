@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <PathfindingFramework.MovementDef>
+        <defName>PF_Movement_Merren</defName>
+        <label>merren</label>
+        <description>Merren movement prefers water, but will move on land if needed.</description>
+        <priority>2000</priority>
+        <tagCosts>
+            <PF_TerrainTag_WaterDeep>0</PF_TerrainTag_WaterDeep>
+            <PF_TerrainTag_WaterChestDeep>2</PF_TerrainTag_WaterChestDeep>
+            <PF_TerrainTag_WaterShallow>4</PF_TerrainTag_WaterShallow>
+        </tagCosts>
+        <defaultCost>Unsafe</defaultCost>
+        <ignoreAvoidWander>true</ignoreAvoidWander>
+    </PathfindingFramework.MovementDef>
+</Defs>
