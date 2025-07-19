@@ -4,7 +4,7 @@
     <StagzMerfolk_ConditionalStatEffector_WaterOrRain>in water or rain</StagzMerfolk_ConditionalStatEffector_WaterOrRain>
     <StagzMerfolk_ConditionalStatEffector_NotWater>not in water</StagzMerfolk_ConditionalStatEffector_NotWater>
     <StagzMerfolk_ConditionalStatEffector_Rain>in rain</StagzMerfolk_ConditionalStatEffector_Rain>
-    <AbilityDisabledNotOnWater>must be stood on a water tile</AbilityDisabledNotOnWater>
+    <AbilityDisabledNotOnWater>must be standing on a water tile</AbilityDisabledNotOnWater>
     <StagzMerfolk_CannotWearBecauseOfTail>{0} tried to wear clothing that covers legs, but could not because they have a tail</StagzMerfolk_CannotWearBecauseOfTail>
     <StagzMerfolk_RainCall>{0} has called forth a {1}. It will begin shortly...</StagzMerfolk_RainCall>
 
