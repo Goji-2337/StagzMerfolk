@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <BackstoryDef>
+    <slot>Adulthood</slot>
+    <title>Lighthouse Keeper</title>
+    <defName>Stagz_LighthouseKeeper</defName>
+    <titleShort>Lightkeeper</titleShort>
+    <baseDesc>[PAWN_nameDef] lived away from the crowd in a lighthouse. Every evening, [PAWN_pronoun] tended the lanterns to make sure its warm glow illuminates the harbour. [PAWN_pronoun] enjoyed [PAWN_possessive] solitary life by the sea.</baseDesc>
+    <spawnCategories>
+      <li>Outlander</li>
+      <li>Offworld</li>
+    </spawnCategories><bodyTypeMale>Male</bodyTypeMale><bodyTypeFemale>Female</bodyTypeFemale>
+    <skillGains>
+      <Crafting>4</Crafting>
+      <Medicine>1</Medicine>
+      <Social>-2</Social>
+    </skillGains>
+    <workDisables>
+      <li></li>
+    </workDisables>
+    <disallowedTraits>
+    </disallowedTraits>
+    <forcedTraits>
+    </forcedTraits>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <slot>Adulthood</slot>
+    <title>Starlight Navigator</title>
+    <defName>Stagz_StarlightNavigator</defName>
+    <titleShort>Navigator</titleShort>
+    <baseDesc>[PAWN_nameDef] is an experienced navigator of the sea.  [PAWN_pronoun] and [PAWN_possessive] crew were once able to cross the Death Zone of the ocean. Through nights devoid of wind and currents, [PAWN_nameDef] relied on observations of stars and other celestial bodies to guide the way.</baseDesc>
+    <spawnCategories>
+      <li>Offworld</li>
+      <li>ImperialFighter</li>
+    </spawnCategories><bodyTypeMale>Male</bodyTypeMale><bodyTypeFemale>Female</bodyTypeFemale>
+    <skillGains>
+      <Intellectual>6</Intellectual>
+      <Crafting>2</Crafting>
+      <Cooking>-2</Cooking>
+    </skillGains>
+    <workDisables>
+    </workDisables>
+    <disallowedTraits>
+    </disallowedTraits>
+    <forcedTraits>
+    </forcedTraits>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <slot>Adulthood</slot>
+    <title>Pearl Diver</title>
+    <defName>Stagz_PearlDiver</defName>
+    <titleShort>Diver</titleShort>
+    <baseDesc>[PAWN_nameDef] earned a living as a pearl hunter. [PAWN_pronoun] could descend to depths of over hundred feet on a single breath. [PAWN_possessive] underwater agility had made [PAWN_objective]self a wanted figure among collectors.</baseDesc>
+    <spawnCategories>
+      <li>Tribal</li>
+    </spawnCategories><bodyTypeMale>Male</bodyTypeMale><bodyTypeFemale>Female</bodyTypeFemale>
+    <skillGains>
+      <Animals>3</Animals>
+      <Melee>1</Melee>
+      <Crafting>1</Crafting>
+    </skillGains>
+    <workDisables>
+    </workDisables>
+    <disallowedTraits>
+    </disallowedTraits>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <slot>Adulthood</slot>
+    <title>Coastal Rescuer</title>
+    <defName>Stagz_Rescuer</defName>
+    <titleShort>Housecarl</titleShort>
+    <baseDesc>[PAWN_nameDef] patrolled the coastline, always ready to respond to emergencies on both land and sea. [PAWN_possessive] swift and daring rescues have earned [PAWN_objective] the admiration of many survivors.</baseDesc>
+    <spawnCategories>
+      <li>Outlander</li>
+      <li>ImperialCommon</li>
+      <li>ImperialFighter</li>
+    </spawnCategories><bodyTypeMale>Male</bodyTypeMale><bodyTypeFemale>Female</bodyTypeFemale>
+    <skillGains>
+      <Medicine>3</Medicine>
+      <Social>3</Social>
+    </skillGains>
+    <workDisables>
+      <li></li>
+    </workDisables>
+    <disallowedTraits>
+      <Wimp />
+    </disallowedTraits>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <slot>Adulthood</slot>
+    <title>Shaman of the Sea</title>
+    <defName>Stagz_SeaShaman</defName>
+    <titleShort>Shaman</titleShort>
+    <baseDesc>After a famine, [PAWN_nameDef] led his clan to settle at the place where rivers meet the sea. [PAWN_pronoun] teaches [PAWN_possessive] people to worship the god of the sea because the deity seems much more generous, blessing them with abundant materials.</baseDesc>
+    <spawnCategories>
+      <li>Tribal</li>
+    </spawnCategories><bodyTypeMale>Male</bodyTypeMale><bodyTypeFemale>Female</bodyTypeFemale>
+    <skillGains>
+      <Medicine>3</Medicine>
+      <Social>2</Social>
+      <Animals>2</Animals>
+      <Melee>-2</Melee>
+    </skillGains>
+    <workDisables>
+      <li>Cleaning</li>
+    </workDisables>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <slot>Adulthood</slot>
+    <title>Coral Artisan</title>
+    <defName>Stagz_CoralArtisan</defName>
+    <titleShort>Artisan</titleShort>
+    <baseDesc>With skilled hands and an artist's eyes, [PAWN_nameDef] sculpted masterpieces from fallen coral and driftwood. [PAWN_pronoun] enjoys bringing the beauty of the sea to the surface.</baseDesc>
+    <spawnCategories>
+      <li>Tribal</li>
+      <li>MedievalCommon</li>
+    </spawnCategories><bodyTypeMale>Male</bodyTypeMale><bodyTypeFemale>Female</bodyTypeFemale>
+    <skillGains>
+      <Artistic>3</Artistic>
+      <Plants>1</Plants>
+      <Crafting>2</Crafting>
+    </skillGains>
+    <workDisables>
+    </workDisables>
+    <disallowedTraits>
+    </disallowedTraits>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <slot>Adulthood</slot>
+    <title>Whale Conservationist</title>
+    <defName>Stagz_WhaleConservationist</defName>
+    <titleShort>Conservationist</titleShort>
+    <baseDesc>[PAWN_nameDef], a passionate Whale Conservationist, dedicated [PAWN_possessive] life to protecting the majestic creatures.\n\nHaving fought off countless whaling ships, [PAWN_nameDef] started to grow a disdain of the greedy mankind.</baseDesc>
+    <spawnCategories>
+      <li>Outlander</li>
+      <li>Pirate</li>
+      <li>Outsider</li>
+    </spawnCategories><bodyTypeMale>Male</bodyTypeMale><bodyTypeFemale>Female</bodyTypeFemale>
+    <skillGains>
+      <Shooting>3</Shooting>
+      <Melee>3</Melee>
+      <Animals>4</Animals>
+    </skillGains>
+    <workDisables>
+      <li></li>
+    </workDisables>
+    <forcedTraits>
+      <NaturalMood>-1</NaturalMood>
+    </forcedTraits>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <slot>Adulthood</slot>
+    <title>Surfer</title>
+    <defName>Stagz_Surfer</defName>
+    <titleShort>Surfer</titleShort>
+    <baseDesc>Born to ride the wave, [PAWN_nameDef] grew up on an ocean planet and spent the majority of [PAWN_possessive] life on surfboards.</baseDesc>
+    <spawnCategories>
+      <li>Offworld</li>
+    </spawnCategories><bodyTypeMale>Male</bodyTypeMale><bodyTypeFemale>Female</bodyTypeFemale>
+    <skillGains>
+      <Melee>1</Melee>
+    </skillGains>
+    <workDisables>
+    </workDisables>
+    <disallowedTraits>
+      <Undergrounder />
+    </disallowedTraits>
+    <forcedTraits>
+      <Nimble />
+    </forcedTraits>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <slot>Adulthood</slot>
+    <title>Aquatic Architect</title>
+    <defName>Stagz_AquaticArchitect</defName>
+    <titleShort>Architect</titleShort>
+    <baseDesc>[PAWN_nameDef] specializes in underwater building. Be it an open aquarium or submerged hotel, [PAWN_possessive] work always strikes the right balance between safety and aesthetic.</baseDesc>
+    <spawnCategories>
+      <li>Outlander</li>
+      <li>ImperialCommon</li>
+    </spawnCategories><bodyTypeMale>Male</bodyTypeMale><bodyTypeFemale>Female</bodyTypeFemale>
+    <skillGains>
+      <Construction>5</Construction>
+      <Artistic>1</Artistic>
+      <Animals>-2</Animals>
+    </skillGains>
+    <workDisables>
+    </workDisables>
+    <disallowedTraits>
+    </disallowedTraits>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <slot>Adulthood</slot>
+    <title>Underwater Treasure Hunter</title>
+    <defName>Stagz_TreasureHunter</defName>
+    <titleShort>Looter</titleShort>
+    <baseDesc>[PAWN_nameDef] was a fearless adventurer who plunged into the depths of oceans in pursuit of hidden riches.\n\nWith a keen eye for exploration, [PAWN_nameDef] had uncovered the mysteries of many sunken ships and ancient civilizations, bringing back relics and valuables that tell stories of bygone eras.</baseDesc>
+    <spawnCategories>
+      <li>Pirate</li>
+      <li>Offworld</li>
+    </spawnCategories><bodyTypeMale>Male</bodyTypeMale><bodyTypeFemale>Female</bodyTypeFemale>
+    <skillGains>
+      <Melee>2</Melee>
+      <Mining>2</Mining>
+      <Intellectual>1</Intellectual>
+    </skillGains>
+    <workDisables>
+    </workDisables>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <slot>Childhood</slot>
+    <title>Sandcastle Builder</title>
+    <defName>Stagz_SandcastleBuilder</defName>
+    <titleShort>Castlewright</titleShort>
+    <baseDesc>Growing up near the beach, [PAWN_nameDef] liked digging holes and building sandcastles. With the warm climate, burying [PAWN_objective]self in the sand quickly became [PAWN_possessive] favourite activity.</baseDesc>
+    <spawnCategories>
+      <li>tribal</li>
+    </spawnCategories><bodyTypeMale>Male</bodyTypeMale><bodyTypeFemale>Female</bodyTypeFemale>
+    <skillGains>
+      <Construction>2</Construction>
+      <Mining>1</Mining>
+    </skillGains>
+    <workDisables>
+      <li></li>
+    </workDisables>
+    <disallowedTraits>
+    </disallowedTraits>
+    <forcedTraits>
+    </forcedTraits>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <slot>Childhood</slot>
+    <title>Sand Dollar Trader</title>
+    <defName>Stagz_SandDollarTrader</defName>
+    <titleShort>Trader</titleShort>
+    <baseDesc>[PAWN_nameDef] was business savvy from a young age. Growing up in a seaside town, [PAWN_pronoun] would often set up mini trade posts where [PAWN_pronoun] persuaded other children to exchange toys with [PAWN_objective] using sand dollars.</baseDesc>
+    <spawnCategories>
+      <li>Offworld</li>
+      <li>Outlander</li>
+      <li>MedievalCommon</li>
+      <li>ImperialCommon</li>
+    </spawnCategories><bodyTypeMale>Male</bodyTypeMale><bodyTypeFemale>Female</bodyTypeFemale>
+    <skillGains>
+      <Animals>1</Animals>
+      <Social>3</Social>
+    </skillGains>
+    <workDisables>
+      <li></li>
+    </workDisables>
+  </BackstoryDef>
+  
+  <BackstoryDef>
+    <slot>Childhood</slot>
+    <title>Star Thrower</title>
+    <defName>Stagz_StarThrower</defName>
+    <titleShort>Savior</titleShort>
+    <baseDesc>When [PAWN_nameDef] was young, [PAWN_pronoun] took it as [PAWN_possessive] duty to walk along the coastline, picking up starfish and other marine animals alike, and throwing them back into ocean.</baseDesc>
+    <spawnCategories>
+      <li>Outsider</li>
+    </spawnCategories><bodyTypeMale>Male</bodyTypeMale><bodyTypeFemale>Female</bodyTypeFemale>
+    <skillGains>
+      <Animals>1</Animals>
+    </skillGains>
+    <workDisables>
+      <li>Cooking</li>
+    </workDisables>
+    <disallowedTraits>
+    </disallowedTraits>
+    <forcedTraits>
+      <SpeedOffset>2</SpeedOffset>
+      <NaturalMood>2</NaturalMood>
+    </forcedTraits>
+  </BackstoryDef>
+</Defs>
