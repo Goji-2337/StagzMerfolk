@@ -11,12 +11,9 @@ public class MeditationFocusDef_EnablingThingsExplanation_Patch
     {
         if (!ModsConfig.RoyaltyActive) return;
 
-        if (__instance == StagzDefOf.Stagz_Water)
+        if (__instance == StagzDefOf.Stagz_Water && pawn.genes?.HasGene(StagzDefOf.Stagz_Raincaller) == true)
         {
-            if (pawn.genes != null && pawn.genes.HasGene(StagzDefOf.Stagz_Raincaller))
-            {
-                __result += "\n  - " + "Stagz_UnlockedByGene".Translate() + " " + StagzDefOf.Stagz_Raincaller.LabelCap + ".";
-            }
+            __result += "\n  - " + "Stagz_UnlockedByGene".Translate() + " " + StagzDefOf.Stagz_Raincaller.LabelCap + ".";
         }
     }
 }
@@ -28,12 +25,9 @@ public class MeditationFocusTypeAvailabilityCache_PawnCanUseInt_Patch
     {
         if (!ModsConfig.RoyaltyActive) return;
 
-        if (type == StagzDefOf.Stagz_Water)
+        if (type == StagzDefOf.Stagz_Water && p.genes?.HasGene(StagzDefOf.Stagz_Raincaller) == true)
         {
-            if (p.genes != null && p.genes.HasGene(StagzDefOf.Stagz_Raincaller))
-            {
-                __result = true;
-            }
+            __result = true;
         }
     }
 }
