@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="DryadBase">
+		<defName>Stagz_Dryad_Squid</defName>
+		<label>inkshooter dryad</label>
+		<description>A caste of dryad which specialise in finding underwater treasures. After spending a certain amount of time on wet tile, this dryad will find a rare item. They can also shoot ink juice to blind enemies. However, it is rather defenceless and requires the gauranlen tree to be planted next to water in order to summon them.</description>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<verbs>
+			<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+				<verbClass>Verb_Shoot</verbClass>
+				<accuracyTouch>1</accuracyTouch>
+				<accuracyShort>.8</accuracyShort>
+				<accuracyMedium>.75</accuracyMedium>
+				<accuracyLong>.5</accuracyLong>
+				<forcedMissRadius>1</forcedMissRadius>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Stagz_InkSpray</defaultProjectile>
+				<warmupTime>2.2</warmupTime>
+				<burstShotCount>1</burstShotCount>
+				<minRange>1.9</minRange>
+				<range>19.9</range>
+				<soundCast>Bow_Recurve</soundCast>
+				<muzzleFlashScale>0</muzzleFlashScale>
+				<label>ink spray</label>
+				<commonality>.8</commonality>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+		<race>
+			<useMeatFrom>Dryad_Basic</useMeatFrom>
+			<lifeStageAges>
+				<li>
+					<def>AnimalAdult</def>
+					<soundWounded>Pawn_Dryad_Barkskin_Wounded</soundWounded>
+					<soundCall>Pawn_Dryad_Barkskin_Call</soundCall>
+				</li>
+			</lifeStageAges>
+			<baseBodySize>0.667</baseBodySize>
+			<baseHealthScale>0.6</baseHealthScale>
+			<trainability>Intermediate</trainability>
+			<trainableTags>
+				<li>Basic</li>
+				<li>Combat</li>
+			</trainableTags>
+			<untrainableTags>
+				<li>Work</li>
+				<li>Help</li>
+			</untrainableTags>
+		</race>
+		<comps>
+			<li Class="StagzMerfolk.CompProperties_SpawnerFromThingSetOnWater">
+				<thingSetMakerDef>MapGen_AncientTempleContents</thingSetMakerDef>
+				<ticksToSpawnRange>900000~1800000</ticksToSpawnRange>
+				<marketValueRange>750~2000</marketValueRange>
+				<thingsToSpawn>1~1</thingsToSpawn>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<PawnKindDef ParentName="DryadKindBase">
+		<defName>Stagz_Dryad_Squid</defName>
+		<label>inkshooter dryad</label>
+		<race>Stagz_Dryad_Squid</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/DryadSquid/DryadSquid</texPath>
+					<drawSize>1</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/DryadSquid/Dessicated_DryadSquid</texPath>
+					<drawSize>1</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+	
+	<ThingDef ParentName="BaseBullet">
+		<defName>Stagz_InkSpray</defName>
+		<label>ink spray</label>
+		<graphicData>
+			<texPath>Things/Projectiles/InkSpray</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<speed>40</speed>
+			<damageDef>Smoke</damageDef>
+			<damageAmountBase>2</damageAmountBase>
+			<armorPenetrationBase>0.75</armorPenetrationBase>
+			<stoppingPower>1.1</stoppingPower>
+			<explosionRadius>1.5</explosionRadius>
+			<postExplosionGasType>BlindSmoke</postExplosionGasType>
+			<ai_IsIncendiary>true</ai_IsIncendiary>
+			<arcHeightFactor>0.2</arcHeightFactor>
+			<shadowSize>0.6</shadowSize>
+			<screenShakeFactor>0.5</screenShakeFactor>
+			<preExplosionSpawnThingDef>Filth_FireFoam</preExplosionSpawnThingDef>
+			<preExplosionSpawnChance>0.6</preExplosionSpawnChance>
+		</projectile>
+	</ThingDef>
+	
+    <GauranlenTreeModeDef>
+	    <defName>Stagz_Squid</defName>
+	    <label>Inkshooter</label>
+	    <description>A caste of dryad which specialise in finding underwater treasures. After spending a certain amount of time on wet tile, this dryad will find a rare item. They can also shoot ink juice to blind enemies. However, it is rather defenceless and requires the gauranlen tree to be planted next to water in order to summon them.</description>
+	    <pawnKindDef>Stagz_Dryad_Squid</pawnKindDef>
+		<drawPosition>(0.833, 1)</drawPosition>
+	    <displayedStats>
+		    <li>MaxHitPoints</li>
+		    <li>MoveSpeed</li>
+		    <li>ArmorRating_Blunt</li>
+		    <li>ArmorRating_Sharp</li>
+	    </displayedStats>
+	    <hyperlinks>
+		    <ThingDef>Stagz_Dryad_Squid</ThingDef>
+	    </hyperlinks>
+    </GauranlenTreeModeDef>
+	
+    <MVCF.ModDef MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+	    <defName>Stagz_DryadSquid</defName>
+	    <label>Goji's Squid Dryad</label>
+	    <description>Adding animal ranged attacks for the Dryad Squid in Goji's Merren Race</description>
+	    <ActivateFeatures>
+		    <li>RangedAnimals</li>
+		    <li>HediffVerbs</li>
+		    <li>IntegratedToggle</li>
+	    </ActivateFeatures>
+    </MVCF.ModDef>
+
+</Defs>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+    <!-- <IncidentDef> -->
+    <!--     <defName>CaravanArrivalTributeCollector</defName> -->
+    <!--     <label>tribute collector caravan arrival</label> -->
+    <!--     <targetTags> -->
+    <!--         <li>Map_PlayerHome</li> -->
+    <!--     </targetTags> -->
+    <!--     <workerClass>IncidentWorker_CaravanArrivalTributeCollector</workerClass> -->
+    <!--     <category>FactionArrival</category> -->
+    <!--     <baseChance>0</baseChance> -->
+    <!--     <requireColonistsPresent>True</requireColonistsPresent> -->
+    <!-- </IncidentDef> -->
+
+    <IncidentDef>
+        <defName>Stagz_ArielSummoned</defName>
+        <label>wayward merren</label>
+        <category>Special</category>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>StagzMerfolk.IncidentWorker_ArielSummoned</workerClass>
+        <letterLabel>Wayward merren</letterLabel>
+        <letterText>Sensing trouble, a mysterious [PAWN_kind] has arrived.\n\nWill [PAWN_pronoun] be able to set things right in these parts?</letterText>
+        <baseChance>0</baseChance>
+        <minRefireDays>60</minRefireDays>
+        <pawnHediff>Stagz_Mute</pawnHediff>
+        <pawnKind>Stagz_Ariel</pawnKind>
+        <modExtensions>
+            <li Class="StagzMerfolk.ArielSpawnModExtension">
+                <SpawnChance>1</SpawnChance>
+            </li>
+        </modExtensions>
+    </IncidentDef>
+    
+    <IncidentDef MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">
+        <defName>Stagz_VirtuosoSummoned</defName>
+        <label>merren virtuoso</label>
+        <category>Special</category>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>StagzMerfolk.IncidentWorker_VirtuosoSummoned</workerClass>
+        <letterLabel>Virtuoso merren</letterLabel>
+        <letterText>Sensing trouble, a mysterious [PAWN_kind] has arrived.\n\nWill [PAWN_pronoun] be able to set things right in these parts?</letterText>
+        <baseChance>0</baseChance>
+        <pawnKind>Stagz_Ariel</pawnKind>
+        <minRefireDays>60</minRefireDays>
+        <modExtensions>
+            <li Class="StagzMerfolk.ArielSpawnModExtension">
+                <SpawnChance>1</SpawnChance>
+            </li>
+        </modExtensions>
+    </IncidentDef>
+
+   
+</Defs>

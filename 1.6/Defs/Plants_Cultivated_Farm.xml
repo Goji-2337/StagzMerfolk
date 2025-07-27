@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="PlantBaseNonEdible" MayRequire="VanillaExpanded.VPlantsEMore">
+        <defName>Stagz_WoodKelp</defName>
+        <label>fibrekelp</label>
+        <description>An aquatic plant that yields a fibrous, wood-like substance; they are fibrecorn’s distant cousin.</description>
+        <graphicData>
+            <texPath>Things/Plant/Stagz_WoodKelp</texPath>
+            <graphicClass>Graphic_Random</graphicClass>
+        </graphicData>
+        <minifiedDef IsNull="True" />
+        <statBases>
+            <MaxHitPoints>85</MaxHitPoints>
+        </statBases>
+        <selectable>true</selectable>
+        <pathCost>14</pathCost>
+        <plant>
+            <fertilityMin>0</fertilityMin>
+            <fertilitySensitivity>0</fertilitySensitivity>
+            <growMinGlow>0.3</growMinGlow>
+            <harvestWork>300</harvestWork>
+            <harvestedThingDef>WoodLog</harvestedThingDef>
+            <burnedThingDef IsNull="True" />
+            <harvestYield>2</harvestYield>
+            <harvestTag>Wood</harvestTag>
+            <sowTags>
+                <li>VCE_Aquatic</li>
+                <li>Hydroponic</li>
+            </sowTags>
+            <topWindExposure>0</topWindExposure>
+            <growDays>6</growDays>
+            <visualSizeRange>0.3~0.8</visualSizeRange>
+            <treeLoversCareIfChopped>false</treeLoversCareIfChopped>
+        </plant>
+    </ThingDef>
+    
+    <ThingDef ParentName="PlantBase" MayRequire="VanillaExpanded.VPlantsEMore">
+        <defName>Stagz_DarkAlgae</defName>
+        <label>quackweed</label>
+        <description>An aquatic plant that requires only low light to grow. They are extremely fast to sow and harvest.</description>
+        <statBases>
+            <MaxHitPoints>85</MaxHitPoints>
+            <Nutrition>0.1</Nutrition>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Plant/Crops/Stagz_DarkAlgae</texPath>
+            <graphicClass>Graphic_Random</graphicClass>
+        </graphicData>
+        <selectable>true</selectable>
+        <pathCost>30</pathCost>
+        <ingestible/>
+        <plant>
+            <growMinGlow>0.3</growMinGlow>
+            <fertilitySensitivity>0</fertilitySensitivity>
+            <dieIfLeafless>true</dieIfLeafless>
+            <harvestTag>Standard</harvestTag>
+            <harvestedThingDef>Stagz_RawDarkAlgae</harvestedThingDef>
+            <harvestYield>3</harvestYield>
+            <fertilityMin>0</fertilityMin>
+            <sowWork>340</sowWork>
+            <sowMinSkill>6</sowMinSkill>
+            <sowTags>
+                <li>VCE_Aquatic</li>
+                <li>Hydroponic</li>
+            </sowTags>
+            <topWindExposure>0</topWindExposure>
+            <growDays>1.55</growDays>
+            <visualSizeRange>1~1</visualSizeRange>
+            <wildOrder>2</wildOrder>
+            <purpose>Food</purpose>
+            <humanFoodPlant>true</humanFoodPlant>
+            <immatureGraphicPath>Things/Plant/Crops/Stagz_DarkAlgae_Immature</immatureGraphicPath>
+        </plant>
+    </ThingDef>
+
+    <ThingDef ParentName="PlantFoodRawBase" MayRequire="VanillaExpanded.VPlantsEMore">
+        <defName>Stagz_RawDarkAlgae</defName>
+        <label>raw quackweed</label>
+        <description>An aquatic plant that is commonly consumed by water fowls. Surprisingly, it is edible for humans. It has a neutral to mild taste but some also claim it tastes like sweet cabbage.</description>
+        <graphicData>
+            <texPath>Things/Items/Raw/Stagz_RawDarkAlgae</texPath>
+        </graphicData>
+        <statBases>
+            <MarketValue>1.1</MarketValue>
+        </statBases>
+        <ingestible>
+            <foodType>VegetableOrFruit</foodType>
+        </ingestible>
+        <comps>
+            <li Class="CompProperties_Rottable">
+                <daysToRotStart>30</daysToRotStart>
+                <rotDestroys>true</rotDestroys>
+            </li>
+        </comps>
+    </ThingDef>
+</Defs>

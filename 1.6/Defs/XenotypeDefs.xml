@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <XenotypeDef>
+    <defName>Stagz_Merfolk_Coastal</defName>
+    <label>coastal merren</label>
+    <description>A hermit xenotype that comes from the ocean. Despite being fierce and graceful fighters in the water, they like to chase passing ships and sing to sailors in hopes of finding a love for life. They are apparently a friendly race towards other humanoids, as many survivors of space shipwreck on ocean planets have reported being saved by coastal merren.</description>
+    <descriptionShort>A hermit xenotype that comes from the ocean. Despite being fierce and graceful fighters in the water, they like to swim aimlessly and sing on reef rocks in hopes of finding a love for life. They are apparently a friendly race towards other humanoids, as many survivors of space shipwreck on ocean planets have reported being saved by coastal merrens.</descriptionShort>
+    <iconPath>UI/Icons/Xenotypes/CoastalMerfolk</iconPath>
+    <inheritable>true</inheritable>
+    <nameMaker>NamerPersonMerfolk_Male</nameMaker>
+    <nameMakerFemale>NamerPersonMerfolk_Female</nameMakerFemale>
+    <chanceToUseNameMaker>1</chanceToUseNameMaker>
+    <genes>
+      <li>Stagz_SirenSong</li>
+      <li>Stagz_WebbedHands</li>
+      <li>Stagz_RainVeil</li>
+      <li>Stagz_Gene_Tail_Fish_Random</li>
+      <li>Stagz_BodyFin</li>
+      <li>Stagz_FinEars</li>
+      <li>Stagz_Aquatic</li>
+      <li>NakedSpeed</li>
+      <li>RobustDigestion</li>
+      <li>AptitudeTerrible_Mining</li>
+      <li>AptitudeTerrible_Cooking</li>
+      <li>Stagz_SwiftSwim</li>
+      <li>PsychicBonding</li>
+      <li>AptitudeStrong_Animals</li>
+      <li>Beauty_Pretty</li>
+      <li>Stagz_Nimbleness</li>
+    </genes>
+  </XenotypeDef>
+  <XenotypeDef>
+    <defName>Stagz_Merfolk_Abyssal</defName>
+    <label>abyssal merren</label>
+    <description>The spiritual leaders of the merren people, young coastal merren sometimes visit them in the deepsea for their life advice. However, they are usually hostile toward non-merrens as their habitat is scarce of resources. It is said they wield the power of rain with sea fret and storms being common in their presence.</description>
+    <descriptionShort>The spiritual leaders of the merren people, young coastal merren sometimes visit them in the deepsea for their life advice. However, they are usually hostile toward non-merrens as their habitat is scarce of resources. It is said they wield the power of rain with sea fret and storms being common in their presence.</descriptionShort>
+    <iconPath>UI/Icons/Xenotypes/AbyssalMerfolk</iconPath>
+    <inheritable>true</inheritable>
+    <nameMaker>NamerPersonMerfolk_Male</nameMaker>
+    <nameMakerFemale>NamerPersonMerfolk_Female</nameMakerFemale>
+    <chanceToUseNameMaker>1</chanceToUseNameMaker>
+    <genes>
+      <li>Stagz_SirenSong</li>
+      <li>Stagz_WebbedHands</li>
+      <li>Stagz_RainVeil</li>
+      <li>Stagz_Gene_Tail_Fish_Random</li>
+      <li>Stagz_BodyFin</li>
+      <li>Stagz_FinEars</li>
+      <li>Stagz_Aquatic</li>
+      <li>NakedSpeed</li>
+      <li>RobustDigestion</li>
+      <li>AptitudeTerrible_Mining</li>
+      <li>AptitudeTerrible_Cooking</li>
+      <li>Stagz_Raincaller</li>
+      <li>DarkVision</li>
+      <li>Nearsighted</li>
+      <li>Aggression_Aggressive</li>
+      <li>UVSensitivity_Intense</li>
+      <li>Beauty_Pretty</li>
+      <li>PsychicAbility_Extreme</li>
+    </genes>
+  </XenotypeDef>
+
+  
+
+  <RulePackDef Name="NamerMerfolkBase" Abstract="True">
+    <rulePack>
+      <rulesStrings>
+        <li>r_name->[firstName] [Syl][End]</li>
+        
+        <li>Syl->oceo</li>
+        <li>Syl->ocean</li>
+        <li>Syl->aqua</li>
+        <li>Syl->cryo</li>
+        <li>Syl->sea</li>
+        <li>Syl->rain</li>
+        <li>Syl->tear</li>
+        <li>Syl->tide</li>
+        <li>Syl->deep</li>
+        <li>Syl->pond</li>
+        <li>Syl->puddle</li>
+        <li>Syl->blue</li>
+        <li>Syl->brine</li>
+        <li>Syl->high</li>
+        <li>Syl->reef</li>
+        <li>Syl->storm</li>
+        <li>Syl->murk</li>
+        <li>Syl->abyss</li>
+        <li>Syl->flot</li>
+        <li>Syl->jet</li>
+        <li>Syl->sail</li>
+        <li>Syl->fish</li>
+        <li>Syl->clam</li>
+        <li>Syl->eel</li>
+        <li>Syl->squid</li>
+        <li>Syl->octo</li>
+        <li>Syl->fin</li>
+        <li>Syl->shark</li>
+        <li>Syl->bubble</li>
+        <li>Syl->jelly</li>
+
+        <li>End->tail</li>
+        <li>End->pond</li>
+        <li>End->wind</li>
+        <li>End->reef</li>
+        <li>End->fall</li>
+        <li>End->sail</li>
+        <li>End->jet</li>
+        <li>End->fish</li>
+        <li>End->eel</li>
+        <li>End->angler</li>
+        <li>End->shark</li>
+        <li>End->sting</li>
+        <li>End->fin</li>
+        <li>End->bubble</li>
+        <li>End->jelly</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef ParentName="NamerMerfolkBase">
+    <defName>NamerPersonMerfolk_Male</defName>
+    <rulePack>
+      <rulesRaw>
+        <li Class="Rule_NamePerson">
+          <keyword>firstName</keyword>
+          <gender>Male</gender>
+        </li>
+      </rulesRaw>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef ParentName="NamerMerfolkBase">
+    <defName>NamerPersonMerfolk_Female</defName>
+    <rulePack>
+      <rulesRaw>
+        <li Class="Rule_NamePerson">
+          <keyword>firstName</keyword>
+          <gender>Female</gender>
+        </li>
+      </rulesRaw>
+    </rulePack>
+  </RulePackDef>
+</Defs>

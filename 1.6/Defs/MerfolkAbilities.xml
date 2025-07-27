@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <AbilityDef>
+        <defName>Stagz_SirenCall</defName>
+        <label>siren song</label>
+        <description>The caster releases an enchanting song centred around themselves. Enemies within range will become infatuated (lowering their accuracy).\n\nIn severe cases, they may become charmed to attack their allies. Charmed enemies might request to join the player after the charm effect ends.</description>
+        <iconPath>UI/Abilities/SirenCall</iconPath>
+        <targetRequired>False</targetRequired>
+        <cooldownTicksRange>300000</cooldownTicksRange><!-- 5 days -->
+        <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+        <jobDef>CastAbilityOnThingWithoutWeaponInterruptible</jobDef>
+        <groupAbility>true</groupAbility>
+        <statBases>
+            <Ability_Duration>164</Ability_Duration>
+            <Ability_EffectRadius>16.9</Ability_EffectRadius>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <label>siren song</label>
+            <warmupTime>1</warmupTime>
+            <range>16.9</range>
+            <drawAimPie>true</drawAimPie>
+            <requireLineOfSight>false</requireLineOfSight>
+            <warmupEffecter>Stagz_SirenCall_Warmup</warmupEffecter>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="StagzMerfolk.CompAbility.CompProperties_AbilitySirenSong">
+                <compClass>StagzMerfolk.CompAbility.CompAbilityEffect_SirenSong</compClass>
+                <mentalState>Stagz_Charmed</mentalState>
+                <hediff>Stagz_Infatuated</hediff>
+                <chanceForMentalState>0.33</chanceForMentalState>
+            </li>
+        </comps>
+    </AbilityDef>
+    
+    <AbilityDef>
+        <defName>Stagz_SirenCallCharm</defName>
+        <label>charm person</label>
+        <description>The caster attempts to charm a neutral or enemy unit. Upon success, the charmed unit will turn against their own allies and join the player faction after the effect wears off. This is considered a hostile action.</description>
+        <iconPath>UI/Abilities/Charm</iconPath>
+        <targetRequired>true</targetRequired>
+        <hostile>true</hostile>
+        <cooldownTicksRange>900000</cooldownTicksRange><!-- 15 days -->
+        <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
+        <jobDef>CastAbilityOnThingWithoutWeaponInterruptible</jobDef>
+        <groupAbility>true</groupAbility>
+        <statBases>
+            <Ability_Duration>164</Ability_Duration>
+            <Ability_EffectRadius>-1</Ability_EffectRadius>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <label>charm person</label>
+            <warmupTime>0</warmupTime>
+            <range>3.9</range>
+            <drawAimPie>true</drawAimPie>
+            <requireLineOfSight>true</requireLineOfSight>
+            <!-- <warmupEffecter>Stagz_SirenCall_Warmup</warmupEffecter> -->
+            <targetParams>
+                <canTargetSelf>false</canTargetSelf>
+                <canTargetPawns>true</canTargetPawns>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetMechs>false</canTargetMechs>
+                <neverTargetIncapacitated>True</neverTargetIncapacitated>
+            </targetParams>
+        </verbProperties>
+        <comps>            
+            <li Class="CompProperties_AbilityGiveMentalState">
+                <compClass>CompAbilityEffect_GiveMentalState</compClass>
+                <stateDef>Stagz_VeryCharmed</stateDef>
+                <goodwillImpact>-15</goodwillImpact>
+                <!-- TODO: change sounds -->
+                <soundMale>BerserkTrance_Resolve_Male</soundMale>
+                <soundFemale>BerserkTrance_Resolve_Female</soundFemale>
+            </li>
+            <li Class="CompProperties_AbilityFleckOnTarget">
+                <fleckDef>PsycastPsychicEffect</fleckDef>
+            </li>
+        </comps>
+    </AbilityDef>
+    
+    <HediffDef>
+        <defName>Stagz_Infatuated</defName>
+        <label>infatuated</label>
+        <description>Possessed by strong and conflicting emotions, resulting in reduced combat performance.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>true</isBad>
+        <stages>
+            <li>
+                <statFactors>
+                    <ShootingAccuracyPawn>0.5</ShootingAccuracyPawn>
+                    <MeleeHitChance>0.5</MeleeHitChance>
+                </statFactors>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>60000</disappearsAfterTicks>
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+        </comps>
+    </HediffDef>
+    
+    <MentalStateDef ParentName="BaseMentalState" Name="Stagz_Charmed">
+        <defName>Stagz_Charmed</defName>
+        <stateClass>StagzMerfolk.MentalState_Charmed</stateClass>
+        <label>charmed</label>
+        <category>Aggro</category>
+        <blockRandomInteraction>true</blockRandomInteraction>
+        <nameColor>(0.9,0.2,0.5)</nameColor>
+        <beginLetter>{0} has been roused by a magic charm.\n\n[PAWN_pronoun] will attack their own faction.</beginLetter>
+        <recoveryMessage>{0}'s charm has come to an end and will join the colony.</recoveryMessage>
+        <baseInspectLine>Mental state: Charmed</baseInspectLine>
+        <stateEffecter>AnimalWarcallMentalState</stateEffecter>
+        <recoverFromSleep>true</recoverFromSleep>
+        <inCaravanCanDo>true</inCaravanCanDo>
+        <minTicksBeforeRecovery>10000</minTicksBeforeRecovery>
+        <maxTicksBeforeRecovery>10000</maxTicksBeforeRecovery>
+    </MentalStateDef>
+    
+    <MentalStateDef ParentName="Stagz_Charmed">
+        <defName>Stagz_VeryCharmed</defName>
+        <stateClass>StagzMerfolk.MentalState_VeryCharmed</stateClass>
+    </MentalStateDef>
+    
+    <!-- <ThingDef ParentName="MoteBase"> -->
+    <!--     <defName>Mote_AnimalWarcallTarget</defName> -->
+    <!--     <thingClass>MoteAttached</thingClass> -->
+    <!--     <altitudeLayer>MoteOverhead</altitudeLayer> -->
+    <!--     <mote> -->
+    <!--         <fadeInTime>0.1</fadeInTime> -->
+    <!--         <fadeOutTime>0.3</fadeOutTime> -->
+    <!--         <solidTime>0.3</solidTime> -->
+    <!--         <growthRate>2</growthRate> -->
+    <!--     </mote> -->
+    <!--     <graphicData> -->
+    <!--         <graphicClass>Graphic_MoteWithAgeSecs</graphicClass> -->
+    <!--         <shaderType>MotePsychicWarmupNeuroquake</shaderType> -->
+    <!--         <texPath>Things/Mote/MoteHellfireCannon_HeatWaveDistortion</texPath> -->
+    <!--         <shaderParameters> -->
+    <!--             <_distortionIntensity>0.5</_distortionIntensity> -->
+    <!--             <_brightnessMultiplier>1.3</_brightnessMultiplier> -->
+    <!--             <_distortionTint>(0.35, 0, 0, 0)</_distortionTint> -->
+    <!--             <_pulseSpeed>1</_pulseSpeed> -->
+    <!--         </shaderParameters> -->
+    <!--         <drawSize>2</drawSize> -->
+    <!--     </graphicData> -->
+    <!-- </ThingDef> -->
+    
+    <AbilityDef ParentName="AbilityTouchBase">
+        <defName>Stagz_CallRain</defName>
+        <label>call rain</label>
+        <description>Causes the weather on the local map to become foggy rain or rainy thunderstorm.\n\nThis weather effect has a lower priority and will be overridden by weather triggered by quest or event.</description>
+        <iconPath>UI/Abilities/Raincalling</iconPath>
+        <targetRequired>False</targetRequired>
+        <cooldownTicksRange>300000</cooldownTicksRange>
+        <charges>2</charges>
+        <cooldownPerCharge>true</cooldownPerCharge>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>5</warmupTime>
+            <range>-1</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetHumans>false</canTargetHumans>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="StagzMerfolk.CompAbility.CompProperties_AbilityCallWeather">
+                <compClass>StagzMerfolk.CompAbility.CompAbilityEffect_CallWeather</compClass>
+                <weatherDefs>
+                    <li>RainyThunderstorm</li>
+                    <li>FoggyRain</li>
+                </weatherDefs>
+                <weatherDuration>90000</weatherDuration>
+            </li>
+        </comps>
+    </AbilityDef>
+    
+    <AbilityDef>
+        <defName>Stagz_DeepDive</defName>
+        <label>deep dive</label>
+        <description>Dive into a water tile and become invisible. Caster can move freely within water tiles, but any other actions will cancel the invisibility.</description>
+        <iconPath>UI/Abilities/DeepDive</iconPath>
+        <cooldownTicksRange>60</cooldownTicksRange>
+        <hostile>false</hostile>
+        <targetRequired>False</targetRequired>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>1</warmupTime>
+            <range>-1</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetAnimals>false</canTargetAnimals>
+                <canTargetHumans>false</canTargetHumans>
+                <canTargetMechs>false</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityEffect">
+                <compClass>StagzMerfolk.CompAbility.CompAbility_RequiresOnWater</compClass>
+            </li>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <onlyApplyToSelf>True</onlyApplyToSelf>
+                <hediffDef>Stagz_DeepDiving</hediffDef>
+                <psychic>False</psychic>
+                <sound>StagzMerfolk_DeepDiveSound</sound>
+            </li>
+        </comps>
+    </AbilityDef>
+    <HediffDef>
+        <defName>Stagz_DeepDiving</defName>
+        <label>deep diving</label>
+        <description>This person can breathe under water. They are lurking here and waiting for opportunities.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <comps>
+            <li Class="HediffCompProperties_Invisibility">
+                <visibleToPlayer>true</visibleToPlayer>
+            </li>
+            <li Class="StagzMerfolk.CompAbility.HediffCompProperties_DisappearsOnLeavingWater"/>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+</Defs>

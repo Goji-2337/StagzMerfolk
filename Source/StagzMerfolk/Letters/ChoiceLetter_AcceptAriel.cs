@@ -12,9 +12,7 @@ public class ChoiceLetter_AcceptAriel : ChoiceLetter_AcceptCharmedJoiner
             action = delegate
             {
                 GenExplosion.DoExplosion(asker.Position, asker.Map, 4.9f, DamageDefOf.Extinguish, null, -1, -1f, 
-                    SoundDefOf.Explosion_FirefoamPopper, null, null, null, ThingDefOf.Filth_FireFoam, 1f, 1, null, 
-                    true, null, 0f, 1, 0f, false, null, null, null, 
-                    true, 1f, 0f, true, null, 1f);
+                    SoundDefOf.Explosion_FirefoamPopper, null, null, null, ThingDefOf.Filth_FireFoam, 1f);
                 
                 asker.Kill(null);
                 CompRottable comp;

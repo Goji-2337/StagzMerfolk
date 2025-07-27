@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+    <PawnKindDef ParentName="TribalBase">
+        <defName>Stagz_Ariel</defName>
+        <label>wayward merren</label>
+        <xenotypeSet Inherit="False">
+            <xenotypeChances>
+                <Stagz_Merfolk_Coastal>50</Stagz_Merfolk_Coastal>
+                <Stagz_Merfolk_Abyssal>10</Stagz_Merfolk_Abyssal>
+            </xenotypeChances>
+        </xenotypeSet>
+        <backstoryFilters>
+            <li>
+                <categories>
+                    <li>Tribal</li>
+                </categories>
+            </li>
+        </backstoryFilters>
+        <combatPower>45</combatPower>
+        <itemQuality>Poor</itemQuality>
+        <gearHealthRange>0.5~1.8</gearHealthRange>
+        <minGenerationAge>20</minGenerationAge>
+        <maxGenerationAge>40</maxGenerationAge>
+        <apparelMoney>180~350</apparelMoney>
+        <weaponMoney>80~80</weaponMoney>
+        <weaponTags>
+            <li>NeolithicRangedBasic</li>
+            <li>NeolithicMeleeDecent</li>
+        </weaponTags>
+        <requiredWorkTags>
+            <li>Caring</li>
+        </requiredWorkTags>
+        <techHediffsMoney>50~50</techHediffsMoney>
+        <techHediffsTags>
+            <li>Poor</li>
+        </techHediffsTags>
+        <techHediffsChance>0</techHediffsChance>
+        <initialWillRange>1~3</initialWillRange>
+        <initialResistanceRange>17~27</initialResistanceRange>
+        <invNutrition>3.0</invNutrition>
+        <inventoryOptions>
+            <subOptionsChooseOne>
+                <li>
+                    <thingDef>MedicineHerbal</thingDef>
+                    <countRange>5</countRange>
+                </li>
+            </subOptionsChooseOne>
+        </inventoryOptions>
+    </PawnKindDef>
+    
+    <HediffDef>
+        <defName>Stagz_Mute</defName>
+        <label>mute</label>
+        <description>Through an unfortunate twist of fate this character has lost their voice.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>1800000~3600000</disappearsAfterTicks>
+                <showRemainingTime>true</showRemainingTime>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <postFactor>0</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+    
+</Defs>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/*[defName="SoakingWet"]/nullifyingGenes</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/*[defName="SoakingWet"]</xpath>
+            <value>
+                <nullifyingGenes/>
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/*[defName="SoakingWet"]/nullifyingGenes</xpath>
+        <value>
+            <li>Stagz_Aquatic</li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/*[nullifyingTraits="Nudist"]/nullifyingGenes</xpath>
+        <value>
+            <li>Stagz_Gene_Tail_Fish_Teal</li>
+            <li>Stagz_Gene_Tail_Fish_Orange</li>
+            <li>Stagz_Gene_Tail_Fish_Black</li>
+            <li>Stagz_Gene_Tail_Fish_White</li>
+            <li>Stagz_Gene_Tail_Fish_Cyan</li>
+            <li>Stagz_Gene_Tail_Fish_Magenta</li>
+            <li>Stagz_Gene_Tail_Fish_Salmon</li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationInsert">
+        <xpath>*/ThinkTreeDef[defName = "MainColonistBehaviorCore"]/thinkRoot[@Class="ThinkNode_Tagger"]/subNodes/li[@Class="ThinkNode_PrioritySorter"]/subNodes//li[2]</xpath>
+        <value>
+            <li Class="StagzMerfolk.JobGiver_SeekHydration"/>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Royalty">
+        <xpath>Defs/ThingDef[defName="WatermillGenerator"]/comps</xpath>
+        <value>
+            <li Class="CompProperties_MeditationFocus">
+                <statDef>MeditationFocusStrength</statDef>
+                <focusTypes>
+                    <li>Stagz_Water</li>
+                </focusTypes>
+                <offsets>
+                    <li Class="StagzMerfolk.FocusStrengthOffset_Powered">
+                        <offset>0.28</offset>
+                    </li>
+                </offsets>
+            </li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Royalty">
+        <xpath>Defs/*[defName="HydroponicsBasin"]/comps</xpath>
+        <value>
+            <li Class="CompProperties_MeditationFocus">
+                <statDef>MeditationFocusStrength</statDef>
+                <focusTypes>
+                    <li>Stagz_Water</li>
+                </focusTypes>
+                <offsets>
+                    <li Class="StagzMerfolk.FocusStrengthOffset_Powered">
+                        <offset>0.1</offset>
+                    </li>
+                    <li Class="StagzMerfolk.FocusStrengthOffset_BuildingDefsPowered">
+                        <defs>
+                            <li>HydroponicsBasin</li>
+                            <li>Stagz_WaterCandle</li>
+                        </defs>
+                        <offsetPerBuilding>0.06</offsetPerBuilding>
+                        <radius>9.9</radius>
+                        <maxBuildings>3</maxBuildings>
+                        <explanationKey>MeditationFocusPerAnimusStone</explanationKey>
+                        <explanationKeyAbstract>MeditationFocusPerAnimusStoneAbstract</explanationKeyAbstract>
+                    </li>
+                </offsets>
+            </li>
+        </value>
+    </Operation>
+</Patch>

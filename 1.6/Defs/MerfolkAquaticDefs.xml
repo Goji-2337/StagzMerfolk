@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <GeneDef>
+        <defName>Stagz_Aquatic</defName>
+        <label>aquatic</label>
+        <description>Carriers of this gene mostly live underwater, they have developed special compounds in their skin to retain water and produce mucus from epidermis for their land trips.</description>
+        <customEffectDescriptions>
+            <li>Ignores terrain pathing costs while in water.</li>
+        </customEffectDescriptions>
+        <iconPath>UI/Icons/Genes/Gene_Aquatic</iconPath>
+        <displayCategory>Miscellaneous</displayCategory>
+        <enablesNeeds>
+            <li>Stagz_NeedAquatic</li>
+        </enablesNeeds>
+        <biostatMet>4</biostatMet>
+        <biostatCpx>2</biostatCpx>
+        <minAgeActive>3</minAgeActive>
+        <symbolPack>
+            <prefixSymbols>
+                <li><symbol>water</symbol></li>
+                <li><symbol>aqua</symbol></li>
+                <li><symbol>aquatic</symbol></li>
+                <li><symbol>hydro</symbol></li>
+                <li><symbol>mer</symbol></li>
+            </prefixSymbols>
+            <suffixSymbols>
+                <li><symbol>folk</symbol></li>
+            </suffixSymbols>
+        </symbolPack>
+        <exclusionTags>
+            <li>FireDamage</li>
+        </exclusionTags>
+        <modExtensions>
+            <li MayRequire="pathfinding.framework" Class="PathfindingFramework.MovementExtension">
+                <movementDef>PF_Movement_Amphibious</movementDef>
+            </li>
+        </modExtensions>
+    </GeneDef>
+    <NeedDef>
+        <defName>Stagz_NeedAquatic</defName>
+        <needClass>StagzMerfolk.Stagz_Need_Aquatic</needClass>
+        <label>aquatic hydration</label>
+        <description>Hydration is the need for aquatic creatures to regularly access water. Standing in rain or passing water bodies such as marsh and river are the most effective way to replenish the need. Pawn wil try to find a water body if the need runs low. If it is at zero, an aquatic creature will become increasingly dehydrated and eventually die.</description>
+        <baseLevel>0.01</baseLevel>
+        <listPriority>10</listPriority>
+        <major>true</major>
+        <minIntelligence>ToolUser</minIntelligence>
+        <onlyIfCausedByGene>true</onlyIfCausedByGene>
+    </NeedDef>
+    
+    <HediffDef>
+        <defName>Stagz_Dehydration</defName>
+        <label>dehydration</label>
+        <description>Insufficient fluid levels in surface organs, leading to reduced consciousness and moving.</description>
+        <lethalSeverity>1</lethalSeverity>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <stages>
+            <li>
+                <label>initial</label>
+            </li>
+            <li>
+                <minSeverity>0.2</minSeverity>
+                <label>minor</label>
+                <socialFightChanceFactor>2</socialFightChanceFactor>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.05</offset>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <minSeverity>0.4</minSeverity>
+                <label>moderate</label>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.10</offset>
+                    </li>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>-0.10</offset>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <minSeverity>0.6</minSeverity>
+                <label>severe</label>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.20</offset>
+                    </li>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>-0.20</offset>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <minSeverity>0.8</minSeverity>
+                <label>extreme</label>
+                <lifeThreatening>true</lifeThreatening>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <setMax>0.1</setMax>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <ThoughtDef>
+        <defName>Stagz_DehydrationThought</defName>
+        <workerClass>StagzMerfolk.Stagz_ThoughtWorker_NeedHydration</workerClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <stages>
+            <li>
+                <label>dry</label>
+                <description>Mild dehydration, a glass of water would be nice.</description>
+                <baseMoodEffect>-2</baseMoodEffect>
+            </li>
+            <li>
+                <label>very dry</label>
+                <description>I'm showing noticeable signs of dehydration and dry skin. This is uncomfortable.</description>
+                <baseMoodEffect>-4</baseMoodEffect>
+            </li>
+            <li>
+                <label>dehydrated</label>
+                <description>My skin is losing elasticity, and it's hard to move. I need to find water.</description>
+                <baseMoodEffect>-8</baseMoodEffect>
+            </li>
+            <li>
+                <label>badly dehydrated</label>
+                <description>I'm in real danger of drying out completely. Water... I need it!</description>
+                <baseMoodEffect>-16</baseMoodEffect>
+            </li>
+            <li>
+                <label>dangerously dehydrated</label>
+                <description>wa... ter...</description>
+                <baseMoodEffect>-20</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <JobDef>
+        <defName>Stagz_HydrateAquaticJob</defName>
+        <driverClass>StagzMerfolk.JobDriver_HydrateAquatic</driverClass>
+        <reportString>hydrating TargetA.</reportString>
+        <casualInterruptible>false</casualInterruptible>
+    </JobDef>
+    
+    <WorkGiverDef>
+        <defName>Stagz_HydrateAquaticWorkGiver</defName>
+        <label>hydrate aquatics</label>
+        <giverClass>StagzMerfolk.WorkGiver_HydrateAquatic</giverClass>
+        <workType>Doctor</workType>
+        <verb>hydrate</verb>
+        <gerund>hydrating</gerund>
+        <priorityInType>100</priorityInType>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+    
+    <JobDef>
+        <defName>Stagz_GotoWaterCell</defName>
+        <driverClass>JobDriver_Goto</driverClass>
+        <reportString>seeking aquatic terrain.</reportString>
+        <casualInterruptible>false</casualInterruptible>
+    </JobDef>
+    <JobDef>
+        <defName>Stagz_Wait_Hydrate</defName>
+        <driverClass>JobDriver_Wait</driverClass>
+        <reportString>hydrating in a pool of water.</reportString>
+    </JobDef>
+</Defs>
