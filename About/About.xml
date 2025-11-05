@@ -32,6 +32,7 @@ This mod adds new genes that interact with water, new abilities themed around wa
     <li>VanillaExpanded.VPlantsEMore</li>
     <li>dubwise.dubsbadhygiene</li>
     <li>pathfinding.framework</li>
+    <li>VanillaExpanded.VPsycastsE</li>
   </loadAfter>
 </ModMetaData>
 
