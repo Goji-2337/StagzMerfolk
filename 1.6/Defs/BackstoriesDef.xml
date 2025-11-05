@@ -2,7 +2,7 @@
 <Defs>
   <BackstoryDef>
     <slot>Adulthood</slot>
-    <title>Lighthouse Keeper</title>
+    <title>lighthouse keeper</title>
     <defName>Stagz_LighthouseKeeper</defName>
     <titleShort>Lightkeeper</titleShort>
     <baseDesc>[PAWN_nameDef] lived away from the crowd in a lighthouse. Every evening, [PAWN_pronoun] tended the lanterns to make sure its warm glow illuminates the harbour. [PAWN_pronoun] enjoyed [PAWN_possessive] solitary life by the sea.</baseDesc>
@@ -16,7 +16,7 @@
       <Social>-2</Social>
     </skillGains>
     <workDisables>
-      <li></li>
+      <li>None</li>
     </workDisables>
     <disallowedTraits>
     </disallowedTraits>
@@ -26,7 +26,7 @@
   
   <BackstoryDef>
     <slot>Adulthood</slot>
-    <title>Starlight Navigator</title>
+    <title>starlight navigator</title>
     <defName>Stagz_StarlightNavigator</defName>
     <titleShort>Navigator</titleShort>
     <baseDesc>[PAWN_nameDef] is an experienced navigator of the sea.  [PAWN_pronoun] and [PAWN_possessive] crew were once able to cross the Death Zone of the ocean. Through nights devoid of wind and currents, [PAWN_nameDef] relied on observations of stars and other celestial bodies to guide the way.</baseDesc>
@@ -40,6 +40,7 @@
       <Cooking>-2</Cooking>
     </skillGains>
     <workDisables>
+      <li>None</li>
     </workDisables>
     <disallowedTraits>
     </disallowedTraits>
@@ -49,7 +50,7 @@
   
   <BackstoryDef>
     <slot>Adulthood</slot>
-    <title>Pearl Diver</title>
+    <title>pearl diver</title>
     <defName>Stagz_PearlDiver</defName>
     <titleShort>Diver</titleShort>
     <baseDesc>[PAWN_nameDef] earned a living as a pearl hunter. [PAWN_pronoun] could descend to depths of over hundred feet on a single breath. [PAWN_possessive] underwater agility had made [PAWN_objective]self a wanted figure among collectors.</baseDesc>
@@ -62,6 +63,7 @@
       <Crafting>1</Crafting>
     </skillGains>
     <workDisables>
+      <li>None</li>
     </workDisables>
     <disallowedTraits>
     </disallowedTraits>
@@ -69,7 +71,7 @@
   
   <BackstoryDef>
     <slot>Adulthood</slot>
-    <title>Coastal Rescuer</title>
+    <title>coastal rescuer</title>
     <defName>Stagz_Rescuer</defName>
     <titleShort>Housecarl</titleShort>
     <baseDesc>[PAWN_nameDef] patrolled the coastline, always ready to respond to emergencies on both land and sea. [PAWN_possessive] swift and daring rescues have earned [PAWN_objective] the admiration of many survivors.</baseDesc>
@@ -83,7 +85,7 @@
       <Social>3</Social>
     </skillGains>
     <workDisables>
-      <li></li>
+      <li>None</li>
     </workDisables>
     <disallowedTraits>
       <Wimp />
@@ -92,7 +94,7 @@
   
   <BackstoryDef>
     <slot>Adulthood</slot>
-    <title>Shaman of the Sea</title>
+    <title>shaman of the sea</title>
     <defName>Stagz_SeaShaman</defName>
     <titleShort>Shaman</titleShort>
     <baseDesc>After a famine, [PAWN_nameDef] led his clan to settle at the place where rivers meet the sea. [PAWN_pronoun] teaches [PAWN_possessive] people to worship the god of the sea because the deity seems much more generous, blessing them with abundant materials.</baseDesc>
@@ -112,7 +114,7 @@
   
   <BackstoryDef>
     <slot>Adulthood</slot>
-    <title>Coral Artisan</title>
+    <title>coral artisan</title>
     <defName>Stagz_CoralArtisan</defName>
     <titleShort>Artisan</titleShort>
     <baseDesc>With skilled hands and an artist's eyes, [PAWN_nameDef] sculpted masterpieces from fallen coral and driftwood. [PAWN_pronoun] enjoys bringing the beauty of the sea to the surface.</baseDesc>
@@ -126,6 +128,7 @@
       <Crafting>2</Crafting>
     </skillGains>
     <workDisables>
+      <li>None</li>
     </workDisables>
     <disallowedTraits>
     </disallowedTraits>
@@ -133,10 +136,10 @@
   
   <BackstoryDef>
     <slot>Adulthood</slot>
-    <title>Whale Conservationist</title>
+    <title>whale conservationist</title>
     <defName>Stagz_WhaleConservationist</defName>
     <titleShort>Conservationist</titleShort>
-    <baseDesc>[PAWN_nameDef], a passionate Whale Conservationist, dedicated [PAWN_possessive] life to protecting the majestic creatures.\n\nHaving fought off countless whaling ships, [PAWN_nameDef] started to grow a disdain of the greedy mankind.</baseDesc>
+    <baseDesc>[PAWN_nameDef], a passionate whale conservationist, dedicated [PAWN_possessive] life to protecting the majestic creatures.\n\nHaving fought off countless whaling ships, [PAWN_nameDef] started to grow a disdain of the greedy mankind.</baseDesc>
     <spawnCategories>
       <li>Outlander</li>
       <li>Pirate</li>
@@ -148,7 +151,7 @@
       <Animals>4</Animals>
     </skillGains>
     <workDisables>
-      <li></li>
+      <li>None</li>
     </workDisables>
     <forcedTraits>
       <NaturalMood>-1</NaturalMood>
@@ -157,7 +160,7 @@
   
   <BackstoryDef>
     <slot>Adulthood</slot>
-    <title>Surfer</title>
+    <title>surfer</title>
     <defName>Stagz_Surfer</defName>
     <titleShort>Surfer</titleShort>
     <baseDesc>Born to ride the wave, [PAWN_nameDef] grew up on an ocean planet and spent the majority of [PAWN_possessive] life on surfboards.</baseDesc>
@@ -168,6 +171,7 @@
       <Melee>1</Melee>
     </skillGains>
     <workDisables>
+      <li>None</li>
     </workDisables>
     <disallowedTraits>
       <Undergrounder />
@@ -179,7 +183,7 @@
   
   <BackstoryDef>
     <slot>Adulthood</slot>
-    <title>Aquatic Architect</title>
+    <title>aquatic architect</title>
     <defName>Stagz_AquaticArchitect</defName>
     <titleShort>Architect</titleShort>
     <baseDesc>[PAWN_nameDef] specializes in underwater building. Be it an open aquarium or submerged hotel, [PAWN_possessive] work always strikes the right balance between safety and aesthetic.</baseDesc>
@@ -193,6 +197,7 @@
       <Animals>-2</Animals>
     </skillGains>
     <workDisables>
+      <li>None</li>
     </workDisables>
     <disallowedTraits>
     </disallowedTraits>
@@ -200,7 +205,7 @@
   
   <BackstoryDef>
     <slot>Adulthood</slot>
-    <title>Underwater Treasure Hunter</title>
+    <title>underwater treasure hunter</title>
     <defName>Stagz_TreasureHunter</defName>
     <titleShort>Looter</titleShort>
     <baseDesc>[PAWN_nameDef] was a fearless adventurer who plunged into the depths of oceans in pursuit of hidden riches.\n\nWith a keen eye for exploration, [PAWN_nameDef] had uncovered the mysteries of many sunken ships and ancient civilizations, bringing back relics and valuables that tell stories of bygone eras.</baseDesc>
@@ -214,24 +219,25 @@
       <Intellectual>1</Intellectual>
     </skillGains>
     <workDisables>
+      <li>None</li>
     </workDisables>
   </BackstoryDef>
   
   <BackstoryDef>
     <slot>Childhood</slot>
-    <title>Sandcastle Builder</title>
+    <title>sandcastle builder</title>
     <defName>Stagz_SandcastleBuilder</defName>
     <titleShort>Castlewright</titleShort>
     <baseDesc>Growing up near the beach, [PAWN_nameDef] liked digging holes and building sandcastles. With the warm climate, burying [PAWN_objective]self in the sand quickly became [PAWN_possessive] favourite activity.</baseDesc>
     <spawnCategories>
-      <li>tribal</li>
+      <li>Tribal</li>
     </spawnCategories><bodyTypeMale>Male</bodyTypeMale><bodyTypeFemale>Female</bodyTypeFemale>
     <skillGains>
       <Construction>2</Construction>
       <Mining>1</Mining>
     </skillGains>
     <workDisables>
-      <li></li>
+      <li>None</li>
     </workDisables>
     <disallowedTraits>
     </disallowedTraits>
@@ -241,7 +247,7 @@
   
   <BackstoryDef>
     <slot>Childhood</slot>
-    <title>Sand Dollar Trader</title>
+    <title>sand dollar trader</title>
     <defName>Stagz_SandDollarTrader</defName>
     <titleShort>Trader</titleShort>
     <baseDesc>[PAWN_nameDef] was business savvy from a young age. Growing up in a seaside town, [PAWN_pronoun] would often set up mini trade posts where [PAWN_pronoun] persuaded other children to exchange toys with [PAWN_objective] using sand dollars.</baseDesc>
@@ -256,13 +262,13 @@
       <Social>3</Social>
     </skillGains>
     <workDisables>
-      <li></li>
+      <li>None</li>
     </workDisables>
   </BackstoryDef>
   
   <BackstoryDef>
     <slot>Childhood</slot>
-    <title>Star Thrower</title>
+    <title>star thrower</title>
     <defName>Stagz_StarThrower</defName>
     <titleShort>Savior</titleShort>
     <baseDesc>When [PAWN_nameDef] was young, [PAWN_pronoun] took it as [PAWN_possessive] duty to walk along the coastline, picking up starfish and other marine animals alike, and throwing them back into ocean.</baseDesc>
