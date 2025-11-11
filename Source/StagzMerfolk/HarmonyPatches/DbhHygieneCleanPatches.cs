@@ -1,4 +1,4 @@
-﻿/*using System;
+/*using System;
 using System.Reflection;
 using DubsBadHygiene;
 using HarmonyLib;
@@ -14,7 +14,7 @@ public class DbhHygieneCleanPatches
     {
         return ModsConfig.IsActive("dubwise.dubsbadhygiene");
     }
-    
+
     [HarmonyTargetMethod]
     public static MethodInfo TargetMethod()
     {
@@ -24,7 +24,7 @@ public class DbhHygieneCleanPatches
     [HarmonyPostfix]
     private static void Postfix(float val, ref Pawn ___pawn)
     {
-        if (StagzMerfolkSettings.dbhCleaningCountsAsHydration && ___pawn?.genes != null && ___pawn.genes.HasGene(StagzDefOf.Stagz_Aquatic) && ___pawn.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic) != null)
+        if (StagzMerfolkSettings.dbhCleaningCountsAsHydration && ___pawn?.genes != null && ___pawn.genes.HasActiveGene(StagzDefOf.Stagz_Aquatic) && ___pawn.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic) != null)
         {
             ___pawn.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic).CurLevel = Math.Min(___pawn.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic).CurLevel + val, 1f);
         }

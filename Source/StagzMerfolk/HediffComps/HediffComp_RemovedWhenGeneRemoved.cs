@@ -7,7 +7,7 @@ namespace StagzMerfolk;
 
 public class HediffComp_RemovedWhenGeneRemoved : HediffComp
 {
-    public new HediffCompProperties_RemovedWhenGeneRemoved Props
+    public HediffCompProperties_RemovedWhenGeneRemoved Props
     {
         get
         {

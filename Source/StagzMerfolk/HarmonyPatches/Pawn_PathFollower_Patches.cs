@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using HarmonyLib;
 using Verse;
 using Verse.AI;
@@ -19,10 +19,10 @@ public static class Pawn_PathFollower_Patches
     {
         return !ModsConfig.IsActive("pathfinding.framework");
     }
-    
+
     private static void Postfix(Pawn pawn, IntVec3 c, ref float __result)
     {
-        if (pawn?.genes != null && pawn.genes.HasGene(StagzDefOf.Stagz_Aquatic) && pawn.Map.terrainGrid.TerrainAt(c).IsWater)
+        if (pawn?.genes != null && pawn.genes.HasActiveGene(StagzDefOf.Stagz_Aquatic) && pawn.Map.terrainGrid.TerrainAt(c).IsWater)
         {
             // Log.Message("terrain is water: " + __result);
             //TODO: also add terrain affordance of land in there

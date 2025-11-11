@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
@@ -18,22 +18,33 @@ public class Stagz_Need_Aquatic : Need
 
     private const float FallRate = 0.0003f;
     private float tempFallRate;
+    private bool IsCaravanOnWaterFeatures(Pawn pawn)
+    {
+        if (!pawn.IsCaravanMember())
+        {
+            return false;
+        }
 
-    //TODO: add bad hygiene integration
+        var caravan = pawn.GetCaravan();
+        if (caravan == null)
+        {
+            return false;
+        }
+        var tile = Find.WorldGrid[caravan.Tile] as SurfaceTile;
+        bool isCoastal = tile?.IsCoastal == true;
+        bool hasRivers = tile?.Rivers != null && tile.Rivers.Any();
+
+        return isCoastal || hasRivers;
+    }
     public override void NeedInterval()
     {
         if (pawn == null) return;
-
-        //If suspended, no need fall
-        if (IsFrozen || pawn.IsCaravanMember())
+        if (IsFrozen)
         {
             return;
         }
-
-        //Need level adjustments
         if (pawn.IsWet())
         {
-            //TODO: change numbers
             this.CurLevel += 0.0075f;
         }
         else
@@ -46,11 +57,8 @@ public class Stagz_Need_Aquatic : Need
 
             this.CurLevel -= tempFallRate;
         }
-
-        //Dehydration level control
         if (this.CurLevel < 0.1f)
         {
-            //TODO: finalize dehydration tick severity increase
             HealthUtility.AdjustSeverity(this.pawn, StagzDefOf.Stagz_Dehydration, 0.0075f);
         }
         else
@@ -63,16 +71,24 @@ public class Stagz_Need_Aquatic : Need
         }
     }
 
-    protected override bool IsFrozen
+    public override bool IsFrozen
     {
-        get { return base.IsFrozen || this.pawn.Deathresting; }
+        get
+        {
+            if (this.pawn.IsCaravanMember())
+            {
+                return IsCaravanOnWaterFeatures(this.pawn);
+            }
+
+            return base.IsFrozen || this.pawn.Deathresting;
+        }
     }
 
     public override int GUIChangeArrow
     {
         get
         {
-            if (IsFrozen || pawn.IsCaravanMember())
+            if (IsFrozen)
             {
                 return 0;
             }

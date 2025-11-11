@@ -31,7 +31,6 @@ public class WorkGiver_HydrateAquatic : WorkGiver_Scanner
                 yield return potentialTarget;
             }
         }
-        List<Pawn>.Enumerator enumerator = default(List<Pawn>.Enumerator);
         yield break;
     }
     public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)

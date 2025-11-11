@@ -17,12 +17,12 @@ public class JobDriver_HydrateAquatic : JobDriver
         return Patient == pawn || pawn.Reserve(Patient, job, 1, -1, null, errorOnFailed);
     }
 
-    protected override IEnumerable<Toil> MakeNewToils()
+    public override IEnumerable<Toil> MakeNewToils()
     {
         yield return Toils_Goto.GotoCell(TargetIndex.A, PathEndMode.Touch);
 
         Toil hydrateToil = Toils_General.WaitWith(TargetIndex.A, 1000, false, true, false, TargetIndex.None);
-        hydrateToil.defaultDuration = 1000;
+        hydrateToil.defaultDuration = 100;
 
         hydrateToil.defaultCompleteMode = ToilCompleteMode.Delay;
         hydrateToil.AddEndCondition(delegate

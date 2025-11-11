@@ -6,12 +6,16 @@
         <description>Carriers of this gene mostly live underwater, they have developed special compounds in their skin to retain water and produce mucus from epidermis for their land trips.</description>
         <customEffectDescriptions>
             <li>Ignores terrain pathing costs while in water.</li>
+            <li>Can use deep dive ability.</li>
         </customEffectDescriptions>
         <iconPath>UI/Icons/Genes/Gene_Aquatic</iconPath>
         <displayCategory>Miscellaneous</displayCategory>
         <enablesNeeds>
             <li>Stagz_NeedAquatic</li>
         </enablesNeeds>
+        <abilities>
+            <li>Stagz_DeepDive</li>
+        </abilities>
         <biostatMet>4</biostatMet>
         <biostatCpx>2</biostatCpx>
         <minAgeActive>3</minAgeActive>
