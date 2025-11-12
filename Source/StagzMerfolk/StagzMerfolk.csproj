@@ -1,41 +1,31 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{06C33236-3E25-42B0-B5F4-E22BC46B4E7C}</ProjectGuid>
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+ <PropertyGroup>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFramework>net48</TargetFramework>
     <RootNamespace>StagzMerfolk</RootNamespace>
     <AssemblyName>StagzMerfolk</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
     <LangVersion>latest</LangVersion>
+    <Deterministic>true</Deterministic>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\1.6\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <Optimize>true</Optimize>
     <OutputPath>..\..\1.6\Assemblies\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
   </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="BadHygiene">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\294100\836308268\1.4\Assemblies\BadHygiene.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,61 +38,29 @@
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="BadHygiene">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\workshop\content\294100\836308268\1.6\Assemblies\BadHygiene.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4528" />
-    <PackageReference Include="Lib.Harmony" Version="2.3.6" ExcludeAssets="runtime" />
-    <PackageReference Include="Krafs.Publicizer" Version="2.3.0">
+ <ItemGroup>
+    <PackageReference Include="Krafs.Publicizer" Version="2.*" PrivateAssets="all">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <Publicize Include="Assembly-CSharp:Verse.PawnRenderNode::props" />
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*-*" />
+    <PackageReference Include="Lib.Harmony" Version="2.*">
+      <ExcludeAssets>runtime</ExcludeAssets>
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="CompAbility\CompAbilityEffect_CallWeather.cs" />
-    <Compile Include="CompAbility\CompAbilityEffect_DeepDiveEffect.cs" />
-    <Compile Include="CompAbility\CompAbilityEffect_SirenSong.cs" />
-    <Compile Include="CompAbility\CompAbility_RequiresOnWater.cs" />
-    <Compile Include="Comps\CompSpawnerFromThingSetOnWater.cs" />
-    <Compile Include="ConditionalStatEffectors\ConditionalStatEffector_NotWater.cs" />
-    <Compile Include="ConditionalStatEffectors\ConditionalStatEffector_Rain.cs" />
-    <Compile Include="ConditionalStatEffectors\ConditionalStatEffector_Water.cs" />
-    <Compile Include="ConditionalStatEffectors\ConditionalStatEffector_WaterOrRain.cs" />
-    <Compile Include="Genes\Stagz_Gene_Tail_Fish_Randomizer.cs" />
-    <Compile Include="HarmonyPatches\Building_MusicalInstrument_Patches.cs" />
-    <Compile Include="HarmonyPatches\DbhHygieneCleanPatches.cs" />
-    <Compile Include="HarmonyPatches\MeditationFocus_Patches.cs" />
-    <Compile Include="IncidentWorkers\IncidentWorker_VirtuosoSummoned.cs" />
-    <Compile Include="ModExtensions\ArielSpawnModExtension.cs" />
-    <Compile Include="FocusStrengthOffsets\BuildingPoweredHelper.cs" />
-    <Compile Include="FocusStrengthOffsets\FocusStrengthOffset_BuildingDefsPowered.cs" />
-    <Compile Include="FocusStrengthOffsets\FocusStrengthOffset_Powered.cs" />
-    <Compile Include="Genes\Stagz_Gene_Tail_Fish.cs" />
-    <Compile Include="HarmonyPatches\Fishtail_Patches.cs" />
-    <Compile Include="HarmonyPatches\GenHostility_Patches.cs" />
-    <Compile Include="HarmonyPatches\KeenReflexes_Patches.cs" />
-    <Compile Include="HarmonyPatches\Pawn_HealthTracker_Patches.cs" />
-    <Compile Include="HarmonyPatches\Pawn_PathFollower_Patches.cs" />
-    <Compile Include="HediffComps\HediffComp_RemovedWhenGeneRemoved.cs" />
-    <Compile Include="IncidentWorkers\IncidentWorker_ArielSummoned.cs" />
-    <Compile Include="Jobs\JobDriver_HydrateAquatic.cs" />
-    <Compile Include="Jobs\JobGiver_SeekHydration.cs" />
-    <Compile Include="Jobs\WorkGiver_HydrateAquatic.cs" />
-    <Compile Include="Letters\ChoiceLetter_AcceptAriel.cs" />
-    <Compile Include="Letters\ChoiceLetter_AcceptCharmedJoiner.cs" />
-    <Compile Include="MentalStates\MentalState_Charmed.cs" />
-    <Compile Include="MentalStates\MentalState_VeryCharmed.cs" />
-    <Compile Include="ModExtensions\KeenReflexModExtension.cs" />
-    <Compile Include="Needs\Stagz_Need_Aquatic.cs" />
-    <Compile Include="PawnRenderNode\PawnRenderNode_Fishfin.cs" />
-    <Compile Include="PawnRenderNode\PawnRenderNode_Fishtail.cs" />
-    <Compile Include="StagzDefOf.cs" />
-    <Compile Include="StagzMerfolk.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StagzUtils.cs" />
-    <Compile Include="ThoughtWorkers\Stagz_ThoughtWorker_NeedHydration.cs" />
-    <Compile Include="ThoughtWorkers\ThoughtWorker_Charming.cs" />
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+ <ItemGroup>
+    <Publicize Include="Assembly-CSharp" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>

@@ -13,7 +13,7 @@ public class FocusStrengthOffset_BuildingDefsPowered : FocusStrengthOffset_Build
     }
 
 
-    protected override float OffsetForBuilding(Thing b)
+    public override float OffsetForBuilding(Thing b)
     {
         if (BuildingPoweredHelper.BuildingPowered(b))
         {
@@ -23,7 +23,7 @@ public class FocusStrengthOffset_BuildingDefsPowered : FocusStrengthOffset_Build
         return 0f;
     }
 
-    protected override int BuildingCount(Thing parent)
+    public override int BuildingCount(Thing parent)
     {
         if (parent == null || !parent.Spawned)
         {

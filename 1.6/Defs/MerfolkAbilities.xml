@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
     <AbilityDef>
         <defName>Stagz_SirenCall</defName>
@@ -29,13 +29,11 @@
         <comps>
             <li Class="StagzMerfolk.CompAbility.CompProperties_AbilitySirenSong">
                 <compClass>StagzMerfolk.CompAbility.CompAbilityEffect_SirenSong</compClass>
-                <mentalState>Stagz_Charmed</mentalState>
                 <hediff>Stagz_Infatuated</hediff>
-                <chanceForMentalState>0.33</chanceForMentalState>
             </li>
         </comps>
     </AbilityDef>
-    
+
     <AbilityDef>
         <defName>Stagz_SirenCallCharm</defName>
         <label>charm person</label>
@@ -81,7 +79,7 @@
             </li>
         </comps>
     </AbilityDef>
-    
+
     <HediffDef>
         <defName>Stagz_Infatuated</defName>
         <label>infatuated</label>
@@ -104,7 +102,7 @@
             </li>
         </comps>
     </HediffDef>
-    
+
     <MentalStateDef ParentName="BaseMentalState" Name="Stagz_Charmed">
         <defName>Stagz_Charmed</defName>
         <stateClass>StagzMerfolk.MentalState_Charmed</stateClass>
@@ -121,12 +119,12 @@
         <minTicksBeforeRecovery>10000</minTicksBeforeRecovery>
         <maxTicksBeforeRecovery>10000</maxTicksBeforeRecovery>
     </MentalStateDef>
-    
+
     <MentalStateDef ParentName="Stagz_Charmed">
         <defName>Stagz_VeryCharmed</defName>
         <stateClass>StagzMerfolk.MentalState_VeryCharmed</stateClass>
     </MentalStateDef>
-    
+
     <!-- <ThingDef ParentName="MoteBase"> -->
     <!--     <defName>Mote_AnimalWarcallTarget</defName> -->
     <!--     <thingClass>MoteAttached</thingClass> -->
@@ -150,7 +148,7 @@
     <!--         <drawSize>2</drawSize> -->
     <!--     </graphicData> -->
     <!-- </ThingDef> -->
-    
+
     <AbilityDef ParentName="AbilityTouchBase">
         <defName>Stagz_CallRain</defName>
         <label>call rain</label>
@@ -184,7 +182,7 @@
             </li>
         </comps>
     </AbilityDef>
-    
+
     <AbilityDef>
         <defName>Stagz_DeepDive</defName>
         <label>deep dive</label>

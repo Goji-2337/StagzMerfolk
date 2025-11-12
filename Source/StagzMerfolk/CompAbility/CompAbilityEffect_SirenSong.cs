@@ -24,16 +24,7 @@ public class CompAbilityEffect_SirenSong : CompAbilityEffect
         {
             if (thing is Pawn pawn && pawn.health.capacities.CapableOf(PawnCapacityDefOf.Hearing) && pawn.psychicEntropy?.PsychicSensitivity >= 0.1f && pawn.Faction.HostileTo(Faction.OfPlayer))
             {
-                if (Rand.Chance(Props.chanceForMentalState))
-                {
-                    pawn.jobs.StopAll();
-                    pawn.mindState.mentalStateHandler.TryStartMentalState(Props.mentalState);
-                }
-                else
-                {
-                    pawn.health.AddHediff(Props.hediff);
-                }
-
+                pawn.health.AddHediff(Props.hediff);
             }
         }
         if (this.Props.casterEffect != null)
@@ -44,12 +35,12 @@ public class CompAbilityEffect_SirenSong : CompAbilityEffect
         }
 
     }
-    
+
     public override void DrawEffectPreview(LocalTargetInfo target)
     {
         GenDraw.DrawFieldEdges(this.AffectedCells(target, this.parent.pawn.Map).ToList<IntVec3>(), this.Valid(target, false) ? Color.white : Color.red, null);
     }
-    
+
     private IEnumerable<IntVec3> AffectedCells(LocalTargetInfo target, Map map)
     {
         if (target.Cell.Filled(this.parent.pawn.Map))
@@ -71,11 +62,9 @@ public class CompProperties_AbilitySirenSong : CompProperties_AbilityEffect
     public CompProperties_AbilitySirenSong()
     {
         this.compClass = typeof(CompAbilityEffect_SirenSong);
-    }		
-    
+    }
+
     public EffecterDef casterEffect;
-    
-    public MentalStateDef mentalState;
+
     public HediffDef hediff;
-    public float chanceForMentalState;
 }

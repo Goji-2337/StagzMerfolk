@@ -9,7 +9,7 @@ public class HediffComp_DisappearsOnLeavingWater : HediffComp
     private int landDuration = 60;
     private int onLandDuration = 0;
 
-    public new HediffCompProperties_DisappearsOnLeavingWater Props
+    public HediffCompProperties_DisappearsOnLeavingWater Props
     {
         get { return (HediffCompProperties_DisappearsOnLeavingWater)this.props; }
     }

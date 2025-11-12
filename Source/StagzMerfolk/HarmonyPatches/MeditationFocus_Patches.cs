@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -11,7 +11,7 @@ public class MeditationFocusDef_EnablingThingsExplanation_Patch
     {
         if (!ModsConfig.RoyaltyActive) return;
 
-        if (__instance == StagzDefOf.Stagz_Water && pawn.genes?.HasGene(StagzDefOf.Stagz_Raincaller) == true)
+        if (__instance == StagzDefOf.Stagz_Water && pawn.genes?.HasActiveGene(StagzDefOf.Stagz_Raincaller) == true)
         {
             __result += "\n  - " + "Stagz_UnlockedByGene".Translate() + " " + StagzDefOf.Stagz_Raincaller.LabelCap + ".";
         }
@@ -25,7 +25,7 @@ public class MeditationFocusTypeAvailabilityCache_PawnCanUseInt_Patch
     {
         if (!ModsConfig.RoyaltyActive) return;
 
-        if (type == StagzDefOf.Stagz_Water && p.genes?.HasGene(StagzDefOf.Stagz_Raincaller) == true)
+        if (type == StagzDefOf.Stagz_Water && p.genes?.HasActiveGene(StagzDefOf.Stagz_Raincaller) == true)
         {
             __result = true;
         }

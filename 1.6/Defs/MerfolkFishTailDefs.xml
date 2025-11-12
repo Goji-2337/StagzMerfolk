@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
     <!--  Fishtail Color Randomizer  -->
     <GeneDef>
@@ -66,9 +66,6 @@
         <prerequisite>Stagz_Aquatic</prerequisite>
         <randomChosen>true</randomChosen>
         <displayCategory>Miscellaneous</displayCategory>
-        <abilities>
-            <li>Stagz_DeepDive</li>
-        </abilities>
         <biostatMet>-2</biostatMet>
         <biostatCpx>2</biostatCpx>
         <displayOrderInCategory>402</displayOrderInCategory>
