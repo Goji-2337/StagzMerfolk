@@ -170,7 +170,7 @@
         <modExtensions>
             <!-- The % of melee dodge chance to be added as ranged 'dodge' chance -->
             <li Class="StagzMerfolk.KeenReflexModExtension">
-                <MeleeToRangeCoefficient>0.75</MeleeToRangeCoefficient>
+                <MeleeToRangeCoefficient>1</MeleeToRangeCoefficient>
             </li>
         </modExtensions>
     </GeneDef>

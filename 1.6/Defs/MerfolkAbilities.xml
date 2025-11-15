@@ -3,7 +3,7 @@
     <AbilityDef>
         <defName>Stagz_SirenCall</defName>
         <label>siren song</label>
-        <description>The caster releases an enchanting song centred around themselves. Enemies within range will become infatuated (lowering their accuracy).\n\nIn severe cases, they may become charmed to attack their allies. Charmed enemies might request to join the player after the charm effect ends.</description>
+        <description>The caster releases an enchanting song centred around themselves. Enemies caught within its range will hesitate to strike the caster as they become infatuated.</description>
         <iconPath>UI/Abilities/SirenCall</iconPath>
         <targetRequired>False</targetRequired>
         <cooldownTicksRange>300000</cooldownTicksRange><!-- 5 days -->
@@ -178,7 +178,7 @@
                     <li>RainyThunderstorm</li>
                     <li>FoggyRain</li>
                 </weatherDefs>
-                <weatherDuration>90000</weatherDuration>
+                <weatherDuration>60000</weatherDuration>
             </li>
         </comps>
     </AbilityDef>
