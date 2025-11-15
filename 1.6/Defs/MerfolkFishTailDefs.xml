@@ -22,7 +22,7 @@
         <iconPath>UI/Icons/Genes/Gene_FishTail2</iconPath>
         <prerequisite>Stagz_Aquatic</prerequisite>
         <displayCategory>Miscellaneous</displayCategory>
-        <biostatMet>-2</biostatMet>
+        <biostatMet>-1</biostatMet>
         <biostatCpx>2</biostatCpx>
         <displayOrderInCategory>401</displayOrderInCategory>
         <bodyType>Standard</bodyType>
@@ -66,7 +66,7 @@
         <prerequisite>Stagz_Aquatic</prerequisite>
         <randomChosen>true</randomChosen>
         <displayCategory>Miscellaneous</displayCategory>
-        <biostatMet>-2</biostatMet>
+        <biostatMet>-1</biostatMet>
         <biostatCpx>2</biostatCpx>
         <displayOrderInCategory>402</displayOrderInCategory>
         <bodyType>Standard</bodyType>

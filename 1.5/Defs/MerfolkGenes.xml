@@ -81,7 +81,7 @@
     <GeneDef>
         <defName>Stagz_Raincaller</defName>
         <label>raincaller</label>
-        <description>Carriers of this gene are able to manipulate local water particles on a mass scale. This usually leads to heavy rainy weather in which they thrive.</description>
+        <description>Carriers of this gene can sense and resonate with local water particles on a mass scale. This usually leads to heavy rainy weather, in which they thrive.</description>
         <iconPath>UI/Icons/Genes/Gene_Raincaller</iconPath>
         <displayCategory>Archite</displayCategory>
         <displayOrderInCategory>500</displayOrderInCategory>
@@ -91,9 +91,9 @@
         <conditionalStatAffecters>
             <li Class="StagzMerfolk.ConditionalStatEffector_Rain">
                 <statOffsets>
-                    <PsychicSensitivity>0.4</PsychicSensitivity>
-                    <MeditationFocusGain>0.2</MeditationFocusGain>
-                    <PsychicEntropyRecoveryRate>0.2</PsychicEntropyRecoveryRate>
+                    <PsychicSensitivity>0.2</PsychicSensitivity>
+                    <MeditationFocusGain>0.1</MeditationFocusGain>
+                    <PsychicEntropyRecoveryRate>0.1</PsychicEntropyRecoveryRate>
                 </statOffsets>
             </li>
         </conditionalStatAffecters>
@@ -159,18 +159,18 @@
         <description>Carriers of this gene have extremely fast reflexes. They can dodge most incoming hits even from a distance.</description>
         <customEffectDescriptions>
             <li>Adds an addtional +20% to melee dodge chance, ignoring the usual 50% melee dodge chance cap.</li>
-            <li>75% of melee dodge chance is applied to ranged dodge chance.</li>
+            <li>100% of melee dodge chance is applied to ranged dodge chance.</li>
         </customEffectDescriptions>
         <iconPath>UI/Icons/Genes/Gene_KeenReflex</iconPath>
         <displayCategory>Archite</displayCategory>
         <displayOrderInCategory>500</displayOrderInCategory>
-        <biostatCpx>2</biostatCpx>
         <biostatMet>-5</biostatMet>
+        <biostatCpx>3</biostatCpx>
         <biostatArc>1</biostatArc>
         <modExtensions>
             <!-- The % of melee dodge chance to be added as ranged 'dodge' chance -->
             <li Class="StagzMerfolk.KeenReflexModExtension">
-                <MeleeToRangeCoefficient>0.75</MeleeToRangeCoefficient>
+                <MeleeToRangeCoefficient>1</MeleeToRangeCoefficient>
             </li>
         </modExtensions>
     </GeneDef>
