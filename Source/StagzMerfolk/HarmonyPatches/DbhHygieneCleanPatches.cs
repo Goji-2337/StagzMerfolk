@@ -1,4 +1,4 @@
-/*using System;
+using System;
 using System.Reflection;
 using DubsBadHygiene;
 using HarmonyLib;
@@ -12,7 +12,7 @@ public class DbhHygieneCleanPatches
     [HarmonyPrepare]
     private static bool shouldPatchBadHygene()
     {
-        return ModsConfig.IsActive("dubwise.dubsbadhygiene");
+        return ModsConfig.IsActive("Dubwise.DubsBadHygiene") || ModsConfig.IsActive("Dubwise.DubsBadHygiene.Lite");
     }
 
     [HarmonyTargetMethod]
@@ -29,4 +29,4 @@ public class DbhHygieneCleanPatches
             ___pawn.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic).CurLevel = Math.Min(___pawn.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic).CurLevel + val, 1f);
         }
     }
-}*/
+}
