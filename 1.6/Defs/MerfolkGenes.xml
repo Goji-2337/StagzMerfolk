@@ -108,6 +108,11 @@
     <MeditationFocusDef>
         <defName>Stagz_Water</defName>
         <label>water</label>
+        <modExtensions>
+            <li MayRequire="VanillaExpanded.VPsycastsE" Class="VanillaPsycastsExpanded.MeditationFocusExtension">
+                <icon>UI/Icons/Psyfocus/PsyfocusWater</icon>
+            </li>
+        </modExtensions>
     </MeditationFocusDef>
     
     <GeneDef>
