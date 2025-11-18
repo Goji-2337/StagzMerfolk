@@ -19,6 +19,7 @@
         <biostatMet>2</biostatMet>
         <biostatCpx>2</biostatCpx>
         <minAgeActive>3</minAgeActive>
+        <waterCellCost>1</waterCellCost>
         <symbolPack>
             <prefixSymbols>
                 <li><symbol>water</symbol></li>
