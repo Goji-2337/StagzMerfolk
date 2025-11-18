@@ -87,6 +87,7 @@
         <displayOrderInCategory>500</displayOrderInCategory>
         <customEffectDescriptions>
             <li>Enables the water meditation focus.</li>
+            <li>In rain, psychic abilities are considerably improved.</li>
         </customEffectDescriptions>
         <conditionalStatAffecters>
             <li Class="StagzMerfolk.ConditionalStatEffector_Rain">
