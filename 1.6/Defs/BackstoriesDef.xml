@@ -247,10 +247,10 @@
 
   <BackstoryDef>
     <slot>Childhood</slot>
-    <title>sand dollar trader</title>
+    <title>seashell trader</title>
     <defName>Stagz_SandDollarTrader</defName>
     <titleShort>trader</titleShort>
-    <baseDesc>[PAWN_nameDef] was business savvy from a young age. Growing up in a seaside town, [PAWN_pronoun] would often set up mini trade posts where [PAWN_pronoun] persuaded other children to exchange toys with [PAWN_objective] using sand dollars.</baseDesc>
+    <baseDesc>[PAWN_nameDef] was business savvy from a young age. Growing up in a seaside town, [PAWN_pronoun] would often set up mini trade posts where [PAWN_pronoun] persuaded other children to exchange toys with [PAWN_objective] using seashells.</baseDesc>
     <spawnCategories>
       <li>Offworld</li>
       <li>Outlander</li>
