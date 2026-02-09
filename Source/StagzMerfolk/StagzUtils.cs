@@ -13,7 +13,7 @@ public static class StagzUtils
 
     private static bool IsSoakingWet(Pawn pawn)
     {
-        return pawn.needs.mood.thoughts.memories?.GetFirstMemoryOfDef(ThoughtDefOf.SoakingWet) != null;
+        return pawn.needs.mood?.thoughts.memories.GetFirstMemoryOfDef(ThoughtDefOf.SoakingWet) != null;
     }
 
     public static bool InRain(this Pawn pawn)
