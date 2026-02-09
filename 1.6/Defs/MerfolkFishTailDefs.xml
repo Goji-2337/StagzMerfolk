@@ -263,6 +263,10 @@
             <Male>Things/Pawn/Humanlike/Bodies/MerfolkBodies/male</Male>
             <Child>Things/Pawn/Humanlike/Bodies/MerfolkBodies/baby</Child>
             <Baby>Things/Pawn/Humanlike/Bodies/MerfolkBodies/baby</Baby>
+            <!--The following use placeholder textures-->
+            <Hulk>Things/Pawn/Humanlike/Bodies/MerfolkBodies/hulk</Hulk>
+            <Fat>Things/Pawn/Humanlike/Bodies/MerfolkBodies/fat</Fat>
+            <Thin>Things/Pawn/Humanlike/Bodies/MerfolkBodies/thin</Thin>
         </bodyTypeGraphicPaths>
     </FurDef>
 </Defs>
