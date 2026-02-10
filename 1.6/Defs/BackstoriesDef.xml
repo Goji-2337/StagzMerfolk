@@ -73,7 +73,7 @@
     <slot>Adulthood</slot>
     <title>coastal rescuer</title>
     <defName>Stagz_Rescuer</defName>
-    <titleShort>housecarl</titleShort>
+    <titleShort>rescuer</titleShort>
     <baseDesc>[PAWN_nameDef] patrolled the coastline, always ready to respond to emergencies on both land and sea. [PAWN_possessive] swift and daring rescues have earned [PAWN_objective] the admiration of many survivors.</baseDesc>
     <spawnCategories>
       <li>Outlander</li>
