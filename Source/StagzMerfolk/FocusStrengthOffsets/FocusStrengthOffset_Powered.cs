@@ -7,23 +7,17 @@ public class FocusStrengthOffset_Powered : FocusStrengthOffset
 {
     public override string GetExplanation(Thing parent)
     {
-        if (this.CanApply(parent, null))
-        {
-            return "StatsReport_Lit".Translate() + ": " + this.GetOffset(parent, null).ToStringWithSign("0%");
-        }
-
-        return this.GetExplanationAbstract(null);
+        return CanApply(parent, null)
+            ? "StagzMerfolk_StatsReport_Powered".Translate() + ": " + GetOffset(parent, null).ToStringWithSign("0%")
+            : GetExplanationAbstract(null);
     }
 
     public override string GetExplanationAbstract(ThingDef def = null)
     {
-        return "StatsReport_Lit".Translate() + ": " + this.offset.ToStringWithSign("0%");
+        return "StagzMerfolk_StatsReport_Powered".Translate() + ": " + this.offset.ToStringWithSign("0%");
     }
 
-    public override float GetOffset(Thing parent, Pawn user = null)
-    {
-        return this.offset;
-    }
+    public override float GetOffset(Thing parent, Pawn user = null) => offset;
 
     public override bool CanApply(Thing parent, Pawn user = null)
     {
