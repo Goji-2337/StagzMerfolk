@@ -10,13 +10,13 @@
                 <Stagz_Merfolk_Abyssal>10</Stagz_Merfolk_Abyssal>
             </xenotypeChances>
         </xenotypeSet>
-        <backstoryFilters>
+        <backstoryFiltersOverride>
             <li>
                 <categories>
-                    <li>Tribal</li>
+                    <li>Stagz_Coastal</li>
                 </categories>
             </li>
-        </backstoryFilters>
+        </backstoryFiltersOverride>
         <combatPower>45</combatPower>
         <itemQuality>Poor</itemQuality>
         <gearHealthRange>0.5~1.8</gearHealthRange>
@@ -39,6 +39,7 @@
         <initialWillRange>1~3</initialWillRange>
         <initialResistanceRange>17~27</initialResistanceRange>
         <invNutrition>3.0</invNutrition>
+        <apparelIgnorePollution MayRequire="Ludeon.RimWorld.Biotech">true</apparelIgnorePollution>
         <inventoryOptions>
             <subOptionsChooseOne>
                 <li>
