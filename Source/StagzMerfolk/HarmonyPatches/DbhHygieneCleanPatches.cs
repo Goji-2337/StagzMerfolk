@@ -1,6 +1,5 @@
 using System;
 using System.Reflection;
-using DubsBadHygiene;
 using HarmonyLib;
 using Verse;
 
@@ -10,7 +9,7 @@ namespace StagzMerfolk.HarmonyPatches;
 public class DbhHygieneCleanPatches
 {
     [HarmonyPrepare]
-    private static bool shouldPatchBadHygene()
+    private static bool shouldPatchBadHygiene()
     {
         return ModsConfig.IsActive("Dubwise.DubsBadHygiene") || ModsConfig.IsActive("Dubwise.DubsBadHygiene.Lite");
     }

@@ -243,6 +243,7 @@
         <labelNoun>part of a fishtail</labelNoun>
         <description>Part of a fishtail.</description>
         <defaultLabelColor>(1, 1, 1)</defaultLabelColor>
+        <countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
         <addedPartProps>
             <solid>true</solid>
             <partEfficiency>1</partEfficiency>
@@ -263,6 +264,10 @@
             <Male>Things/Pawn/Humanlike/Bodies/MerfolkBodies/male</Male>
             <Child>Things/Pawn/Humanlike/Bodies/MerfolkBodies/baby</Child>
             <Baby>Things/Pawn/Humanlike/Bodies/MerfolkBodies/baby</Baby>
+            <!--The following use placeholder textures-->
+            <Hulk>Things/Pawn/Humanlike/Bodies/MerfolkBodies/hulk</Hulk>
+            <Fat>Things/Pawn/Humanlike/Bodies/MerfolkBodies/fat</Fat>
+            <Thin>Things/Pawn/Humanlike/Bodies/MerfolkBodies/thin</Thin>
         </bodyTypeGraphicPaths>
     </FurDef>
 </Defs>
