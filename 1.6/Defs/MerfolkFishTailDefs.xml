@@ -243,6 +243,7 @@
         <labelNoun>part of a fishtail</labelNoun>
         <description>Part of a fishtail.</description>
         <defaultLabelColor>(1, 1, 1)</defaultLabelColor>
+        <countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
         <addedPartProps>
             <solid>true</solid>
             <partEfficiency>1</partEfficiency>
