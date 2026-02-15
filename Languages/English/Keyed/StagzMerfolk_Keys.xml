@@ -26,6 +26,4 @@
     <StagzMerfolk_StatsReport_Powering>Moving</StagzMerfolk_StatsReport_Powering>
     <StagzMerfolk_MeditationFocusPerHydroponicsBasinAbstract>{1} per nearby powered hydroponics (up to {0})</StagzMerfolk_MeditationFocusPerHydroponicsBasinAbstract>
     <StagzMerfolk_MeditationFocusPerHydroponicsBasin>{2} per nearby powered hydroponics ({0} / {1})</StagzMerfolk_MeditationFocusPerHydroponicsBasin>
-    <StagzMerfolk_MeditationFocusPerWaterCandleAbstract>{1} per nearby lit floating lantern (up to {0})</StagzMerfolk_MeditationFocusPerWaterCandleAbstract>
-    <StagzMerfolk_MeditationFocusPerWaterCandle>{2} per nearby lit floating lantern ({0} / {1})</StagzMerfolk_MeditationFocusPerWaterCandle>
 </LanguageData>
