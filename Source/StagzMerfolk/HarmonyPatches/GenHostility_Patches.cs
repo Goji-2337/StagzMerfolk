@@ -1,14 +1,85 @@
-﻿using System.Linq;
+using System.Collections.Generic;
+using System.Reflection;
 using HarmonyLib;
 using RimWorld;
 using Verse;
 
 namespace StagzMerfolk.HarmonyPatches;
 
-[HarmonyPatch(typeof(GenHostility), "HostileTo", new[] { typeof(Thing), typeof(Thing) })]
-public static class GenHostility_HostileTo_Patch
+internal static class CharmedHostilityPatcher
 {
-    private static void Postfix(Thing a, Thing b, ref bool __result)
+    private const string HarmonyId = "com.arquebus.rimworld.mod.stagzmerfolk.charmedhostility";
+
+    private static readonly Harmony Harmony = new Harmony(HarmonyId);
+    private static readonly HashSet<Pawn> ActiveCharmedPawns = new HashSet<Pawn>();
+    private static readonly MethodInfo HostileToThingMethod = AccessTools.Method(typeof(GenHostility), nameof(GenHostility.HostileTo), new[] { typeof(Thing), typeof(Thing) });
+    private static readonly MethodInfo HostileToFactionMethod = AccessTools.Method(typeof(GenHostility), nameof(GenHostility.HostileTo), new[] { typeof(Thing), typeof(Faction) });
+    private static readonly HarmonyMethod HostileToThingPostfix = new HarmonyMethod(typeof(CharmedHostilityPatcher), nameof(PostfixHostileToThing));
+    private static readonly HarmonyMethod HostileToFactionPostfix = new HarmonyMethod(typeof(CharmedHostilityPatcher), nameof(PostfixHostileToFaction));
+
+    private static bool patched;
+
+    public static void Register(Pawn pawn)
+    {
+        if (pawn == null)
+        {
+            return;
+        }
+
+        ActiveCharmedPawns.Add(pawn);
+        EnsurePatched();
+    }
+
+    public static void Unregister(Pawn pawn)
+    {
+        if (pawn != null)
+        {
+            ActiveCharmedPawns.Remove(pawn);
+        }
+
+        PruneInactivePawns();
+        if (ActiveCharmedPawns.Count == 0)
+        {
+            Unpatch();
+        }
+    }
+
+    private static void EnsurePatched()
+    {
+        if (patched)
+        {
+            return;
+        }
+
+        Harmony.Patch(HostileToThingMethod, postfix: HostileToThingPostfix);
+        Harmony.Patch(HostileToFactionMethod, postfix: HostileToFactionPostfix);
+        patched = true;
+    }
+
+    private static void Unpatch()
+    {
+        if (!patched)
+        {
+            return;
+        }
+
+        Harmony.Unpatch(HostileToThingMethod, HarmonyPatchType.Postfix, HarmonyId);
+        Harmony.Unpatch(HostileToFactionMethod, HarmonyPatchType.Postfix, HarmonyId);
+        patched = false;
+    }
+
+    private static void PruneInactivePawns()
+    {
+        ActiveCharmedPawns.RemoveWhere(pawn => pawn == null || !IsCharmed(pawn));
+    }
+
+    private static bool IsCharmed(Pawn pawn)
+    {
+        var def = pawn?.MentalState?.def;
+        return def == StagzDefOf.Stagz_Charmed || def == StagzDefOf.Stagz_VeryCharmed;
+    }
+
+    private static void PostfixHostileToThing(Thing a, Thing b, ref bool __result)
     {
         if (a.Destroyed || b.Destroyed || a == b)
         {
@@ -16,25 +87,20 @@ public static class GenHostility_HostileTo_Patch
         }
 
         if (a is Pawn { Faction: not null } aPawn && b is Pawn { Faction: not null } bPawn &&
-            (aPawn.MentalState != null && StagzCollections.StateDefs.Contains(aPawn.MentalState.def) || bPawn.MentalState != null && StagzCollections.StateDefs.Contains(bPawn.MentalState.def))
-           )
+            (IsCharmed(aPawn) || IsCharmed(bPawn)))
         {
             __result = aPawn.Faction == bPawn.Faction;
         }
     }
-}
 
-[HarmonyPatch(typeof(GenHostility), "HostileTo", new[] { typeof(Thing), typeof(Faction) })]
-public static class GenHostility_HostileToFaction_Patch
-{
-    private static void Postfix(Thing t, Faction fac, ref bool __result)
+    private static void PostfixHostileToFaction(Thing t, Faction fac, ref bool __result)
     {
         if (t.Destroyed || fac == null)
         {
             return;
         }
 
-        if (t is Pawn { Faction: not null, MentalState: not null } pawn && StagzCollections.StateDefs.Contains(pawn.MentalState.def))
+        if (t is Pawn { Faction: not null } pawn && IsCharmed(pawn))
         {
             __result = pawn.Faction == fac;
         }

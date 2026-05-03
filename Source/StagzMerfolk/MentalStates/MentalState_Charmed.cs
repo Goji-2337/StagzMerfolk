@@ -1,4 +1,5 @@
-﻿using RimWorld;
+using RimWorld;
+using StagzMerfolk.HarmonyPatches;
 using Verse;
 using Verse.AI;
 
@@ -8,15 +9,20 @@ public class MentalState_Charmed : MentalState
 {
     public float charmChance;
 
+    public MentalState_Charmed()
+    {
+        this.charmChance = 0.01f;
+    }
+
     public override void ExposeData()
     {
         base.ExposeData();
         Scribe_Values.Look<float>(ref this.charmChance, "charmChance", 0.1f, false);
-    }
 
-    public MentalState_Charmed()
-    {
-        this.charmChance = 0.01f;
+        if (Scribe.mode == LoadSaveMode.PostLoadInit)
+        {
+            CharmedHostilityPatcher.Register(pawn);
+        }
     }
 
     public override RandomSocialMode SocialModeMax()
@@ -24,9 +30,16 @@ public class MentalState_Charmed : MentalState
         return RandomSocialMode.Off;
     }
 
+    public override void PostStart(string reason)
+    {
+        base.PostStart(reason);
+        CharmedHostilityPatcher.Register(pawn);
+    }
+
     public override void PostEnd()
     {
         base.PostEnd();
+        CharmedHostilityPatcher.Unregister(pawn);
 
         pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.PanicFlee);
         if (pawn.RaceProps.Humanlike && Rand.Chance(charmChance))
