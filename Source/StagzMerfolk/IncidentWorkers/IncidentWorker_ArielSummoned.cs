@@ -20,7 +20,7 @@ public class IncidentWorker_ArielSummoned : IncidentWorker
         GenSpawn.Spawn(pawn, center, map, WipeMode.Vanish);
     }
 
-    public override bool TryExecuteWorker(IncidentParms parms)
+    protected override bool TryExecuteWorker(IncidentParms parms)
     {
         //generate and spawn pawn
         Map map = (Map)parms.target;

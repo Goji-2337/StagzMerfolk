@@ -17,7 +17,7 @@ public class JobDriver_HydrateAquatic : JobDriver
         return Patient == pawn || pawn.Reserve(Patient, job, 1, -1, null, errorOnFailed);
     }
 
-    public override IEnumerable<Toil> MakeNewToils()
+    protected override IEnumerable<Toil> MakeNewToils()
     {
         yield return Toils_Goto.GotoCell(TargetIndex.A, PathEndMode.Touch);
 

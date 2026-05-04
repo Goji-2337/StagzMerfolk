@@ -7,7 +7,7 @@ namespace StagzMerfolk;
 
 public class JobGiver_SeekHydration : ThinkNode_JobGiver
 {
-    public override Job TryGiveJob(Pawn pawn)
+    protected override Job TryGiveJob(Pawn pawn)
     {
         if (pawn.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic) != null && pawn.health.hediffSet.HasHediff(StagzDefOf.Stagz_Dehydration))
         {
