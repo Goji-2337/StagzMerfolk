@@ -12,12 +12,12 @@ public class FocusStrengthOffset_BuildingDefsPowered : FocusStrengthOffset_Build
         return BuildingPoweredHelper.BuildingPowered(parent) && base.CanApply(parent, user);
     }
 
-    public override float OffsetForBuilding(Thing b)
+    protected override float OffsetForBuilding(Thing b)
     {
         return BuildingPoweredHelper.BuildingPowered(b) ? base.OffsetFor(b.def) : 0f;
     }
 
-    public override int BuildingCount(Thing parent)
+    protected override int BuildingCount(Thing parent)
     {
         if (parent == null || !parent.Spawned)
         {

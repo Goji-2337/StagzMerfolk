@@ -248,7 +248,6 @@
         </conditionalStatAffecters>
         <biostatCpx>1</biostatCpx>
         <biostatMet>0</biostatMet>
-        
         <renderNodeProperties>
             <li>
                 <nodeClass>StagzMerfolk.PawnRenderNode_Fishfin</nodeClass>
@@ -263,21 +262,12 @@
                 <drawData>
                     <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
                     <defaultData>
-                        <layer>-2</layer>
+                        <layer>90</layer>
+                        <offset>(0, 0, -0.15)</offset>
                     </defaultData>
                     <dataNorth>
-                        <offset>(0, 0.2, -0.15)</offset>
-                        <layer>90</layer>
+                        <layer>-2</layer>
                     </dataNorth>
-                    <dataSouth>
-                        <offset>(0, 0.2, -0.15)</offset>
-                    </dataSouth>
-                    <dataEast>
-                        <offset>(-0.07, 0.2, -0.15)</offset>
-                    </dataEast>
-                    <dataWest>
-                        <offset>(0.07, 0.2, -0.15)</offset>
-                    </dataWest>
                 </drawData>
             </li>
         </renderNodeProperties>

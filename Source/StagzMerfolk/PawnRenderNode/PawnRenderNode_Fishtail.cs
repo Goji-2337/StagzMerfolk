@@ -17,9 +17,27 @@ public class PawnRenderNode_Fishtail : PawnRenderNode
             return null;
         }
 
-        return GraphicDatabase.Get<Graphic_Multi>(pawn.story?.furDef.GetFurBodyGraphicPath(pawn),
-            ShaderDatabase.CutoutComplex, Vector2.one, pawn.story?.SkinColor ?? Color.white, Props.color ?? ColorFor(pawn)
-        );
+        switch (pawn.Drawer.renderer.CurRotDrawMode)
+        {
+            case RotDrawMode.Fresh:
+                return GraphicDatabase.Get<Graphic_Multi>(
+                    pawn.story?.furDef.GetFurBodyGraphicPath(pawn),
+                    ShaderDatabase.CutoutComplex,
+                    Vector2.one,
+                    pawn.story?.SkinColor ?? Color.white,
+                    Props.color ?? ColorFor(pawn)
+                );
+            case RotDrawMode.Rotting:
+                return GraphicDatabase.Get<Graphic_Multi>(
+                    pawn.story?.furDef.GetFurBodyGraphicPath(pawn),
+                    ShaderDatabase.CutoutComplex,
+                    Vector2.one,
+                    PawnRenderUtility.GetRottenColor(pawn.story?.SkinColor ?? Color.white),
+                    Props.color ?? ColorFor(pawn)
+                );
+            default:
+                return base.GraphicFor(pawn);
+        }
     }
 
     public override Color ColorFor(Pawn pawn)

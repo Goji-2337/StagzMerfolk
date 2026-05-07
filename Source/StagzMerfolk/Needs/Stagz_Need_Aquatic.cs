@@ -73,7 +73,7 @@ public class Stagz_Need_Aquatic : Need
         }
     }
 
-    public override bool IsFrozen
+    protected override bool IsFrozen
     {
         get
         {

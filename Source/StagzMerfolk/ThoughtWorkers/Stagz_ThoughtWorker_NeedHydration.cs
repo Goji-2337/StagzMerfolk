@@ -5,7 +5,7 @@ namespace StagzMerfolk;
 
 public class Stagz_ThoughtWorker_NeedHydration : ThoughtWorker
 {
-    public override ThoughtState CurrentStateInternal(Pawn p)
+    protected override ThoughtState CurrentStateInternal(Pawn p)
     {
         if (p.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic) == null)
         {
