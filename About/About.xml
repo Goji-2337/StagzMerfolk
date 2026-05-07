@@ -8,9 +8,8 @@
     <li>1.6</li>
   </supportedVersions>
   <packageId>Arquebus.StagzMerfolk</packageId>
-  <description>This mod adds two merfolk inspired xenotypes. Inspired by tales of mermaids and sirens, these races thrive in the water and rain.
-    
-This mod adds new genes that interact with water, new abilities themed around water or being in water, a new focus type for psycasters, a cute new squid dryad that has a special interaction with water, and (if VPE:More Plants is installed) new waterborne plants.</description>
+  <description>This mod adds two merfolk inspired xenotypes. Inspired by tales of mermaids and sirens, these races thrive in the water and rain.\n\nThis mod adds new genes that interact with water, new abilities themed around water or being in water, a new focus type for psycasters, a cute new squid dryad that has a special interaction with water, and (if VPE:More Plants is installed) new waterborne plants.</description>
+  <url>https://github.com/Goji-2337/StagzMerfolk</url>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>
@@ -23,6 +22,11 @@ This mod adds new genes that interact with water, new abilities themed around wa
       <displayName>Biotech</displayName>
     </li>
   </modDependencies>
+  <loadAfterByVersion>
+    <v1.5>
+      <li>pathfinding.framework</li>
+    </v1.5>
+  </loadAfterByVersion>
   <loadAfter>
     <li>Ludeon.RimWorld</li>
     <li>Ludeon.RimWorld.Biotech</li>
@@ -31,7 +35,7 @@ This mod adds new genes that interact with water, new abilities themed around wa
     <li>VanillaExpanded.VPlantsE</li>
     <li>VanillaExpanded.VPlantsEMore</li>
     <li>dubwise.dubsbadhygiene</li>
-    <li>pathfinding.framework</li>
+    <li>dubwise.dubsbadhygiene.lite</li>
     <li>VanillaExpanded.VPsycastsE</li>
   </loadAfter>
 </ModMetaData>
