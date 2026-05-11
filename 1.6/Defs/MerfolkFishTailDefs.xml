@@ -250,8 +250,8 @@
             <betterThanNatural>true</betterThanNatural>
         </addedPartProps>
         <comps>
-            <li Class="StagzMerfolk.HediffCompProperties_RemovedWhenGeneRemoved">
-                <compClass>StagzMerfolk.HediffComp_RemovedWhenGeneRemoved</compClass>
+            <li>
+                <compClass>StagzMerfolk.HediffComp_RemovesFishtail</compClass>
             </li>
         </comps>
     </HediffDef>
