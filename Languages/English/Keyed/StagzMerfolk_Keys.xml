@@ -29,4 +29,7 @@
 
     <StagzMerfolk_Dehydration>Skin dehydration</StagzMerfolk_Dehydration>
     <StagzMerfolk_DehydrationDesc>These colonists are aquatic but have been out of water for too long:\n{0}\n\nGet them to water. Even a toxic puddle is fine.</StagzMerfolk_DehydrationDesc>
+    
+    <StagzMerfolk_UI_Rotate>Rotate</StagzMerfolk_UI_Rotate>
+    <StagzMerfolk_UI_GeneticColor>Genetic color</StagzMerfolk_UI_GeneticColor>
 </LanguageData>

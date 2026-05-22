@@ -190,7 +190,6 @@
                 <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
                 <texPath>Things/Pawn/Humanlike/HeadAttachments/MerfolkEars/ears</texPath>
                 <colorType>Skin</colorType>
-                <colorRGBPostFactor>0.9</colorRGBPostFactor>
                 <parentTagDef>Head</parentTagDef>
                 <useSkinShader>true</useSkinShader>
                 <useRottenColor>true</useRottenColor>
@@ -231,6 +230,7 @@
     
     <GeneDef ParentName="GeneTailBase">
         <defName>Stagz_BodyFin</defName>
+        <geneClass>StagzMerfolk.Stagz_GeneWithScaleColor</geneClass>
         <label>pelvic fins</label>
         <description>Carriers of this gene develop a pair of fins near their waist.</description>
         <customEffectDescriptions>

@@ -5,7 +5,7 @@ using Verse;
 
 namespace StagzMerfolk;
 
-public class Stagz_Gene_Tail_Fish : Gene
+public class Stagz_Gene_Tail_Fish : Stagz_GeneWithScaleColor
 {
     public override void PostMake()
     {
