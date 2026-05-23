@@ -1,9 +1,11 @@
-﻿using RimWorld;
+﻿using JetBrains.Annotations;
+using RimWorld;
 using Verse;
 
 namespace StagzMerfolk;
 
 [DefOf]
+[PublicAPI]
 public class StagzDefOf
 {
 
@@ -36,7 +38,12 @@ public class StagzDefOf
 
     public static PawnKindDef Stagz_Ariel;
     public static IncidentDef Stagz_ArielSummoned;
-    public static IncidentDef Stagz_VirtuosoSummoned;
+    [MayRequireRoyalty] public static IncidentDef Stagz_VirtuosoSummoned;
+    
+    static StagzDefOf()
+    {
+        DefOfHelper.EnsureInitializedInCtor(typeof(StagzDefOf));
+    }
 }
 
 public static class StagzCollections
