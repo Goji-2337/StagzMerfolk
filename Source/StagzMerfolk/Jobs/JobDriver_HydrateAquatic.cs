@@ -27,15 +27,15 @@ public class JobDriver_HydrateAquatic : JobDriver
         hydrateToil.defaultCompleteMode = ToilCompleteMode.Delay;
         hydrateToil.AddEndCondition(delegate
         {
-            if (Patient.needs.TryGetNeed<Stagz_Need_Aquatic>().CurLevel < 0.95f)
+            if (Patient.needs.TryGetNeed<Need_Aquatic>().CurLevel < 0.95f)
             {
                 return JobCondition.Ongoing;
             }
 
             return JobCondition.Succeeded;
         });
-        hydrateToil.tickAction = delegate() { Patient.needs.TryGetNeed<Stagz_Need_Aquatic>().Hydrate(0.001f); };
-        hydrateToil.WithProgressBar(TargetIndex.A, () => Patient.needs.TryGetNeed<Stagz_Need_Aquatic>().CurLevel, false, -0.5f, false);
+        hydrateToil.tickAction = delegate() { Patient.needs.TryGetNeed<Need_Aquatic>().Hydrate(0.001f); };
+        hydrateToil.WithProgressBar(TargetIndex.A, () => Patient.needs.TryGetNeed<Need_Aquatic>().CurLevel, false, -0.5f, false);
         hydrateToil.AddFinishAction(delegate
         {
             if (Patient != null && Patient != pawn && Patient.CurJob != null && (Patient.CurJob.def == JobDefOf.Wait || Patient.CurJob.def == JobDefOf.Wait_MaintainPosture))

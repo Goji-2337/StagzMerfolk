@@ -3,7 +3,7 @@ using HarmonyLib;
 using RimWorld;
 using Verse;
 
-namespace StagzMerfolk.CompAbility;
+namespace StagzMerfolk;
 
 public class CompAbilityEffect_CallWeather: CompAbilityEffect
 {

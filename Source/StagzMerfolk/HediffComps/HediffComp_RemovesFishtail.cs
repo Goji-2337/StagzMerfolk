@@ -10,7 +10,7 @@ public class HediffComp_RemovesFishtail : HediffComp
     public override void CompPostPostRemoved()
     {
         base.CompPostPostRemoved();
-        foreach (var gene in parent.pawn.genes.GenesListForReading.OfType<Stagz_Gene_Tail_Fish>())
+        foreach (var gene in parent.pawn.genes.GenesListForReading.OfType<Gene_Fishtail>())
         {
             parent.pawn.genes.RemoveGene(gene);
         }

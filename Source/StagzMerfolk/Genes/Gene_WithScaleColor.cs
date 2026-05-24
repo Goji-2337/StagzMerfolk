@@ -5,7 +5,7 @@ using Verse;
 
 namespace StagzMerfolk;
 
-public class Stagz_GeneWithScaleColor : Gene
+public class Gene_WithScaleColor : Gene
 {
     public static readonly List<Color> defaultColors = [
         new Color32(0, 126, 126, 255),     // teal
@@ -24,15 +24,15 @@ public class Stagz_GeneWithScaleColor : Gene
         {
             if (_chosenColor == null)
             {
-                if (this is Stagz_Gene_Tail_Fish && def.RenderNodeProperties?.First()?.color != null)
+                if (this is Gene_Fishtail && def.RenderNodeProperties?.First()?.color != null)
                 {
                     _chosenColor = def.RenderNodeProperties.First().color;
-                } else if (pawn?.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>()?._chosenColor != null)
+                } else if (pawn?.genes?.GetFirstGeneOfType<Gene_Fishtail>()?._chosenColor != null)
                 {
-                    _chosenColor = pawn.genes.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>()._chosenColor;
-                } else if (pawn?.genes?.GetFirstGeneOfType<Stagz_GeneWithScaleColor>()?._chosenColor != null)
+                    _chosenColor = pawn.genes.GetFirstGeneOfType<Gene_Fishtail>()._chosenColor;
+                } else if (pawn?.genes?.GetFirstGeneOfType<Gene_WithScaleColor>()?._chosenColor != null)
                 {
-                    _chosenColor = pawn.genes.GetFirstGeneOfType<Stagz_GeneWithScaleColor>()._chosenColor;
+                    _chosenColor = pawn.genes.GetFirstGeneOfType<Gene_WithScaleColor>()._chosenColor;
                 }
             }
             _chosenColor ??= defaultColors.RandomElement(); 
@@ -40,7 +40,7 @@ public class Stagz_GeneWithScaleColor : Gene
         }
         set
         {
-            foreach (var gene in pawn.genes.GenesListForReading.OfType<Stagz_GeneWithScaleColor>())
+            foreach (var gene in pawn.genes.GenesListForReading.OfType<Gene_WithScaleColor>())
             {
                 gene._chosenColor = value;
             }
@@ -51,7 +51,7 @@ public class Stagz_GeneWithScaleColor : Gene
     public override void PostMake()
     {
         base.PostMake();
-        if (this is Stagz_Gene_Tail_Fish)
+        if (this is Gene_Fishtail)
         {
             if (def.RenderNodeProperties.First().color is { } color && color != Color.clear)
             {

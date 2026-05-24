@@ -4,7 +4,7 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 
-namespace StagzMerfolk.CompAbility;
+namespace StagzMerfolk;
 
 public class CompAbilityEffect_SirenSong : CompAbilityEffect
 {

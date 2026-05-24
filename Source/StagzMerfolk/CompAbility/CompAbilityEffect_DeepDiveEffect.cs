@@ -1,7 +1,7 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace StagzMerfolk.CompAbility;
+namespace StagzMerfolk;
 
 public class HediffComp_DisappearsOnLeavingWater : HediffComp
 {

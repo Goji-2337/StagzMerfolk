@@ -230,7 +230,7 @@
     
     <GeneDef ParentName="GeneTailBase">
         <defName>Stagz_BodyFin</defName>
-        <geneClass>StagzMerfolk.Stagz_GeneWithScaleColor</geneClass>
+        <geneClass>StagzMerfolk.Gene_WithScaleColor</geneClass>
         <label>pelvic fins</label>
         <description>Carriers of this gene develop a pair of fins near their waist.</description>
         <customEffectDescriptions>

@@ -8,10 +8,10 @@ namespace StagzMerfolk;
 public static class TailColours
 {
     public static IEnumerable<GeneDef> allColours = DefDatabase<GeneDef>.AllDefsListForReading
-        .Where(g => g.geneClass == typeof(Stagz_Gene_Tail_Fish));
+        .Where(g => g.geneClass == typeof(Gene_Fishtail));
 }
 
-public class Stagz_Gene_Tail_Fish_Randomizer : Gene
+public class Gene_Fishtail_Randomizer : Gene
 {
     public override void PostAdd()
     {

@@ -3,7 +3,7 @@ using Verse;
 
 namespace StagzMerfolk;
 
-public class Stagz_ThoughtWorker_NeedHydration : ThoughtWorker
+public class ThoughtWorker_NeedHydration : ThoughtWorker
 {
     protected override ThoughtState CurrentStateInternal(Pawn p)
     {

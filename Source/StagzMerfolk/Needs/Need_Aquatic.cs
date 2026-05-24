@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
@@ -6,9 +7,10 @@ using Verse;
 
 namespace StagzMerfolk;
 
-public class Stagz_Need_Aquatic : Need
+[UsedImplicitly]
+public class Need_Aquatic : Need
 {
-    public Stagz_Need_Aquatic(Pawn pawn) : base(pawn)
+    public Need_Aquatic(Pawn pawn) : base(pawn)
     {
         this.threshPercents = new List<float>
         {

@@ -5,12 +5,12 @@ using Verse;
 
 namespace StagzMerfolk;
 
-public class Stagz_Alert_Dehydration : Alert
+public class Alert_Dehydration : Alert
 {
     private readonly List<Pawn> dehydratedColonists = [];
     private readonly StringBuilder sb = new StringBuilder();
 
-    public Stagz_Alert_Dehydration()
+    public Alert_Dehydration()
     {
         defaultLabel = "StagzMerfolk_Dehydration".Translate();
         defaultPriority = AlertPriority.High;
@@ -23,7 +23,7 @@ public class Stagz_Alert_Dehydration : Alert
             dehydratedColonists.Clear();
             foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_AliveSpawned_FreeColonists_NoSuspended)
             {
-                Stagz_Need_Aquatic need = pawn.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic) as Stagz_Need_Aquatic;
+                Need_Aquatic need = pawn.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic) as Need_Aquatic;
                 if (need != null && need.Dehydrating)
                     dehydratedColonists.Add(pawn);
             }

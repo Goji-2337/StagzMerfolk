@@ -19,7 +19,7 @@ public class Dialog_ColorPickerForGenesWithScales : Window
 	private const int ColorIconSize = 22;
 	private const int ColorIconPadding = 2;
 	private const int ColorIconSizeWithPadding = 2 * ColorIconPadding + ColorIconSize;
-	private static readonly int PaletteColumns = Stagz_GeneWithScaleColor.defaultColors.Count + 1;
+	private static readonly int PaletteColumns = Gene_WithScaleColor.defaultColors.Count + 1;
     private static readonly int PaletteWidth = PaletteColumns * ColorIconSize + (PaletteColumns + 1) * ColorIconPadding;
     private readonly Color oldColor;
 	private Color color;
@@ -89,7 +89,7 @@ public class Dialog_ColorPickerForGenesWithScales : Window
 			//ColorPalette;
 			using (new TextBlock(TextAnchor.MiddleLeft))
 			{
-				Color? geneticColor = pawn.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>()?.def.RenderNodeProperties.First().color;
+				Color? geneticColor = pawn.genes?.GetFirstGeneOfType<Gene_Fishtail>()?.def.RenderNodeProperties.First().color;
 				if (geneticColor != null)
 				{
 					//the "Genetic Color" box and label at the top of palette
@@ -104,7 +104,7 @@ public class Dialog_ColorPickerForGenesWithScales : Window
 				Widgets.ColorBox(ColorBox.Rect, ref color, oldColor, ColorIconSize, ColorIconPadding, delegate { SaveColor(color); });
 				Widgets.Label(ColorBoxRow.Rect, "OldColor".Translate().CapitalizeFirst());
 				//the palette itself
-				Widgets.ColorSelector(rightCol.Rect, ref color, Stagz_GeneWithScaleColor.defaultColors,
+				Widgets.ColorSelector(rightCol.Rect, ref color, Gene_WithScaleColor.defaultColors,
 					out var paletteHeight, null, ColorIconSize, ColorIconPadding, delegate { SaveColor(color); });
 				rightCol.NewRow(paletteHeight);
 			}

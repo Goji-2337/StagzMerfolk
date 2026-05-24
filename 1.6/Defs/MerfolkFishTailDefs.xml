@@ -3,7 +3,7 @@
     <!--  Fishtail Color Randomizer  -->
     <GeneDef>
         <defName>Stagz_Gene_Tail_Fish_Random</defName>
-        <geneClass>StagzMerfolk.Stagz_Gene_Tail_Fish_Randomizer</geneClass>
+        <geneClass>StagzMerfolk.Gene_Fishtail_Randomizer</geneClass>
         <label>fishtail (random color)</label>
         <description>Carriers of this gene grow a fish-like tail below their waist instead of human legs.</description>
         <customEffectDescriptions>
@@ -47,7 +47,7 @@
 
     <!--  Fishtails  -->
     <GeneDef Name="Stagz_FishTail" Abstract="True">
-        <geneClass>StagzMerfolk.Stagz_Gene_Tail_Fish</geneClass>
+        <geneClass>StagzMerfolk.Gene_Fishtail</geneClass>
         <label>fishtail</label>
         <description>Carriers of this gene grow a fish-like tail below their waist instead of human legs.</description>
         <customEffectDescriptions>

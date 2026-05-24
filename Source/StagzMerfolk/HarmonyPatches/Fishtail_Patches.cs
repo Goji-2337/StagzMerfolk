@@ -29,7 +29,7 @@ public static class ApparelProperties_PawnCanWear_FishtailPatch
     private static bool Prefix(Pawn pawn, ref bool __result, ApparelProperties __instance)
     {
         // Log.Message(__instance);
-        if (pawn.genes != null && pawn.genes.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>() != null && !__instance.bodyPartGroups.CoversMoreThanJustLegs())
+        if (pawn.genes != null && pawn.genes.GetFirstGeneOfType<Gene_Fishtail>() != null && !__instance.bodyPartGroups.CoversMoreThanJustLegs())
         {
             __result = false;
             return false;
@@ -45,7 +45,7 @@ public static class Pawn_ApparelTracker_Wear_FishtailPatch
 {
     private static bool Prefix(Pawn ___pawn, Apparel newApparel)
     {
-        if (___pawn.genes != null && ___pawn.genes.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>() != null && !newApparel.def.apparel.bodyPartGroups.CoversMoreThanJustLegs())
+        if (___pawn.genes != null && ___pawn.genes.GetFirstGeneOfType<Gene_Fishtail>() != null && !newApparel.def.apparel.bodyPartGroups.CoversMoreThanJustLegs())
         {
             // Log.Message("trying to wear: " + newApparel.LabelShort);
             Messages.Message("StagzMerfolk_CannotWearBecauseOfTail".Translate(___pawn.LabelShort), MessageTypeDefOf.NeutralEvent);
@@ -61,7 +61,7 @@ public static class PawnGenerator_GeneratePawn_FishtailPatch
 {
     public static void Postfix(Pawn __result)
     {
-        if (__result.genes != null && __result.genes.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>() != null)
+        if (__result.genes != null && __result.genes.GetFirstGeneOfType<Gene_Fishtail>() != null)
         {
             for (int i = __result.apparel.WornApparel.Count - 1; i >= 0; i--)
             {
