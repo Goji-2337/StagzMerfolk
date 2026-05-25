@@ -1,22 +1,10 @@
-﻿using RimWorld;
-using UnityEngine;
+﻿using UnityEngine;
 using Verse;
 
 namespace StagzMerfolk;
 
 public static class StagzUtils
 {
-    
-    public static bool IsWet(this Pawn pawn)
-    {
-        return OnWater(pawn) || InRain(pawn) || IsSoakingWet(pawn);
-    }
-
-    private static bool IsSoakingWet(Pawn pawn)
-    {
-        return pawn.needs.mood?.thoughts.memories.GetFirstMemoryOfDef(ThoughtDefOf.SoakingWet) != null;
-    }
-
     public static bool InRain(this Pawn pawn)
     {
         return pawn.Map != null && pawn.Position.GetTerrain(pawn.Map) != null &&  

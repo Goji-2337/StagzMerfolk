@@ -38,7 +38,11 @@ public class StagzDefOf
 
     public static PawnKindDef Stagz_Ariel;
     public static IncidentDef Stagz_ArielSummoned;
-    [MayRequireRoyalty] public static IncidentDef Stagz_VirtuosoSummoned;
+    [MayRequireRoyalty]
+    public static IncidentDef Stagz_VirtuosoSummoned;
+
+    [MayRequire("balistafreak.StandaloneHotSpring")]
+    public static HediffDef IntheStandaloneHotSpring;
     
     static StagzDefOf()
     {
