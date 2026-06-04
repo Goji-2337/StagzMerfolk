@@ -27,9 +27,9 @@ public class Dialog_ColorPickerForGenesWithScales : Window
 	private string[] textfieldBuffers = new string[6];
 	private Color textfieldColorBuffer;
 	private string previousFocusedControlName;
+	private Rot4 portraitRotation = new (2);
 	private static readonly Vector2 ButSize = new (150f, 38f);
 	public override Vector2 InitialSize => new (600f, 610f);
-	Rot4 portraitRotation = new (2);
 	
 	private readonly Pawn pawn;
     
@@ -45,9 +45,9 @@ public class Dialog_ColorPickerForGenesWithScales : Window
         oldColor = color;
     }
 
-    private void SaveColor(Color paramcolor)
+    private void SaveColor()
     {
-        pawn.TrySetMerrenScaleColor(paramcolor);
+        pawn.TrySetMerrenScaleColor(color);
     } 
     
     
@@ -78,7 +78,6 @@ public class Dialog_ColorPickerForGenesWithScales : Window
 			}
 			if (Widgets.ButtonText(BottomButtonsDivider.NewCol(ButSize.x, HorizontalJustification.Right), "Close".Translate()))
 			{
-				SaveColor(color);
 				Close();
 			}
 
@@ -95,17 +94,17 @@ public class Dialog_ColorPickerForGenesWithScales : Window
 					//the "Genetic Color" box and label at the top of palette
 					RectDivider ColorBoxRowGenetic = rightCol.NewRow(ColorIconSizeWithPadding);
 					RectDivider ColorBoxGenetic = ColorBoxRowGenetic.NewCol(ColorIconSizeWithPadding);
-					Widgets.ColorBox(ColorBoxGenetic.Rect, ref color, (Color) geneticColor, ColorIconSize, ColorIconPadding, delegate { SaveColor(color);});
+					Widgets.ColorBox(ColorBoxGenetic.Rect, ref color, (Color) geneticColor, ColorIconSize, ColorIconPadding, delegate { SaveColor();});
 					Widgets.Label(ColorBoxRowGenetic.Rect, "StagzMerfolk_UI_GeneticColor".Translate().CapitalizeFirst());
 				}
 				//the "Old Color" box and label at the top of palette
 				RectDivider ColorBoxRow = rightCol.NewRow(ColorIconSizeWithPadding);
 				RectDivider ColorBox = ColorBoxRow.NewCol(ColorIconSizeWithPadding);
-				Widgets.ColorBox(ColorBox.Rect, ref color, oldColor, ColorIconSize, ColorIconPadding, delegate { SaveColor(color); });
+				Widgets.ColorBox(ColorBox.Rect, ref color, oldColor, ColorIconSize, ColorIconPadding, delegate { SaveColor(); });
 				Widgets.Label(ColorBoxRow.Rect, "OldColor".Translate().CapitalizeFirst());
 				//the palette itself
 				Widgets.ColorSelector(rightCol.Rect, ref color, Gene_WithScaleColor.defaultColors,
-					out var paletteHeight, null, ColorIconSize, ColorIconPadding, delegate { SaveColor(color); });
+					out var paletteHeight, null, ColorIconSize, ColorIconPadding, delegate { SaveColor(); });
 				rightCol.NewRow(paletteHeight);
 			}
 
@@ -138,15 +137,8 @@ public class Dialog_ColorPickerForGenesWithScales : Window
 				pawn,
 				new Vector2(position.width / 2, position.height / 2),
 				portraitRotation,
-				default,
-				1f,
-				true,
-				true,
-				false,
-				false,
-				null,
-				null,
-				true);
+				renderHeadgear: false,
+				renderClothes: false);
 			GUI.DrawTexture(position, image);
 			
 			TabControl();
@@ -157,32 +149,17 @@ public class Dialog_ColorPickerForGenesWithScales : Window
 		}
 	}
 
-	//there was probably a switch statement in source code but I can't pack the decompiled code into that right now
 	private static void TabControl()
 	{
-		if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.Tab)
-		{
-			Event.current.Use();
-			string text = GUI.GetNameOfFocusedControl();
-			if (text.NullOrEmpty())
-			{
-				text = focusableControlNames[0];
-			}
-			int num2 = focusableControlNames.IndexOf(text);
-			if (num2 < 0)
-			{
-				num2 = focusableControlNames.Count;
-			}
-			num2 += 1;
-			if (num2 >= focusableControlNames.Count)
-			{
-				num2 = 0;
-			}
-			else if (num2 < 0)
-			{
-				num2 = focusableControlNames.Count - 1;
-			}
-			GUI.FocusControl(focusableControlNames[num2]);
-		}
+		if (Event.current.type != EventType.KeyDown || Event.current.keyCode != KeyCode.Tab)
+			return;
+		
+		Event.current.Use();
+		string text = GUI.GetNameOfFocusedControl();
+		int index = text.NullOrEmpty() ? 0 : focusableControlNames.IndexOf(text);
+		++index;
+		index %= focusableControlNames.Count;
+		
+		GUI.FocusControl(focusableControlNames[index]);
 	}
 }
