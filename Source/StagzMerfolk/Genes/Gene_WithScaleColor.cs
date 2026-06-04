@@ -24,12 +24,12 @@ public class Gene_WithScaleColor : Gene
         {
             if (_chosenColor == null)
             {
-                if (this is Gene_Fishtail && def.RenderNodeProperties?.First()?.color != null)
+                if (this is Stagz_Gene_Tail_Fish && def.RenderNodeProperties?.First()?.color != null)
                 {
                     _chosenColor = def.RenderNodeProperties.First().color;
-                } else if (pawn?.genes?.GetFirstGeneOfType<Gene_Fishtail>()?._chosenColor != null)
+                } else if (pawn?.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>()?._chosenColor != null)
                 {
-                    _chosenColor = pawn.genes.GetFirstGeneOfType<Gene_Fishtail>()._chosenColor;
+                    _chosenColor = pawn.genes.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>()._chosenColor;
                 } else if (pawn?.genes?.GetFirstGeneOfType<Gene_WithScaleColor>()?._chosenColor != null)
                 {
                     _chosenColor = pawn.genes.GetFirstGeneOfType<Gene_WithScaleColor>()._chosenColor;
@@ -51,7 +51,7 @@ public class Gene_WithScaleColor : Gene
     public override void PostMake()
     {
         base.PostMake();
-        if (this is Gene_Fishtail)
+        if (this is Stagz_Gene_Tail_Fish)
         {
             if (def.RenderNodeProperties.First().color is { } color && color != Color.clear)
             {

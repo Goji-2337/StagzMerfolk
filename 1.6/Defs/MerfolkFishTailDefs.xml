@@ -48,7 +48,7 @@
 
     <!--  Fishtails  -->
     <GeneDef Name="Stagz_FishTail" Abstract="True">
-        <geneClass>StagzMerfolk.Gene_Fishtail</geneClass>
+        <geneClass>StagzMerfolk.Stagz_Gene_Tail_Fish</geneClass>
         <label>fishtail</label>
         <description>Carriers of this gene grow a fish-like tail below their waist instead of human legs.</description>
         <customEffectDescriptions>

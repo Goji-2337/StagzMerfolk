@@ -7,7 +7,7 @@ using Verse;
 namespace StagzMerfolk;
 
 [UsedImplicitly]
-public class Need_Aquatic : Need
+public class Stagz_Need_Aquatic : Need
 {
     private const float BaseGainRatePerTick = 0.0075f;
     private const float BaseFallRatePerTick = 0.0003f;
@@ -23,7 +23,7 @@ public class Need_Aquatic : Need
         || pawn.InRain()
         || pawn.health.hediffSet.HasHediff(StagzDefOf.IntheStandaloneHotSpring);
     
-    public Need_Aquatic(Pawn pawn) : base(pawn)
+    public Stagz_Need_Aquatic(Pawn pawn) : base(pawn)
     {
         threshPercents = [0.1f];
     }

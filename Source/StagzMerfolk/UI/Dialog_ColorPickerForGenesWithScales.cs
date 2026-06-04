@@ -88,7 +88,7 @@ public class Dialog_ColorPickerForGenesWithScales : Window
 			//ColorPalette;
 			using (new TextBlock(TextAnchor.MiddleLeft))
 			{
-				Color? geneticColor = pawn.genes?.GetFirstGeneOfType<Gene_Fishtail>()?.def.RenderNodeProperties.First().color;
+				Color? geneticColor = pawn.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>()?.def.RenderNodeProperties.First().color;
 				if (geneticColor != null)
 				{
 					//the "Genetic Color" box and label at the top of palette

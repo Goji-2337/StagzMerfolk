@@ -34,7 +34,7 @@
     </GeneDef>
     <NeedDef>
         <defName>Stagz_NeedAquatic</defName>
-        <needClass>StagzMerfolk.Need_Aquatic</needClass>
+        <needClass>StagzMerfolk.Stagz_Need_Aquatic</needClass>
         <label>aquatic hydration</label>
         <description>Hydration is the need for aquatic creatures to regularly access water. Standing in rain or passing water bodies such as marsh and river are the most effective way to replenish the need. Pawn will try to find a water body if the need runs low. If it is at zero, an aquatic creature will become increasingly dehydrated and eventually die.</description>
         <baseLevel>0.01</baseLevel>
