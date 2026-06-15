@@ -73,6 +73,7 @@
         <bodyType>Standard</bodyType>
         <exclusionTags>
             <li>Fur</li>
+            <li>Tail</li>
         </exclusionTags>
     </GeneDef>
 

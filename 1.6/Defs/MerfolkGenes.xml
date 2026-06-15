@@ -230,7 +230,7 @@
         </symbolPack>
     </GeneDef>
     
-    <GeneDef ParentName="GeneTailBase">
+    <GeneDef>
         <defName>Stagz_BodyFin</defName>
         <geneClass>StagzMerfolk.Gene_WithScaleColor</geneClass>
         <label>pelvic fins</label>
@@ -250,6 +250,8 @@
         </conditionalStatAffecters>
         <biostatCpx>1</biostatCpx>
         <biostatMet>0</biostatMet>
+        <displayCategory>Miscellaneous</displayCategory>
+        <randomChosen>true</randomChosen>
         <renderNodeProperties>
             <li Class="StagzMerfolk.PawnRenderNodeProperties_HasDesiccatedGraphics">
                 <debugLabel>Stagz_BodyFin</debugLabel>
