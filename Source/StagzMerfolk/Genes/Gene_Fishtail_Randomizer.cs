@@ -11,7 +11,7 @@ public static class TailColours
         .Where(g => g.geneClass == typeof(Stagz_Gene_Tail_Fish));
 }
 
-public class Stagz_Gene_Tail_Fish_Randomizer : Gene
+public class Gene_Fishtail_Randomizer : Gene
 {
     public override void PostAdd()
     {

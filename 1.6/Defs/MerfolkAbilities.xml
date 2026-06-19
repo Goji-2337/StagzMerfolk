@@ -28,8 +28,8 @@
             </targetParams>
         </verbProperties>
         <comps>
-            <li Class="StagzMerfolk.CompAbility.CompProperties_AbilitySirenSong">
-                <compClass>StagzMerfolk.CompAbility.CompAbilityEffect_SirenSong</compClass>
+            <li Class="StagzMerfolk.CompProperties_AbilitySirenSong">
+                <compClass>StagzMerfolk.CompAbilityEffect_SirenSong</compClass>
                 <hediff>Stagz_Infatuated</hediff>
             </li>
         </comps>
@@ -175,8 +175,8 @@
             </targetParams>
         </verbProperties>
         <comps>
-            <li Class="StagzMerfolk.CompAbility.CompProperties_AbilityCallWeather">
-                <compClass>StagzMerfolk.CompAbility.CompAbilityEffect_CallWeather</compClass>
+            <li Class="StagzMerfolk.CompProperties_AbilityCallWeather">
+                <compClass>StagzMerfolk.CompAbilityEffect_CallWeather</compClass>
                 <weatherDefs>
                     <li>RainyThunderstorm</li>
                     <li>FoggyRain</li>
@@ -210,7 +210,7 @@
         </verbProperties>
         <comps>
             <li Class="CompProperties_AbilityEffect">
-                <compClass>StagzMerfolk.CompAbility.CompAbility_RequiresOnWater</compClass>
+                <compClass>StagzMerfolk.CompAbility_RequiresOnWater</compClass>
             </li>
             <li Class="CompProperties_AbilityGiveHediff">
                 <compClass>CompAbilityEffect_GiveHediff</compClass>
@@ -231,7 +231,7 @@
             <li Class="HediffCompProperties_Invisibility">
                 <visibleToPlayer>true</visibleToPlayer>
             </li>
-            <li Class="StagzMerfolk.CompAbility.HediffCompProperties_DisappearsOnLeavingWater"/>
+            <li Class="StagzMerfolk.HediffCompProperties_DisappearsOnLeavingWater"/>
             <li Class="HediffCompProperties_DisappearsOnDeath"/>
         </comps>
     </HediffDef>

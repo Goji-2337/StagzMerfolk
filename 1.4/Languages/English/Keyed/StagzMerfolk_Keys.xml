@@ -4,9 +4,10 @@
     <StagzMerfolk_ConditionalStatEffector_WaterOrRain>in water or rain</StagzMerfolk_ConditionalStatEffector_WaterOrRain>
     <StagzMerfolk_ConditionalStatEffector_NotWater>not in water</StagzMerfolk_ConditionalStatEffector_NotWater>
     <StagzMerfolk_ConditionalStatEffector_Rain>in rain</StagzMerfolk_ConditionalStatEffector_Rain>
-    <AbilityDisabledNotOnWater>must be standing on a water tile</AbilityDisabledNotOnWater>
+    <AbilityDisabledNotOnWater>must be stood on a water tile</AbilityDisabledNotOnWater>
     <StagzMerfolk_CannotWearBecauseOfTail>{0} tried to wear clothing that covers legs, but could not because they have a tail</StagzMerfolk_CannotWearBecauseOfTail>
     <StagzMerfolk_RainCall>{0} has called forth a {1}. It will begin shortly...</StagzMerfolk_RainCall>
+    <StagzMerfolk_KeenReflexes>keen reflexes</StagzMerfolk_KeenReflexes>
 
     <StagzMerfolk_LetterLabelCharmedJoins>Charmed {PAWN_title}: {PAWN_nameDef}</StagzMerfolk_LetterLabelCharmedJoins>
     <StagzMerfolk_LetterCharmedJoins>After being charmed, a {PAWN_title} named {PAWN_nameDef} wishes to turn a new leaf and wants to join the colony.\n\n[PAWN_pronoun] is willing to contribute, but will soon exile themselves in shame. You can choose to turn {PAWN_objective} down and send {PAWN_objective} away. However, your colonists will be disturbed at sending someone away in need.</StagzMerfolk_LetterCharmedJoins>
@@ -17,16 +18,4 @@
     <StagzMerfolk_LetterLabelVirtuosoJoins>Virtuoso's Calling: {PAWN_nameDef}</StagzMerfolk_LetterLabelVirtuosoJoins>
     <StagzMerfolk_LetterVirtuosoJoins>As the final notes of {SUBJECT_nameDef}'s recital echo through the map, a {PAWN_title} named {PAWN_nameDef} emerges from the nearby depths. Lured by the captivating melody, they are eager to sing along to a new song.\n\nYou can choose to turn {PAWN_objective} down and send {PAWN_objective} away.</StagzMerfolk_LetterVirtuosoJoins>
     <Stagz_UnlockedByGene>Has gene:</Stagz_UnlockedByGene>
-
-    <StagzMerfolk_KeenReflexes>Keen Reflexes</StagzMerfolk_KeenReflexes>
-    <StagzMerfolk_KeenReflexes_Value>Melee dodge applies to ranged attacks</StagzMerfolk_KeenReflexes_Value>
-    <StagzMerfolk_KeenReflexes_Description>Converts melee dodge chance to ranged dodge chance at 1:1 ratio</StagzMerfolk_KeenReflexes_Description>
-    
-    <StagzMerfolk_StatsReport_Powered>Powered</StagzMerfolk_StatsReport_Powered>
-    <StagzMerfolk_StatsReport_Powering>Moving</StagzMerfolk_StatsReport_Powering>
-    <StagzMerfolk_MeditationFocusPerHydroponicsBasinAbstract>{1} per nearby powered hydroponics (up to {0})</StagzMerfolk_MeditationFocusPerHydroponicsBasinAbstract>
-    <StagzMerfolk_MeditationFocusPerHydroponicsBasin>{2} per nearby powered hydroponics ({0} / {1})</StagzMerfolk_MeditationFocusPerHydroponicsBasin>
-
-    <StagzMerfolk_Dehydration>Skin dehydration</StagzMerfolk_Dehydration>
-    <StagzMerfolk_DehydrationDesc>These colonists are aquatic but have been out of water for too long:\n{0}\n\nGet them to water. Even a toxic puddle is fine.</StagzMerfolk_DehydrationDesc>
 </LanguageData>

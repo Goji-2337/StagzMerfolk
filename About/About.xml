@@ -22,21 +22,12 @@
       <displayName>Biotech</displayName>
     </li>
   </modDependencies>
-  <loadAfterByVersion>
-    <v1.5>
-      <li>pathfinding.framework</li>
-    </v1.5>
-  </loadAfterByVersion>
   <loadAfter>
     <li>Ludeon.RimWorld</li>
     <li>Ludeon.RimWorld.Biotech</li>
-    <li>brrainz.harmony</li>
     <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
-    <li>VanillaExpanded.VPlantsE</li>
-    <li>VanillaExpanded.VPlantsEMore</li>
     <li>dubwise.dubsbadhygiene</li>
     <li>dubwise.dubsbadhygiene.lite</li>
-    <li>VanillaExpanded.VPsycastsE</li>
   </loadAfter>
 </ModMetaData>
 

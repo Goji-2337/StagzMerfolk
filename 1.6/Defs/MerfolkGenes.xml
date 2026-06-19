@@ -185,21 +185,22 @@
         <description>Carriers of this gene have finned ears that are covered in scales.</description>
         <iconPath>UI/Icons/Genes/Gene_EarFin</iconPath>        
         <renderNodeProperties>
-            <li>
-                <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+            <li Class="StagzMerfolk.PawnRenderNodeProperties_HasDesiccatedGraphics">
+                <debugLabel>Stagz_FinEars</debugLabel>
+                <nodeClass>StagzMerfolk.PawnRenderNode_FinEars</nodeClass>
                 <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
                 <texPath>Things/Pawn/Humanlike/HeadAttachments/MerfolkEars/ears</texPath>
                 <colorType>Skin</colorType>
-                <colorRGBPostFactor>0.9</colorRGBPostFactor>
                 <parentTagDef>Head</parentTagDef>
                 <useSkinShader>true</useSkinShader>
                 <useRottenColor>true</useRottenColor>
-                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
                 <drawData>
                     <defaultData>
                         <layer>70</layer>
                     </defaultData>
                 </drawData>
+                <desiccatedTexPath>Things/Pawn/Humanlike/HeadAttachments/MerfolkEars/ears_desiccated</desiccatedTexPath>
             </li>
         </renderNodeProperties>
         <endogeneCategory>Ears</endogeneCategory>
@@ -229,8 +230,9 @@
         </symbolPack>
     </GeneDef>
     
-    <GeneDef ParentName="GeneTailBase">
+    <GeneDef>
         <defName>Stagz_BodyFin</defName>
+        <geneClass>StagzMerfolk.Gene_WithScaleColor</geneClass>
         <label>pelvic fins</label>
         <description>Carriers of this gene develop a pair of fins near their waist.</description>
         <customEffectDescriptions>
@@ -248,8 +250,11 @@
         </conditionalStatAffecters>
         <biostatCpx>1</biostatCpx>
         <biostatMet>0</biostatMet>
+        <displayCategory>Miscellaneous</displayCategory>
+        <randomChosen>true</randomChosen>
         <renderNodeProperties>
-            <li>
+            <li Class="StagzMerfolk.PawnRenderNodeProperties_HasDesiccatedGraphics">
+                <debugLabel>Stagz_BodyFin</debugLabel>
                 <nodeClass>StagzMerfolk.PawnRenderNode_Fishfin</nodeClass>
                 <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
                 <texPath>Things/Pawn/Humanlike/BodyAttachments/MerfolkFins/fins</texPath>
@@ -257,10 +262,9 @@
                 <color>(0, 126.5, 126.5)</color>
                 <overrideMeshSize>(1, 1)</overrideMeshSize>
                 <parentTagDef>Body</parentTagDef>
-                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
                 <useRottenColor>true</useRottenColor>
                 <drawData>
-                    <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
                     <defaultData>
                         <layer>90</layer>
                         <offset>(0, 0, -0.15)</offset>
@@ -269,6 +273,7 @@
                         <layer>-2</layer>
                     </dataNorth>
                 </drawData>
+                <desiccatedTexPath>Things/Pawn/Humanlike/BodyAttachments/MerfolkFins/fins_desiccated</desiccatedTexPath>
             </li>
         </renderNodeProperties>
     </GeneDef>

@@ -5,12 +5,12 @@ using Verse;
 
 namespace StagzMerfolk;
 
-public class Stagz_Alert_Dehydration : Alert
+public class Alert_Dehydration : Alert
 {
     private readonly List<Pawn> dehydratedColonists = [];
     private readonly StringBuilder sb = new StringBuilder();
 
-    public Stagz_Alert_Dehydration()
+    public Alert_Dehydration()
     {
         defaultLabel = "StagzMerfolk_Dehydration".Translate();
         defaultPriority = AlertPriority.High;

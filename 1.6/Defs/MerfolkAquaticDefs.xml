@@ -109,7 +109,7 @@
 
     <ThoughtDef>
         <defName>Stagz_DehydrationThought</defName>
-        <workerClass>StagzMerfolk.Stagz_ThoughtWorker_NeedHydration</workerClass>
+        <workerClass>StagzMerfolk.ThoughtWorker_NeedHydration</workerClass>
         <validWhileDespawned>true</validWhileDespawned>
         <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
         <stages>

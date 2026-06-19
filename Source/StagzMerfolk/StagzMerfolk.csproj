@@ -1,14 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
-        <OutputType>Library</OutputType>
         <TargetFramework>net48</TargetFramework>
         <RootNamespace>StagzMerfolk</RootNamespace>
         <AssemblyName>StagzMerfolk</AssemblyName>
         <LangVersion>latest</LangVersion>
-        <Deterministic>true</Deterministic>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
@@ -30,15 +28,37 @@
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
+        <!--
+        royallyTipsy:
+        I define explicit paths to dlls because I use Rider which allows to decompile directly from IDE.
+        Krafs reference is defined below and should be automatically picked if there is a need for fallbacks.
+        Many thanks to Gareth's Rimworld template for that bit btw
+        -->
+        <Reference Include="Assembly-CSharp">
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.IMGUIModule.dll">
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TextRenderingModule.dll">
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+
+<!-- The below condition will check if you've defined a reference called "Assembly-CSharp" and if that reference exists on disk.
+    If that reference does not exist, it will add Krafs Rimworld Ref to the project. If it does exist, Krafs won't be added
+    as a reference. This basically means that Krafs is treated as a fallback if Assembly-CSharp is not found -->
+    <ItemGroup Condition="'@(Reference->WithMetadataValue('Identity', 'Assembly-CSharp')->Metadata('HintPath')->Exists())' == ''">
+        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*"/>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*-*" />
-        <PackageReference Include="Lib.Harmony" Version="2.*">
-            <ExcludeAssets>runtime</ExcludeAssets>
-            <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
+        <PackageReference Include="Lib.Harmony" Version="2.*"/>
     </ItemGroup>
-    <PropertyGroup>
-        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    </PropertyGroup>
 </Project>

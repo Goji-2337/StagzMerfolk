@@ -8,24 +8,21 @@ namespace StagzMerfolk.HarmonyPatches;
 [HarmonyPatch]
 public class DbhHygieneCleanPatches
 {
-    [HarmonyPrepare]
-    private static bool shouldPatchBadHygiene()
+    private static bool Prepare()
     {
-        return ModsConfig.IsActive("Dubwise.DubsBadHygiene") || ModsConfig.IsActive("Dubwise.DubsBadHygiene.Lite");
+        return ModLister.AnyModActiveNoSuffix(["Dubwise.DubsBadHygiene", "Dubwise.DubsBadHygiene.Lite"]);
     }
 
-    [HarmonyTargetMethod]
-    public static MethodInfo TargetMethod()
+    private static MethodInfo TargetMethod()
     {
         return AccessTools.Method("DubsBadHygiene.Need_Hygiene:clean");
     }
 
-    [HarmonyPostfix]
     private static void Postfix(float val, ref Pawn ___pawn)
     {
-        if (StagzMerfolkSettings.dbhCleaningCountsAsHydration && ___pawn?.genes != null && ___pawn.genes.HasActiveGene(StagzDefOf.Stagz_Aquatic) && ___pawn.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic) != null)
+        if (StagzMerfolkSettings.dbhCleaningCountsAsHydration && ___pawn?.needs?.TryGetNeed(StagzDefOf.Stagz_NeedAquatic) is {} need)
         {
-            ___pawn.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic).CurLevel = Math.Min(___pawn.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic).CurLevel + val, 1f);
+            need.CurLevel = Math.Min(___pawn.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic).CurLevel + val, 1f);
         }
     }
 }

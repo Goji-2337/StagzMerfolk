@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <ThingDef ParentName="PlantBaseNonEdible" MayRequire="VanillaExpanded.VPlantsEMore">
+    <ThingDef ParentName="PlantBaseNonEdible">
         <defName>Stagz_WoodKelp</defName>
         <label>fibrekelp</label>
         <description>An aquatic plant that yields a fibrous, wood-like substance; they are fibrecorn’s distant cousin.</description>
@@ -34,7 +34,7 @@
         </plant>
     </ThingDef>
     
-    <ThingDef ParentName="PlantBase" MayRequire="VanillaExpanded.VPlantsEMore">
+    <ThingDef ParentName="PlantBase">
         <defName>Stagz_DarkAlgae</defName>
         <label>quackweed</label>
         <description>An aquatic plant that requires only low light to grow. They are extremely fast to sow and harvest.</description>
@@ -73,7 +73,7 @@
         </plant>
     </ThingDef>
 
-    <ThingDef ParentName="PlantFoodRawBase" MayRequire="VanillaExpanded.VPlantsEMore">
+    <ThingDef ParentName="PlantFoodRawBase">
         <defName>Stagz_RawDarkAlgae</defName>
         <label>raw quackweed</label>
         <description>An aquatic plant that is commonly consumed by water fowls. Surprisingly, it is edible for humans. It has a neutral to mild taste but some also claim it tastes like sweet cabbage.</description>

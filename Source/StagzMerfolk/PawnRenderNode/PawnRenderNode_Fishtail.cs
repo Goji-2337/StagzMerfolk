@@ -1,15 +1,14 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using Verse;
 
 namespace StagzMerfolk;
 
-public class PawnRenderNode_Fishtail : PawnRenderNode
+[UsedImplicitly]
+public class PawnRenderNode_Fishtail(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree)
+    : PawnRenderNode(pawn, props, tree)
 {
-    public PawnRenderNode_Fishtail(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree) : base(pawn, props,
-        tree)
-    {
-    }
-
+    private new PawnRenderNodeProperties_HasDesiccatedGraphics Props => props as PawnRenderNodeProperties_HasDesiccatedGraphics;
     public override Graphic GraphicFor(Pawn pawn)
     {
         if (pawn.story?.furDef == null)
@@ -21,20 +20,25 @@ public class PawnRenderNode_Fishtail : PawnRenderNode
         {
             case RotDrawMode.Fresh:
                 return GraphicDatabase.Get<Graphic_Multi>(
-                    pawn.story?.furDef.GetFurBodyGraphicPath(pawn),
+                    pawn.story.furDef.GetFurBodyGraphicPath(pawn),
                     ShaderDatabase.CutoutComplex,
                     Vector2.one,
-                    pawn.story?.SkinColor ?? Color.white,
-                    Props.color ?? ColorFor(pawn)
-                );
+                    pawn.story.SkinColor,
+                    ColorFor(pawn)
+                    );
             case RotDrawMode.Rotting:
                 return GraphicDatabase.Get<Graphic_Multi>(
                     pawn.story?.furDef.GetFurBodyGraphicPath(pawn),
                     ShaderDatabase.CutoutComplex,
                     Vector2.one,
-                    PawnRenderUtility.GetRottenColor(pawn.story?.SkinColor ?? Color.white),
-                    Props.color ?? ColorFor(pawn)
-                );
+                    PawnRenderUtility.GetRottenColor(pawn.story!.SkinColor),
+                    ColorFor(pawn)
+                    );
+            case RotDrawMode.Dessicated: 
+                return GraphicDatabase.Get<Graphic_Multi>(
+                    Props.desiccatedTexPath,
+                    ShaderFor(pawn)
+                    );
             default:
                 return base.GraphicFor(pawn);
         }
@@ -42,6 +46,6 @@ public class PawnRenderNode_Fishtail : PawnRenderNode
 
     public override Color ColorFor(Pawn pawn)
     {
-        return pawn.story.HairColor;
+        return pawn.GetMerrenScaleColorOrFailsafe();
     }
 }
