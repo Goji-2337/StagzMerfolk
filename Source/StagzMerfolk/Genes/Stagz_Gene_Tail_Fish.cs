@@ -10,6 +10,7 @@ public class Stagz_Gene_Tail_Fish : Gene_WithScaleColor
     public override void PostMake()
     {
         base.PostMake();
+        pawn.RemoveLegOnlyApparel(true);
         //Only run this on first tail added - otherwise can lead to cursed loop with fishtail hediffcomp
         if (pawn.genes.GenesListForReading.OfType<Stagz_Gene_Tail_Fish>().Count() == 0)
             foreach (var leg in pawn.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Leg))
