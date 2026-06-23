@@ -22,6 +22,7 @@ public class StagzDefOf
     public static NeedDef Stagz_NeedAquatic;
     public static JobDef Stagz_HydrateAquaticJob;
 
+    [MayRequireAnyOf("Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Anomaly")]
     public static AbilityDef Stagz_DeepDive;
 
     public static BodyPartGroupDef Feet;

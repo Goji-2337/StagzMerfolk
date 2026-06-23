@@ -186,7 +186,8 @@
         </comps>
     </AbilityDef>
 
-    <AbilityDef>
+    <!-- Invisibility comp is locked to Royalty/Anomaly, with an insidious check for installation instead of enabled -->
+    <AbilityDef MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Anomaly">
         <defName>Stagz_DeepDive</defName>
         <label>deep dive</label>
         <description>Dive into a water tile and become invisible. Caster can move freely within water tiles, but any other actions will cancel the invisibility.</description>
@@ -221,10 +222,10 @@
             </li>
         </comps>
     </AbilityDef>
-    <HediffDef>
+    <HediffDef MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Anomaly">
         <defName>Stagz_DeepDiving</defName>
         <label>deep diving</label>
-        <description>This person can breathe under water. They are lurking here and waiting for opportunities.</description>
+        <description>This person can breathe underwater. They are lurking here and waiting for opportunities.</description>
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <comps>
