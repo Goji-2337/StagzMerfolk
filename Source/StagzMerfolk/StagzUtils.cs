@@ -11,27 +11,25 @@ public static class StagzUtils
 {
     public static bool InRain(this Pawn pawn)
     {
-        return pawn.Map != null && pawn.Position.GetTerrain(pawn.Map) != null &&  
-               !pawn.Position.Roofed(pawn.Map) && pawn.Map.weatherManager.RainRate > 0.01f;
+        return pawn.Map != null && !pawn.Position.Roofed(pawn.Map) && pawn.Map.weatherManager.RainRate > 0.01f;
     }
 
     public static bool OnWater(this Pawn pawn)
     {
-        return pawn.Map != null && pawn.Position.GetTerrain(pawn.Map) != null && pawn.Position.GetTerrain(pawn.Map).IsWater;
+        //GetTerrain can never be null. Defaults to soil
+        return pawn.Map != null && pawn.Position.GetTerrain(pawn.Map).IsWater;
     }
 
     public static bool InRiver(this Pawn pawn)
     {
-        return pawn.Map != null && pawn.Position.GetTerrain(pawn.Map) != null && pawn.Position.GetTerrain(pawn.Map).IsRiver;
+        //Same as above
+        return pawn.Map != null && pawn.Position.GetTerrain(pawn.Map).IsRiver;
     }
     
-    public static Color? TryGetMerrenScaleColor(this Pawn pawn)
-    {
-        if (pawn?.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>() != null)
-        {
-            return pawn.genes.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>().ChosenColor;
-        }
-        return pawn?.genes?.GetFirstGeneOfType<Gene_WithScaleColor>()?.ChosenColor;
+    public static Color? TryGetMerrenScaleColor(this Pawn pawn) {
+        
+        return pawn?.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>()?.ChosenColor
+               ?? pawn?.genes?.GetFirstGeneOfType<Gene_WithScaleColor>()?.ChosenColor;
     }
     
     public static Color GetMerrenScaleColorOrFailsafe(this Pawn pawn)
