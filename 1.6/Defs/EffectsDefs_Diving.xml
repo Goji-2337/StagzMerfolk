@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-    <!-- Final effecter packages used by other defs -->
-    <EffecterDef Abstract="True" Name="Stagz_DeepDiveBase">
+    <!-- Bases for effecters -->
+    <EffecterDef Abstract="True" Name="Stagz_DeepDiveRippleBase">
         <children>
             <li>
                 <!-- Ripple -->
@@ -13,14 +13,8 @@
         </children>
     </EffecterDef>
     
-    <EffecterDef ParentName="Stagz_DeepDiveBase">
-        <defName>Stagz_DeepDiveSubmerge</defName>
+    <EffecterDef Abstract="True" ParentName="Stagz_DeepDiveRippleBase" Name="Stagz_DeepDiveBase">
         <children>
-            <li>
-                <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
-                <spawnLocType>OnSource</spawnLocType>
-                <soundDef>Stagz_DeepDiveSubmerge</soundDef>
-            </li>
             <li>
                 <!-- Big blue vertical splash -->
                 <subEffecterClass>SubEffecter_SprayerTriggeredChance</subEffecterClass>
@@ -48,8 +42,33 @@
         </children>
     </EffecterDef>
     
+    
+    <!-- Final effecter packages used by other defs -->
     <EffecterDef ParentName="Stagz_DeepDiveBase">
+        <defName>Stagz_DeepDiveSubmerge</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+                <spawnLocType>OnSource</spawnLocType>
+                <soundDef>Stagz_DeepDiveSubmerge</soundDef>
+            </li>
+        </children>
+    </EffecterDef>
+
+    <EffecterDef ParentName="Stagz_DeepDiveRippleBase">
         <defName>Stagz_DeepDiveEmerge</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+                <spawnLocType>OnSource</spawnLocType>
+                <soundDef>Stagz_DeepDiveEmerge</soundDef>
+            </li>
+        </children>
+    </EffecterDef>
+
+    <!-- Used by incident code -->
+    <EffecterDef ParentName="Stagz_DeepDiveBase">
+        <defName>Stagz_MerrenJoinerEmergeFromWater</defName>
         <children>
             <li>
                 <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>

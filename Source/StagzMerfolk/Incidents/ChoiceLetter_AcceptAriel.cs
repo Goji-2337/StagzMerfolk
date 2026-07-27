@@ -5,24 +5,21 @@ namespace StagzMerfolk;
 
 public class ChoiceLetter_AcceptAriel : ChoiceLetter_AcceptCharmedJoiner
 {
-    public override DiaOption RejectOption()
-    {
-        return new DiaOption("Reject")
+    protected override DiaOption RejectOption => new ("RejectLetter".Translate())
         {
             action = delegate
             {
-                GenExplosion.DoExplosion(asker.Position, asker.Map, 4.9f, DamageDefOf.Extinguish, null, -1, -1f, 
-                    SoundDefOf.Explosion_FirefoamPopper, null, null, null, ThingDefOf.Filth_FireFoam, 1f);
+                //clears frozen water but this is vanilla "bug"
+                GenExplosion.DoExplosion(center: asker.Position, map: asker.Map, radius: 4.9f, damType: DamageDefOf.Extinguish, instigator: null, explosionSound: SoundDefOf.Explosion_FirefoamPopper, postExplosionSpawnThingDef: ThingDefOf.Filth_FireFoam, postExplosionSpawnChance: 1);
                 
                 asker.Kill(null);
                 CompRottable comp;
                 if (asker.ParentHolder is Corpse c && (comp = c.GetComp<CompRottable>()) != null)
                 {
-                    comp.RotProgress = (float)comp.PropsRot.TicksToDessicated;
+                    comp.RotProgress = comp.PropsRot.TicksToDessicated;
                 }
                 Find.LetterStack.RemoveLetter(this);
             },
             resolveTree = true
         };
-    }
 }

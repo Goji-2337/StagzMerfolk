@@ -7,74 +7,55 @@ namespace StagzMerfolk;
 public class ChoiceLetter_AcceptCharmedJoiner : ChoiceLetter
 {
     public Pawn asker;
+    
+    //TODO: don't think I need this bool but I need to rework Charm first
     public bool requiresAliveAsker;
     public override bool CanDismissWithRightClick => false;
-
-    public override bool CanShowInLetterStack
-    {
-        get
-        {
-            if (!base.CanShowInLetterStack)
-            {
-                return false;
-            }
-
-            if (this.requiresAliveAsker && (this.asker == null || this.asker.Dead))
-            {
-                return false;
-            }
-
-            return true;
-        }
-    }
+    public override bool CanShowInLetterStack => base.CanShowInLetterStack && (!requiresAliveAsker || asker is { Dead: false });
 
     public override IEnumerable<DiaOption> Choices
     {
         get
         {
-            if (base.ArchivedOnly)
+            if (ArchivedOnly)
             {
-                yield return base.Option_Close;
+                yield return Option_Close;
                 yield break;
             }
 
-            if (this.lookTargets.IsValid())
+            if (lookTargets.IsValid())
             {
-                yield return base.Option_JumpToLocationAndPostpone;
+                yield return Option_JumpToLocationAndPostpone;
             }
 
-            var accept = new DiaOption("Accept")
-            {
-                action = delegate
-                {
-                    if (asker.Spawned)
-                    {
-                        asker.mindState.mentalStateHandler.Reset();
-                    }
-                    else
-                    {
-                        IntVec3 cell;
-                        Map map = Find.AnyPlayerHomeMap;
-                        CellFinder.TryFindRandomEdgeCellWith((IntVec3 c) => map.reachability.CanReachColony(c) && !c.Fogged(map), map, CellFinder.EdgeRoadChance_Neutral, out cell);
-                        GenSpawn.Spawn(asker, cell, map);
-                    }
-
-                    RecruitUtility.Recruit(asker, Faction.OfPlayer);
-                    Find.LetterStack.RemoveLetter(this);
-                },
-                resolveTree = true
-            };
-            var reject = RejectOption();
-
-            yield return accept;
-            yield return reject;
-            yield return base.Option_Postpone;
+            yield return AcceptOption;
+            yield return RejectOption;
+            yield return Option_Postpone;
         }
     }
-
-    public virtual DiaOption RejectOption()
+    
+    protected virtual DiaOption AcceptOption => new ("Accept".Translate())
     {
-        return new DiaOption("Reject")
+        action = delegate
+        {
+            if (asker.Spawned)
+            {
+                asker.mindState.mentalStateHandler.Reset();
+            }
+            else
+            {
+                Map map = Find.AnyPlayerHomeMap;
+                CellFinder.TryFindRandomEdgeCellWith(c=> map.reachability.CanReachColony(c) && !c.Fogged(map), map, CellFinder.EdgeRoadChance_Neutral, out var cell);
+                GenSpawn.Spawn(asker, cell, map);
+            }
+
+            RecruitUtility.Recruit(asker, Faction.OfPlayer);
+            Find.LetterStack.RemoveLetter(this);
+        },
+        resolveTree = true
+    };
+
+    protected virtual DiaOption RejectOption => new ("RejectLetter".Translate())
         {
             action = delegate
             {
@@ -83,12 +64,11 @@ public class ChoiceLetter_AcceptCharmedJoiner : ChoiceLetter
             },
             resolveTree = true
         };
-    }
 
     public override void ExposeData()
     {
         base.ExposeData();
-        Scribe_References.Look<Pawn>(ref this.asker, "asker", false);
-        Scribe_Values.Look<bool>(ref this.requiresAliveAsker, "requiresAliveAsker", false, false);
+        Scribe_References.Look(ref asker, "asker");
+        Scribe_Values.Look(ref requiresAliveAsker, "requiresAliveAsker");
     }
 }

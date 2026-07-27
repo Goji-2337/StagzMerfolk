@@ -1,16 +1,18 @@
-﻿using RimWorld;
+﻿using JetBrains.Annotations;
+using RimWorld;
 using Verse;
+using Verse.AI.Group;
 
 namespace StagzMerfolk;
 
+[UsedImplicitly]
 public class IncidentWorker_VirtuosoSummoned : IncidentWorker_ArielSummoned
 {
-    public override string letterlabeljoins =>  "StagzMerfolk_LetterLabelVirtuosoJoins";
-    public override string letterjoins => "StagzMerfolk_LetterVirtuosoJoins";
-
-    protected override ChoiceLetter_AcceptCharmedJoiner MakeAcceptLetter(TaggedString label, TaggedString taggedString)
+    protected override void AssignLord(ref IncidentParms parms, Pawn pawn, Map map)
     {
-        return (ChoiceLetter_AcceptCharmedJoiner)LetterMaker.MakeLetter(label, taggedString, StagzDefOf.Stagz_AcceptCharmedJoiner, null, null);
+        RCellFinder.TryFindRandomSpotJustOutsideColony(pawn, out var chillSpot);
+        var lordJobVisitColony = new LordJob_VisitColony(parms.faction, chillSpot, GenDate.TicksPerDay);
+        LordMaker.MakeNewLord(parms.faction, lordJobVisitColony, map, [pawn]);
     }
 
     protected override void ControllerPawnEffects(IncidentParms parms, Map map, Pawn pawn)

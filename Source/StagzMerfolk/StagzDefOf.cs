@@ -1,12 +1,12 @@
 ﻿using RimWorld;
 using Verse;
+// ReSharper disable UnassignedField.Global
 
 namespace StagzMerfolk;
 
 [DefOf]
 public class StagzDefOf
 {
-
     public static GeneDef Stagz_KeenReflexes;
     public static GeneDef Stagz_Charming;
     public static GeneDef Stagz_RainVeil;
@@ -25,20 +25,18 @@ public class StagzDefOf
 
     public static JobDef Stagz_GotoWaterCell;
     public static JobDef Stagz_Wait_Hydrate;
+    [MayRequire("balistafreak.StandaloneHotSpring")]
+    public static HediffDef IntheStandaloneHotSpring;
     
     public static MentalStateDef Stagz_Charmed;
     public static MentalStateDef Stagz_VeryCharmed;
 
     public static LetterDef Stagz_AcceptCharmedJoiner;
-    public static LetterDef Stagz_AcceptAriel;
-
-    public static PawnKindDef Stagz_Ariel;
-    public static IncidentDef Stagz_ArielSummoned;
     [MayRequireRoyalty]
     public static IncidentDef Stagz_VirtuosoSummoned;
-
-    [MayRequire("balistafreak.StandaloneHotSpring")]
-    public static HediffDef IntheStandaloneHotSpring;
+    public static EffecterDef Stagz_MerrenJoinerEmergeFromWater;
+    [MayRequire("GM.Nautian.Style")]
+    public static StyleCategoryDef GM_Ocean;
     
     static StagzDefOf()
     {

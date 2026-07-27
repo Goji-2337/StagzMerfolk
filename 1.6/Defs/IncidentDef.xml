@@ -1,58 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Defs>
-    <!-- <IncidentDef> -->
-    <!--     <defName>CaravanArrivalTributeCollector</defName> -->
-    <!--     <label>tribute collector caravan arrival</label> -->
-    <!--     <targetTags> -->
-    <!--         <li>Map_PlayerHome</li> -->
-    <!--     </targetTags> -->
-    <!--     <workerClass>IncidentWorker_CaravanArrivalTributeCollector</workerClass> -->
-    <!--     <category>FactionArrival</category> -->
-    <!--     <baseChance>0</baseChance> -->
-    <!--     <requireColonistsPresent>True</requireColonistsPresent> -->
-    <!-- </IncidentDef> -->
-
-    <IncidentDef>
-        <defName>Stagz_ArielSummoned</defName>
-        <label>wayward merren</label>
+    <IncidentDef Abstract="True" Name="MerrenJoinsIncidentBase">
         <category>Special</category>
         <targetTags>
             <li>Map_PlayerHome</li>
         </targetTags>
-        <workerClass>StagzMerfolk.IncidentWorker_ArielSummoned</workerClass>
-        <letterLabel>Wayward merren</letterLabel>
-        <letterText>Sensing trouble, a mysterious [PAWN_kind] has arrived.\n\nWill [PAWN_pronoun] be able to set things right in these parts?</letterText>
         <baseChance>0</baseChance>
         <minRefireDays>60</minRefireDays>
-        <pawnHediff>Stagz_Mute</pawnHediff>
-        <pawnKind>Stagz_Ariel</pawnKind>
-        <modExtensions>
-            <li Class="StagzMerfolk.ArielSpawnModExtension">
-                <SpawnChance>1</SpawnChance>
-            </li>
-        </modExtensions>
     </IncidentDef>
     
-    <IncidentDef MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">
+    <IncidentDef ParentName="MerrenJoinsIncidentBase">
+        <defName>Stagz_ArielSummoned</defName>
+        <label>wayward merren</label>
+        <workerClass>StagzMerfolk.IncidentWorker_ArielSummoned</workerClass>
+        <pawnKind>Stagz_Ariel</pawnKind>
+        <pawnHediff>Stagz_Mute</pawnHediff>
+        <letterDef>Stagz_AcceptAriel</letterDef>
+        <letterLabel>The little {PAWN_title}</letterLabel>
+        <letterText>As {SUBJECT_nameDef} lay wounded on the shore, a {PAWN_title} drawn by their desperation has come to rescue them, turning the tide of {SUBJECT_nameDef}'s destiny. Will you allow {PAWN_nameDef} the little {PAWN_title} to stay?\n\nYou can choose to turn {PAWN_objective} down and send {PAWN_objective} away.</letterText>
+    </IncidentDef>
+    
+    <IncidentDef ParentName="MerrenJoinsIncidentBase" MayRequireAnyOf="Ludeon.RimWorld.Royalty">
         <defName>Stagz_VirtuosoSummoned</defName>
         <label>merren virtuoso</label>
-        <category>Special</category>
-        <targetTags>
-            <li>Map_PlayerHome</li>
-        </targetTags>
         <workerClass>StagzMerfolk.IncidentWorker_VirtuosoSummoned</workerClass>
-        <letterLabel>Virtuoso merren</letterLabel>
-        <letterText>Sensing trouble, a mysterious [PAWN_kind] has arrived.\n\nWill [PAWN_pronoun] be able to set things right in these parts?</letterText>
-        <baseChance>0</baseChance>
-        <pawnKind>Stagz_Ariel</pawnKind>
-        <minRefireDays>60</minRefireDays>
+        <pawnKind>Stagz_Virtuoso</pawnKind>
+        <letterDef>Stagz_AcceptCharmedJoiner</letterDef>
+        <letterLabel>Virtuoso's Calling: {PAWN_nameDef}</letterLabel>
+        <letterText>As the final notes of {SUBJECT_nameDef}'s recital echo through the map, a {PAWN_title} named {PAWN_nameDef} emerges from the nearby depths. Lured by the captivating melody, {PAWN_pronoun} is eager to sing along to a new song.\n\nYou can choose to turn {PAWN_objective} down and send {PAWN_objective} away.</letterText>
         <modExtensions>
             <li Class="StagzMerfolk.ArielSpawnModExtension">
                 <SpawnChance>1</SpawnChance>
             </li>
         </modExtensions>
     </IncidentDef>
-
-   
 </Defs>
