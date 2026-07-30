@@ -221,6 +221,11 @@
         <description>This person can breathe underwater. They are lurking here and waiting for opportunities.</description>
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
+        <stages>
+            <li>
+                <disabledWorkTags>Violent</disabledWorkTags>
+            </li>
+        </stages>
         <comps>
             <li Class="StagzMerfolk.HediffCompProperties_DeepDiveSFX">
                 <addEffecter>Stagz_DeepDiveSubmerge</addEffecter>
