@@ -254,6 +254,7 @@
         <description>Part of a fishtail.</description>
         <defaultLabelColor>(1, 1, 1)</defaultLabelColor>
         <countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
+        <organicAddedBodypart>true</organicAddedBodypart>
         <addedPartProps>
             <solid>true</solid>
             <partEfficiency>1</partEfficiency>

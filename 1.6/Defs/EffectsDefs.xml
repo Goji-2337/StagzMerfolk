@@ -69,23 +69,6 @@
     </FleckDef>
     
     <SoundDef>
-        <defName>StagzMerfolk_DeepDiveSound</defName>
-        <context>MapOnly</context>
-        <maxSimultaneous>5</maxSimultaneous>
-        <subSounds>
-            <li>
-                <muteWhenPaused>True</muteWhenPaused>
-                <grains>
-                    <li Class="AudioGrain_Folder">
-                        <clipFolderPath>Pawn/Abilities/DeepDive</clipFolderPath>
-                    </li>
-                </grains>
-                <volumeRange>70</volumeRange>
-                <distRange>10~70</distRange>
-            </li>
-        </subSounds>
-    </SoundDef>
-    <SoundDef>
         <defName>StagzMerfolk_SirenSongSound</defName>
         <context>MapOnly</context>
         <maxSimultaneous>1</maxSimultaneous>

@@ -1,76 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using HarmonyLib;
 using RimWorld;
-using UnityEngine;
 using Verse;
 
 namespace StagzMerfolk.HarmonyPatches;
 
-public static class TailHelpers
+//Tricks Rimworld into thinking that merfolk don't have leg bodyparts suitable for wearing pants
+[HarmonyPatch(typeof(ApparelUtility), nameof(ApparelUtility.HasPartsToWear))]
+public static class FishtailPatch_ApparelUtility
 {
-    public static BodyPartGroupDef[] LegsOrFeetGroups = new[] { BodyPartGroupDefOf.Legs, StagzDefOf.Feet };
-
-    public static bool GroupsContainsLegsOrFeet(this List<BodyPartGroupDef> bodyPartGroups)
+    public static bool Prefix(Pawn p, ThingDef apparel, ref bool __result)
     {
-        return bodyPartGroups.Exists(group => LegsOrFeetGroups.Contains(group));
-    }
-
-    public static bool CoversMoreThanJustLegs(this List<BodyPartGroupDef> bodyPartGroups)
-    {
-        return bodyPartGroups.Any(group => !LegsOrFeetGroups.Contains(group));
+        if (p?.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>() == null) return true;
+        if (apparel.apparel.bodyPartGroups.CoversMoreThanJustLegs()) return true;
+        __result = false;
+        return false;
     }
 }
 
-[HarmonyPatch(typeof(ApparelProperties), "PawnCanWear", new Type[] { typeof(Pawn), typeof(bool) })]
-public static class ApparelProperties_PawnCanWear_FishtailPatch
+[HarmonyPatch(typeof(PawnTechHediffsGenerator), nameof(PawnTechHediffsGenerator.GenerateTechHediffsFor))]
+public static class FishtailPatch_PawnTechHediffsGenerator
 {
-    private static bool Prefix(Pawn pawn, ref bool __result, ApparelProperties __instance)
+    public static void Postfix(Pawn pawn)
     {
-        // Log.Message(__instance);
-        if (pawn.genes != null && pawn.genes.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>() != null && !__instance.bodyPartGroups.CoversMoreThanJustLegs())
+        if (pawn?.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>() is null) return;
+        
+        //If pawn generated with a leg implant, fishtail and bodyfins are removed/not added.
+        //For now only skips full leg implants, if e.g. a foot is replaced it still gets overwritten by fishtail.
+        foreach (var hediff in pawn.health.hediffSet.hediffs)
         {
-            __result = false;
-            return false;
-        }
-
-        // Log.Message("can wear, continue");
-        return true;
-    }
-}
-
-[HarmonyPatch(typeof(Pawn_ApparelTracker), "Wear")]
-public static class Pawn_ApparelTracker_Wear_FishtailPatch
-{
-    private static bool Prefix(Pawn ___pawn, Apparel newApparel)
-    {
-        if (___pawn.genes != null && ___pawn.genes.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>() != null && !newApparel.def.apparel.bodyPartGroups.CoversMoreThanJustLegs())
-        {
-            // Log.Message("trying to wear: " + newApparel.LabelShort);
-            Messages.Message("StagzMerfolk_CannotWearBecauseOfTail".Translate(___pawn.LabelShort), MessageTypeDefOf.NeutralEvent);
-            return false;
-        }
-
-        return true;
-    }
-}
-
-[HarmonyPatch(typeof(PawnGenerator), "GeneratePawn", new Type[] { typeof(PawnGenerationRequest) })]
-public static class PawnGenerator_GeneratePawn_FishtailPatch
-{
-    public static void Postfix(Pawn __result)
-    {
-        if (__result.genes != null && __result.genes.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>() != null)
-        {
-            for (int i = __result.apparel.WornApparel.Count - 1; i >= 0; i--)
+            if (hediff.def.countsAsAddedPartOrImplant && hediff.Part.def == BodyPartDefOf.Leg)
             {
-                var apparel = __result.apparel.WornApparel[i];
-                if (!apparel.def.apparel.bodyPartGroups.CoversMoreThanJustLegs())
+                var finGene = pawn.genes.GetGene(StagzDefOf.Stagz_BodyFin);
+                if (finGene is not null) pawn.genes.RemoveGene(finGene);
+                foreach (var tailGene in pawn.genes.GenesListForReading.OfType<Stagz_Gene_Tail_Fish>())
                 {
-                    __result.apparel.Remove(apparel);
+                    pawn.genes.RemoveGene(tailGene);
                 }
+
+                return;
             }
+        }
+        
+        //otherwise finish adding tail
+        pawn.RemoveLegOnlyApparel();
+        foreach (var leg in pawn.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Leg))
+        {
+            pawn.health.RestorePart(leg, null, false);
+            pawn.health.AddHediff(StagzDefOf.Stagz_Tail, leg);
         }
     }
 }

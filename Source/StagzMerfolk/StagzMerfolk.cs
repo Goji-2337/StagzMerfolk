@@ -1,27 +1,17 @@
-﻿using System.Reflection;
-using HarmonyLib;
+﻿using HarmonyLib;
 using UnityEngine;
 using Verse;
 
-namespace StagzMerfolk
-{
-    [StaticConstructorOnStartup]
-    public class StagzMerfolkHarmonyPatches
-    {
-        static StagzMerfolkHarmonyPatches()
-        {
-            var harmony = new Harmony("com.arquebus.rimworld.mod.stagzmerfolk");
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
-        }
-    }
-
+namespace StagzMerfolk;
     public class StagzMerfolk : Mod
     {
-        StagzMerfolkSettings settings;
+        private readonly StagzMerfolkSettings settings;
 
         public StagzMerfolk(ModContentPack content) : base(content)
         {
             settings = GetSettings<StagzMerfolkSettings>();
+            var harmony = new Harmony("com.arquebus.rimworld.mod.stagzmerfolk");
+            harmony.PatchAll();
         }
 
         public override void DoSettingsWindowContents(Rect inRect)
@@ -65,4 +55,3 @@ namespace StagzMerfolk
             listingStandard.End();
         }
     }
-}

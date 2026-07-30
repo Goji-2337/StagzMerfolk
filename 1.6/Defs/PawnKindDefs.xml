@@ -1,7 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <Defs>
-    <PawnKindDef ParentName="TribalBase">
+    <PawnKindDef Abstract="True" Name="Stagz_MerrenJoinerBase">
+        <race>Human</race>
+        <defaultFactionDef>Stagz_WaywardMerren</defaultFactionDef>
+        <combatPower>45</combatPower>
+        <minGenerationAge>20</minGenerationAge>
+        <maxGenerationAge>40</maxGenerationAge>
+        <apparelMoney>0~0</apparelMoney> <!-- Forces to spawn only with req apparel. Of which I have none atm because I don't like vanilla options. -->
+        <apparelTags>
+            <li>Neolithic</li>
+        </apparelTags>
+        <weaponMoney>170~300</weaponMoney>
+        <weaponTags>
+            <li>Stagz_MerrenJoiner</li>
+        </weaponTags>
+        <techHediffsChance>0</techHediffsChance> <!-- nuclear option to prevent pawngen messing with tail -->
+        <initialWillRange>0~0</initialWillRange>
+        <initialResistanceRange>0~2</initialResistanceRange>
+        <invNutrition>3.0</invNutrition>
+        <invFoodDef>Pemmican</invFoodDef>
+        <apparelIgnorePollution MayRequire="Ludeon.RimWorld.Biotech">true</apparelIgnorePollution>
+        <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+        <apparelRequired>
+            <!--
+            <li>Apparel_Sash</li>
+            <li>Apparel_TribalHeaddress</li>
+            -->
+        </apparelRequired>
+    </PawnKindDef>
+
+
+
+    <PawnKindDef ParentName="Stagz_MerrenJoinerBase">
         <defName>Stagz_Ariel</defName>
         <label>wayward merren</label>
         <xenotypeSet Inherit="False">
@@ -10,36 +41,9 @@
                 <Stagz_Merfolk_Abyssal>10</Stagz_Merfolk_Abyssal>
             </xenotypeChances>
         </xenotypeSet>
-        <backstoryFiltersOverride>
-            <li>
-                <categories>
-                    <li>Stagz_Coastal</li>
-                </categories>
-            </li>
-        </backstoryFiltersOverride>
-        <combatPower>45</combatPower>
-        <itemQuality>Poor</itemQuality>
-        <gearHealthRange>0.5~1.8</gearHealthRange>
-        <minGenerationAge>20</minGenerationAge>
-        <maxGenerationAge>40</maxGenerationAge>
-        <apparelMoney>180~350</apparelMoney>
-        <weaponMoney>80~80</weaponMoney>
-        <weaponTags>
-            <li>NeolithicRangedBasic</li>
-            <li>NeolithicMeleeDecent</li>
-        </weaponTags>
         <requiredWorkTags>
             <li>Caring</li>
         </requiredWorkTags>
-        <techHediffsMoney>50~50</techHediffsMoney>
-        <techHediffsTags>
-            <li>Poor</li>
-        </techHediffsTags>
-        <techHediffsChance>0</techHediffsChance>
-        <initialWillRange>1~3</initialWillRange>
-        <initialResistanceRange>17~27</initialResistanceRange>
-        <invNutrition>3.0</invNutrition>
-        <apparelIgnorePollution MayRequire="Ludeon.RimWorld.Biotech">true</apparelIgnorePollution>
         <inventoryOptions>
             <subOptionsChooseOne>
                 <li>
@@ -48,6 +52,26 @@
                 </li>
             </subOptionsChooseOne>
         </inventoryOptions>
+        <skills>
+            <li>
+                <skill>Medicine</skill>
+                <range>6~12</range> <!-- toned down version of man in black numbers - incident tends the downed pawn using this stat -->
+            </li>
+        </skills>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="Stagz_MerrenJoinerBase" MayRequireAnyOf="Ludeon.RimWorld.Royalty">
+        <defName>Stagz_Virtuoso</defName>
+        <label>merren virtuoso</label>
+        <xenotypeSet Inherit="False">
+            <xenotypeChances>
+                <Stagz_Merfolk_Coastal>10</Stagz_Merfolk_Coastal>
+                <Stagz_Merfolk_Abyssal>50</Stagz_Merfolk_Abyssal>
+            </xenotypeChances>
+        </xenotypeSet>
+        <requiredWorkTags>
+            <li>Artistic</li>
+        </requiredWorkTags>
     </PawnKindDef>
     
     <HediffDef>

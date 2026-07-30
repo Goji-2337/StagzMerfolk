@@ -186,52 +186,58 @@
         </comps>
     </AbilityDef>
 
-    <AbilityDef>
+    <!-- Invisibility comp is locked to Royalty/Anomaly, with an insidious check for installation instead of enabled -->
+    <AbilityDef MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Anomaly">
         <defName>Stagz_DeepDive</defName>
         <label>deep dive</label>
         <description>Dive into a water tile and become invisible. Caster can move freely within water tiles, but any other actions will cancel the invisibility.</description>
         <iconPath>UI/Abilities/DeepDive</iconPath>
-        <cooldownTicksRange>60</cooldownTicksRange>
+        <cooldownTicksRange>30</cooldownTicksRange>
         <hostile>false</hostile>
         <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
         <targetRequired>False</targetRequired>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
-            <warmupTime>1</warmupTime>
+            <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+            <drawAimPie>false</drawAimPie>
             <range>-1</range>
+            <targetable>false</targetable>
             <targetParams>
                 <canTargetSelf>True</canTargetSelf>
-                <canTargetPawns>false</canTargetPawns>
-                <canTargetBuildings>false</canTargetBuildings>
-                <canTargetAnimals>false</canTargetAnimals>
-                <canTargetHumans>false</canTargetHumans>
-                <canTargetMechs>false</canTargetMechs>
             </targetParams>
         </verbProperties>
         <comps>
             <li Class="CompProperties_AbilityEffect">
                 <compClass>StagzMerfolk.CompAbility_RequiresOnWater</compClass>
             </li>
-            <li Class="CompProperties_AbilityGiveHediff">
-                <compClass>CompAbilityEffect_GiveHediff</compClass>
-                <onlyApplyToSelf>True</onlyApplyToSelf>
+            <li Class="StagzMerfolk.CompProperties_AbilityToggleHediff">
                 <hediffDef>Stagz_DeepDiving</hediffDef>
-                <psychic>False</psychic>
-                <sound>StagzMerfolk_DeepDiveSound</sound>
             </li>
         </comps>
     </AbilityDef>
-    <HediffDef>
+    <HediffDef MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Anomaly">
         <defName>Stagz_DeepDiving</defName>
         <label>deep diving</label>
-        <description>This person can breathe under water. They are lurking here and waiting for opportunities.</description>
+        <description>This person can breathe underwater. They are lurking here and waiting for opportunities.</description>
         <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
+        <stages>
+            <li>
+                <disabledWorkTags>Violent</disabledWorkTags>
+            </li>
+        </stages>
         <comps>
+            <li Class="StagzMerfolk.HediffCompProperties_DeepDiveSFX">
+                <addEffecter>Stagz_DeepDiveSubmerge</addEffecter>
+                <removeEffecter>Stagz_DeepDiveEmerge</removeEffecter>
+            </li>
             <li Class="HediffCompProperties_Invisibility">
                 <visibleToPlayer>true</visibleToPlayer>
             </li>
             <li Class="StagzMerfolk.HediffCompProperties_DisappearsOnLeavingWater"/>
+            <li Class="StagzMerfolk.HediffCompProperties_DisappearsOnAnyVerb">
+                <excludeAbilityDef>Stagz_DeepDive</excludeAbilityDef>
+            </li>
             <li Class="HediffCompProperties_DisappearsOnDeath"/>
         </comps>
     </HediffDef>

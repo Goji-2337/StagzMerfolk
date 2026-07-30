@@ -34,4 +34,21 @@
             <li Class="StagzMerfolk.JobGiver_SeekHydration"/>
         </value>
     </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StorytellerDef[@Name="BaseStoryteller"]/comps</xpath>
+        <value>
+            <li Class="StagzMerfolk.StorytellerCompProperties_Ariel">
+                <incident>Stagz_ArielSummoned</incident>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- I admit, partially those were selected just because they have graphics in Nautian style -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="MeleeWeapon_Spear" or defName="Pila"]/weaponTags</xpath>
+        <value>
+            <li>Stagz_MerrenJoiner</li>
+        </value>
+    </Operation>
 </Patch>

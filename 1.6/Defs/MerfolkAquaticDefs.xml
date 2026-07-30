@@ -13,7 +13,7 @@
             <li>Stagz_NeedAquatic</li>
         </enablesNeeds>
         <abilities>
-            <li>Stagz_DeepDive</li>
+            <li MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Anomaly">Stagz_DeepDive</li>
         </abilities>
         <biostatMet>2</biostatMet>
         <biostatCpx>2</biostatCpx>

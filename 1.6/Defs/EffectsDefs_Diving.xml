@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- Bases for effecters -->
+    <EffecterDef Abstract="True" Name="Stagz_DeepDiveRippleBase">
+        <children>
+            <li>
+                <!-- Ripple -->
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>Stagz_DeepDiveRipple</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+            </li>
+        </children>
+    </EffecterDef>
+    
+    <EffecterDef Abstract="True" ParentName="Stagz_DeepDiveRippleBase" Name="Stagz_DeepDiveBase">
+        <children>
+            <li>
+                <!-- Big blue vertical splash -->
+                <subEffecterClass>SubEffecter_SprayerTriggeredChance</subEffecterClass>
+                <fleckDef>GroundWaterSplash</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+                <chancePeriodTicks>7</chancePeriodTicks>
+                <chancePerTick>1</chancePerTick>
+                <burstCount>2~3</burstCount>
+                <positionRadius>0</positionRadius>
+                <scale>1~2.5</scale>
+                <absoluteAngle>true</absoluteAngle>
+                <rotation>0</rotation>
+            </li>
+            <li>
+                <!-- White drifting mist -->
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>WaterChurnNoise</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+                <burstCount>10~12</burstCount>
+                <scale>2~7</scale>
+                <fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
+                <rotationRate>30~50</rotationRate>
+                <speed>-3~3</speed>
+            </li>
+        </children>
+    </EffecterDef>
+    
+    
+    <!-- Final effecter packages used by other defs -->
+    <EffecterDef ParentName="Stagz_DeepDiveBase">
+        <defName>Stagz_DeepDiveSubmerge</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+                <spawnLocType>OnSource</spawnLocType>
+                <soundDef>Stagz_DeepDiveSubmerge</soundDef>
+            </li>
+        </children>
+    </EffecterDef>
+
+    <EffecterDef ParentName="Stagz_DeepDiveRippleBase">
+        <defName>Stagz_DeepDiveEmerge</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+                <spawnLocType>OnSource</spawnLocType>
+                <soundDef>Stagz_DeepDiveEmerge</soundDef>
+            </li>
+        </children>
+    </EffecterDef>
+
+    <!-- Used by incident code -->
+    <EffecterDef ParentName="Stagz_DeepDiveBase">
+        <defName>Stagz_MerrenJoinerEmergeFromWater</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+                <spawnLocType>OnSource</spawnLocType>
+                <soundDef>Stagz_DeepDiveEmerge</soundDef>
+            </li>
+        </children>
+    </EffecterDef>
+
+
+    <!-- Constituent parts of the effecter packages, not used directly by defs/code -->
+    
+    <!-- Modified version of Mote_AnimalWarcallTarget -->
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>Stagz_DeepDiveRipple</defName>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>0.1</fadeInTime>
+        <fadeOutTime>0.3</fadeOutTime>
+        <solidTime>0.3</solidTime>
+        <growthRate>2</growthRate>
+        <graphicData>
+            <graphicClass>Graphic_Fleck</graphicClass>
+            <shaderType>MotePsychicWarmupNeuroquake</shaderType>
+            <texPath>Things/Mote/MoteHellfireCannon_HeatWaveDistortion</texPath>
+            <shaderParameters>
+                <_distortionIntensity>0.5</_distortionIntensity>
+                <_brightnessMultiplier>1.3</_brightnessMultiplier>
+                <_distortionTint>(0, 0.2, 0.35, 0)</_distortionTint>
+                <_pulseSpeed>1</_pulseSpeed>
+            </shaderParameters>
+            <drawSize>2</drawSize>
+        </graphicData>
+    </FleckDef>
+    
+    <SoundDef>
+        <defName>Stagz_DeepDiveEmerge</defName>
+        <context>MapOnly</context>
+        <maxSimultaneous>5</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>Pawn/Abilities/DeepDive/StagzMerfolk_Deepdive2</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>20~40</volumeRange>
+                <pitchRange>0.85~1.15</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+    
+    <SoundDef>
+        <defName>Stagz_DeepDiveSubmerge</defName>
+        <context>MapOnly</context>
+        <maxSimultaneous>5</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>Pawn/Abilities/DeepDive/StagzMerfolk_Deepdive</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>20~40</volumeRange>
+                <pitchRange>0.85~1.15</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+</Defs>
