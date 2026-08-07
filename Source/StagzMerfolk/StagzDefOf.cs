@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using UnityEngine;
 using Verse;
 // ReSharper disable UnassignedField.Global
 
@@ -37,6 +38,8 @@ public class StagzDefOf
     public static EffecterDef Stagz_MerrenJoinerEmergeFromWater;
     [MayRequire("GM.Nautian.Style")]
     public static StyleCategoryDef GM_Ocean;
+
+    public static ShaderTypeDef StagzTransparentComplex; 
     
     static StagzDefOf()
     {
