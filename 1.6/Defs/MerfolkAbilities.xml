@@ -190,7 +190,7 @@
     <AbilityDef MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Anomaly">
         <defName>Stagz_DeepDive</defName>
         <label>deep dive</label>
-        <description>Dive into a water tile and become invisible. Caster can move freely within water tiles, but any other actions will cancel the invisibility.</description>
+        <description>Dive into a water tile and become invisible. The diver can move freely within water tiles, but any other actions will cause them to surface.\n\nWhile underwater, press the ability again to surface on command.</description>
         <iconPath>UI/Abilities/DeepDive</iconPath>
         <cooldownTicksRange>30</cooldownTicksRange>
         <hostile>false</hostile>
