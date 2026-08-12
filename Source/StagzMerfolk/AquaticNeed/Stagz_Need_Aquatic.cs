@@ -9,12 +9,31 @@ namespace StagzMerfolk;
 [UsedImplicitly]
 public class Stagz_Need_Aquatic : Need
 {
-    private const float BaseGainRatePerTick = 0.0075f;
-    private const float BaseFallRatePerTick = 0.0003f;
+    private const int needIntervalTicks = 150;
+    private const float BaseGainRatePerInterval = 0.0075f;
+    private const float BaseFallRatePerInterval = 0.0003f;
     
-    //TODO: Normally this is implemented through a stat but idk if we need to go that far yet
-    private float FallFactor =>
-        pawn.Map != null && pawn.Map.gameConditionManager.ConditionIsActive(GameConditionDefOf.HeatWave) ? 2 : 1;
+    private float CachedFallRateForTooltip
+    {
+        get
+        {
+            if (field == 0) field = BaseFallRatePerInterval * FallFactor;
+            return field;
+        }
+        set;
+    }
+
+    private float FallFactor
+    {
+        get
+        {
+            field = 1;
+            if (ModsConfig.OdysseyActive)
+                field -= pawn.GetStatValue(StatDefOf.VacuumResistance) / 1.5f;
+            CachedFallRateForTooltip = BaseFallRatePerInterval * field;
+            return field;
+        }
+    }
     
     public bool Dehydrating => CurLevelPercentage <= 0.0;
 
@@ -53,17 +72,17 @@ public class Stagz_Need_Aquatic : Need
         }
         if (GainingHydration)
         {
-            CurLevel += BaseGainRatePerTick;
+            CurLevel += BaseGainRatePerInterval;
         }
         else
         {
-            CurLevel -= BaseFallRatePerTick * FallFactor;
+            CurLevel -= BaseFallRatePerInterval * FallFactor;
         }
         if (Dehydrating)
-            HealthUtility.AdjustSeverity(pawn, StagzDefOf.Stagz_Dehydration, 0.0075f);
+            HealthUtility.AdjustSeverity(pawn, StagzDefOf.Stagz_Dehydration, 20 * BaseFallRatePerInterval);
         else
         {
-            HealthUtility.AdjustSeverity(pawn, StagzDefOf.Stagz_Dehydration, -0.15f);
+            HealthUtility.AdjustSeverity(pawn, StagzDefOf.Stagz_Dehydration, -20 * BaseGainRatePerInterval);
         }
     }
 
@@ -86,9 +105,24 @@ public class Stagz_Need_Aquatic : Need
             return;
         pawn.health.RemoveHediff(hediff);
     }
+    
+    public override string GetTipString()
+    {
+        string tipString = $"{$"{LabelCap}: {CurLevelPercentage.ToStringPercent()}".Colorize(ColoredText.TipSectionTitleColor)}\n\n";
+
+        float num = CurLevel / (CachedFallRateForTooltip * GenDate.TicksPerDay / needIntervalTicks);
+        tipString += "StagzMerfolk_DehydrationEstimationOnTooltip".Translate(pawn.Named("PAWN"), "PeriodDays".Translate(num.ToString("F1")).Named("DURATION")).Resolve().CapitalizeFirst();
+        
+        tipString += $"\n\n{def.description}";
+        if (pawn.genes != null && pawn.genes.TryGetNeedEnablingGene(def, out var gene))
+        {
+            tipString += $"\n\n{"ComesFromGene".Translate()}: {gene.LabelCap}";
+        }
+        return tipString;
+    }
 
     public void Hydrate(float val)
     {
-        this.CurLevel = Mathf.Min(CurLevel + val, 1f);
+        CurLevel = Mathf.Min(CurLevel + val, 1f);
     }
 }

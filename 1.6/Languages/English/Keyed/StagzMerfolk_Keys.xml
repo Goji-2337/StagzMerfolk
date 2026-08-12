@@ -22,6 +22,7 @@
     <StagzMerfolk_MeditationFocusPerHydroponicsBasinAbstract>{1} per nearby powered hydroponics (up to {0})</StagzMerfolk_MeditationFocusPerHydroponicsBasinAbstract>
     <StagzMerfolk_MeditationFocusPerHydroponicsBasin>{2} per nearby powered hydroponics ({0} / {1})</StagzMerfolk_MeditationFocusPerHydroponicsBasin>
 
+    <StagzMerfolk_DehydrationEstimationOnTooltip>At the current fall rate, {PAWN_nameDef} will start dehydrating in {DURATION}.</StagzMerfolk_DehydrationEstimationOnTooltip>
     <StagzMerfolk_Dehydration>Skin dehydration</StagzMerfolk_Dehydration>
     <StagzMerfolk_DehydrationDesc>These colonists are aquatic but have been out of water for too long:\n{0}\n\nGet them to water. Even a toxic puddle is fine.</StagzMerfolk_DehydrationDesc>
     
