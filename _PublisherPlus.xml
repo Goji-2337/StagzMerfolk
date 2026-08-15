@@ -2,6 +2,7 @@
 <Configuration>
   <Excluded>
     <exclude>.git</exclude>
+    <exclude>.vscode</exclude>
     <exclude>Source</exclude>
   </Excluded>
 </Configuration>
