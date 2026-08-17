@@ -11,9 +11,10 @@ public class StorytellerComp_Ariel : StorytellerComp
 
     public override void Notify_PawnEvent(Pawn pawn, AdaptationEvent ev, DamageInfo? dinfo = null)
     {
-        if (!pawn.RaceProps.Humanlike || !pawn.IsColonist || ev != AdaptationEvent.Downed) return;
-
-        FindCellAndPassToWorker(pawn);
+        if (pawn.Spawned && pawn.RaceProps.Humanlike && pawn.IsColonist && ev == AdaptationEvent.Downed && !LifeStageUtility.AlwaysDowned(pawn))
+        {
+            FindCellAndPassToWorker(pawn);
+        }
     }
 
     //Split into its own func so I can pull it through debug

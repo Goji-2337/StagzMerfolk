@@ -248,7 +248,7 @@
                 <parentTagDef>Head</parentTagDef>
                 <useSkinShader>true</useSkinShader>
                 <useRottenColor>true</useRottenColor>
-                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
                 <drawData>
                     <defaultData>
                         <layer>70</layer>
