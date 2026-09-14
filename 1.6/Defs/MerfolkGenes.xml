@@ -198,7 +198,7 @@
                 <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
                 <drawData>
                     <defaultData>
-                        <layer>71</layer>
+                        <layer>80</layer>
                     </defaultData>
                 </drawData>
                 <desiccatedTexPath>StagzMerfolk/Things/Pawn/Humanlike/HeadAttachments/MerfolkEarsDesiccated/ears_desiccated</desiccatedTexPath>
@@ -241,7 +241,7 @@
                 <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
                 <drawData>
                     <defaultData>
-                        <layer>71</layer>
+                        <layer>80</layer>
                     </defaultData>
                 </drawData>
                 <desiccatedTexPath>StagzMerfolk/Things/Pawn/Humanlike/HeadAttachments/MerfolkEarsDesiccated/ears_desiccated</desiccatedTexPath>
