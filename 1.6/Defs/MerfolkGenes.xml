@@ -59,12 +59,12 @@
     <GeneDef>
         <defName>Stagz_RainVeil</defName>
         <label>rain veil</label>
-        <description>Carriers of this gene are able to camouflage themselves during rainy weather, making it difficult for enemies to land a hit.</description>
+        <description>Carriers of this gene are able to camouflage themselves in watery environments, making it difficult for enemies to land a hit.</description>
         <iconPath>StagzMerfolk/UI/Icons/Genes/Gene_RainVeil</iconPath>
         <displayCategory>Miscellaneous</displayCategory>
         <displayOrderInCategory>500</displayOrderInCategory>
         <conditionalStatAffecters>
-            <li Class="StagzMerfolk.ConditionalStatEffector_Rain">
+            <li Class="StagzMerfolk.ConditionalStatEffector_WaterOrRain">
                 <statOffsets>
                     <ArmorRating_Heat>0.7</ArmorRating_Heat>
                 </statOffsets>
@@ -89,7 +89,7 @@
             <li>Enables the water meditation focus.</li>
         </customEffectDescriptions>
         <conditionalStatAffecters>
-            <li Class="StagzMerfolk.ConditionalStatEffector_Rain">
+            <li Class="StagzMerfolk.ConditionalStatEffector_WaterOrRain">
                 <statOffsets>
                     <PsychicSensitivity>0.4</PsychicSensitivity>
                     <MeditationFocusGain>0.2</MeditationFocusGain>
@@ -134,16 +134,16 @@
         <label>charming</label>
         <description>Carriers of this gene have an irresistible charming aura. By inducing their presence with psychic energy, they can easily put others under their spell.</description>
         <iconPath>StagzMerfolk/UI/Icons/Genes/Gene_Charm</iconPath>
-        <displayCategory>Ability</displayCategory>
-        <displayOrderInCategory>500</displayOrderInCategory>
+        <displayCategory>Archite</displayCategory>
+        <displayOrderInCategory>501</displayOrderInCategory>
         <customEffectDescriptions>
             <li>Everyone will have a higher opinion of them</li>
         </customEffectDescriptions>
         <abilities>
             <li>Stagz_SirenCallCharm</li>
         </abilities>
-        <biostatCpx>1</biostatCpx>
-        <biostatMet>-2</biostatMet>
+        <biostatCpx>3</biostatCpx>
+        <biostatArc>1</biostatArc>
     </GeneDef>
     
     <ThoughtDef>
