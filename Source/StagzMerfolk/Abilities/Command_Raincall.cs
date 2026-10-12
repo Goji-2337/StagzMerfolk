@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using RimWorld;
 using UnityEngine;
@@ -8,14 +7,20 @@ using Verse;
 namespace StagzMerfolk;
 
 [UsedImplicitly]
-public class Command_Rainfall : Command_Ability
+public class Command_Raincall : Command_Ability
 {
     private readonly CompAbilityEffect_CallWeather cachedComp;
-    public Command_Rainfall(Ability ability, Pawn pawn) : base(ability, pawn)
+    public Command_Raincall(Ability ability, Pawn pawn) : base(ability, pawn)
     {
         try
         {
-            cachedComp = Ability.comps.OfType<CompAbilityEffect_CallWeather>().First();
+            for (int i = 0; i < Ability.comps.Count; i++)
+            {
+                if (Ability.comps[i] is CompAbilityEffect_CallWeather result)
+                {
+                    cachedComp = result;
+                }
+            }
         } catch
         {
             Log.Error("CompAbilityEffect_CallWeather is missing from Raincall.");

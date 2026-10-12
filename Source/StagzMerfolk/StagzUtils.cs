@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
@@ -64,13 +63,13 @@ public static class StagzUtils
     
     public static bool GroupsContainsLegsOrFeet(this List<BodyPartGroupDef> bodyPartGroups)
     {
-        BodyPartGroupDef[] LegsOrFeetGroups = [BodyPartGroupDefOf.Legs, StagzDefOf.Feet];
+        List<BodyPartGroupDef> LegsOrFeetGroups = [BodyPartGroupDefOf.Legs, StagzDefOf.Feet];
         return bodyPartGroups?.Exists(LegsOrFeetGroups.Contains) == true;
     }
 
     public static bool CoversMoreThanJustLegs(this List<BodyPartGroupDef> bodyPartGroups)
     {
-        BodyPartGroupDef[] LegsOrFeetGroups = [BodyPartGroupDefOf.Legs, StagzDefOf.Feet];
+        List<BodyPartGroupDef> LegsOrFeetGroups = [BodyPartGroupDefOf.Legs, StagzDefOf.Feet];
         return bodyPartGroups?.Any(group => !LegsOrFeetGroups.Contains(group)) == true;
     }
 

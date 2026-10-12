@@ -140,7 +140,7 @@
         <label>call rain</label>
         <description>Sing a psychic tune and call the rain. The local weather will change into foggy rain or rainy thunderstorm, unless it is already being influenced by an even stronger outside source.\n\nRight-click to select specific weather.</description>
         <iconPath>StagzMerfolk/UI/Abilities/Raincalling</iconPath>
-        <gizmoClass>StagzMerfolk.Command_Rainfall</gizmoClass>
+        <gizmoClass>StagzMerfolk.Command_Raincall</gizmoClass>
         <hostile>false</hostile>
         <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
         <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>

@@ -1,8 +1,8 @@
-using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
 using LudeonTK;
 using Verse;
+// ReSharper disable UnusedMember.Local
 
 namespace StagzMerfolk;
 
@@ -12,12 +12,12 @@ public class DebugTools
     [DebugAction("StagzMerfolk", actionType = DebugActionType.ToolMap, allowedGameStates = AllowedGameStates.PlayingOnMap)]
     private static void FireArielIncidentWorker()
     {
-        if (Find.Storyteller.storytellerComps.First(c => c is StorytellerComp_Ariel) is not StorytellerComp_Ariel comp)
+        if (Find.Storyteller.storytellerComps.FirstOrFallback(c => c is StorytellerComp_Ariel) is not StorytellerComp_Ariel comp)
         {
             Log.Error("StagzMerfolk: StorytellerComp_Ariel is null");
             return;
         }
-        foreach (Thing thing in Find.CurrentMap.thingGrid.ThingsAt(UI.MouseCell()).ToList())
+        foreach (Thing thing in Find.CurrentMap.thingGrid.ThingsAt(UI.MouseCell()))
         {
             if (thing is Pawn { IsColonist: true } pawn)
             {
@@ -34,7 +34,7 @@ public class DebugTools
             Log.Error("Virtuoso requires musical instruments to trigger and cannot work without Royalty.");
             return;
         }
-        foreach (Thing thing in Find.CurrentMap.thingGrid.ThingsAt(UI.MouseCell()).ToList())
+        foreach (Thing thing in Find.CurrentMap.thingGrid.ThingsAt(UI.MouseCell()))
         {
             if (thing is Pawn { IsColonist: true } pawn)
             {

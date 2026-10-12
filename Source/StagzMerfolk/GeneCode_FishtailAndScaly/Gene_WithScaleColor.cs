@@ -24,9 +24,9 @@ public class Gene_WithScaleColor : Gene
         {
             if (_chosenColor == null)
             {
-                if (this is Stagz_Gene_Tail_Fish && def.RenderNodeProperties?.First()?.color != null)
+                if (this is Stagz_Gene_Tail_Fish && def.RenderNodeProperties?.FirstOrFallback()?.color != null)
                 {
-                    _chosenColor = def.RenderNodeProperties.First().color;
+                    _chosenColor = def.RenderNodeProperties.FirstOrFallback().color;
                 } else if (pawn?.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>()?._chosenColor != null)
                 {
                     _chosenColor = pawn.genes.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>()._chosenColor;
@@ -66,7 +66,7 @@ public class Gene_WithScaleColor : Gene
         base.PostMake();
         if (this is Stagz_Gene_Tail_Fish)
         {
-            if (def.RenderNodeProperties.First().color is { } color && color != Color.clear)
+            if (def.RenderNodeProperties.FirstOrFallback().color is { } color && color != Color.clear)
             {
                 ChosenColor = color;
             } else {

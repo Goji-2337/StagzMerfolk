@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -121,7 +120,7 @@ public class Dialog_ColorPickerForGenesWithScales : Window
 			//ColorPalette;
 			using (new TextBlock(TextAnchor.MiddleLeft))
 			{
-				Color? geneticColor = pawn.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>()?.def.RenderNodeProperties.First().color;
+				Color? geneticColor = pawn.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>()?.def.RenderNodeProperties.FirstOrFallback().color;
 				if (geneticColor != null)
 				{
 					//the "Genetic Color" box and label at the top of palette

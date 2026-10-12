@@ -1,5 +1,3 @@
-﻿using System.Linq;
-using RimWorld;
 using Verse;
 using Verse.AI;
 
@@ -20,7 +18,7 @@ public class JobGiver_SeekHydration : ThinkNode_JobGiver
             Region region = ClosestRegionWithWaterTile(pawn.Position, pawn.Map, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false, false, false), RegionType.Set_Passable);
             if (region != null)
             {
-                return JobMaker.MakeJob(StagzDefOf.Stagz_GotoWaterCell, region.Cells.First(c => pawn.Map.terrainGrid.TerrainAt(c).IsWater));
+                return JobMaker.MakeJob(StagzDefOf.Stagz_GotoWaterCell, region.Cells.FirstOrFallback(c => pawn.Map.terrainGrid.TerrainAt(c).IsWater));
             }
         }
         
@@ -53,10 +51,13 @@ public class JobGiver_SeekHydration : ThinkNode_JobGiver
                 return false;
             }
 
-            if (r.Cells.Any(c => map.terrainGrid.TerrainAt(c).IsWater))
+            foreach (IntVec3 c in r.Cells)
             {
-                foundReg = r;
-                return true;
+                if (map.terrainGrid.TerrainAt(c).IsWater)
+                {
+                    foundReg = r;
+                    return true;
+                }
             }
 
             return false;

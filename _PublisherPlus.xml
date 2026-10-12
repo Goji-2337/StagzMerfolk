@@ -3,6 +3,7 @@
   <Excluded>
     <exclude>.git</exclude>
     <exclude>.vscode</exclude>
+    <exclude>*.meta</exclude>
     <exclude>Source</exclude>
     <exclude>ModPage</exclude>
   </Excluded>

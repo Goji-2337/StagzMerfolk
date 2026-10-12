@@ -1,4 +1,3 @@
-﻿using System.Linq;
 using HarmonyLib;
 using RimWorld;
 using Verse;
@@ -33,9 +32,12 @@ public static class FishtailPatch_PawnTechHediffsGenerator
             {
                 var finGene = pawn.genes.GetGene(StagzDefOf.Stagz_BodyFin);
                 if (finGene is not null) pawn.genes.RemoveGene(finGene);
-                foreach (var tailGene in pawn.genes.GenesListForReading.OfType<Stagz_Gene_Tail_Fish>())
+                foreach (Gene gene in pawn.genes.GenesListForReading)
                 {
-                    pawn.genes.RemoveGene(tailGene);
+                    if (gene is Stagz_Gene_Tail_Fish tailGene)
+                    {
+                        pawn.genes.RemoveGene(tailGene);
+                    }
                 }
 
                 return;
