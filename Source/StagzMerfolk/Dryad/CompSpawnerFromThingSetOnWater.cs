@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using JetBrains.Annotations;
 using RimWorld;
 using Verse;
 
@@ -8,11 +8,7 @@ namespace StagzMerfolk;
 public class CompSpawnerFromThingSetOnWater : ThingComp
 {
     private int ticksUntilSpawn;
-
-    public CompProperties_SpawnerFromThingSetOnWater Props
-    {
-        get { return (CompProperties_SpawnerFromThingSetOnWater)props; }
-    }
+    public CompProperties_SpawnerFromThingSetOnWater Props => (CompProperties_SpawnerFromThingSetOnWater)props;
 
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
@@ -21,30 +17,11 @@ public class CompSpawnerFromThingSetOnWater : ThingComp
             ResetTicksUntilSpawn();
         }
     }
-
-    public override void CompTick()
+    public override void CompTickInterval(int delta)
     {
-        TickInterval(1);
-    }
-
-    public override void CompTickRare()
-    {
-        TickInterval(250);
-    }
-
-    private void TickInterval(int interval)
-    {
-        if (!parent.Spawned)
-        {
-            return;
-        }
-
-        if (parent is Pawn p && !p.OverOrInWater())
-        {
-            return;
-        }
-
-        ticksUntilSpawn -= interval;
+        if (!parent.Spawned) return;
+        if (parent is Pawn p && !p.OverOrInWater()) return;
+        ticksUntilSpawn -= delta;
         CheckShouldSpawn();
     }
 
@@ -64,7 +41,7 @@ public class CompSpawnerFromThingSetOnWater : ThingComp
 
     public bool TryDoSpawn()
     {
-        ThingSetMakerParams parms = default(ThingSetMakerParams);
+        ThingSetMakerParams parms = default;
         parms.totalMarketValueRange = Props.marketValueRange;
         parms.countRange = Props.thingsToSpawn;
 
@@ -76,7 +53,7 @@ public class CompSpawnerFromThingSetOnWater : ThingComp
             GenSpawn.Spawn(thing, parent.Position, parent.Map);
         }
 
-        Messages.Message("MessageCompSpawnerSpawnedItem".Translate(loot.First().LabelCap), loot.First(), MessageTypeDefOf.PositiveEvent, true);
+        Messages.Message("MessageCompSpawnerSpawnedItem".Translate(loot.FirstOrFallback().LabelCap), loot.FirstOrFallback(), MessageTypeDefOf.PositiveEvent);
         return true;
     }
     
@@ -86,30 +63,29 @@ public class CompSpawnerFromThingSetOnWater : ThingComp
         {
             yield return new Command_Action
             {
-                defaultLabel = "DEV: Spawn from" + this.Props.thingSetMakerDef.label,
-                icon = TexCommand.DesirePower,
-                action = delegate()
+                defaultLabel = "DEV: Spawn items",
+                action = delegate
                 {
-                    this.ResetTicksUntilSpawn();
-                    this.TryDoSpawn();
+                    ResetTicksUntilSpawn();
+                    TryDoSpawn();
                 }
             };
         }
-        yield break;
     }
 
     public override string CompInspectStringExtra()
     {
         {
-            return "NextSpawnedResourceIn".Translate().Resolve() + ": " + ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor);
+            return $"{"NextSpawnedResourceIn".Translate()}: {ticksUntilSpawn.ToStringTicksToPeriod().Colorize(ColoredText.DateTimeColor)}";
         }
     }
     public override void PostExposeData()
     {
-        Scribe_Values.Look<int>(ref this.ticksUntilSpawn, "ticksUntilSpawn", 0, false);
+        Scribe_Values.Look(ref ticksUntilSpawn, "ticksUntilSpawn");
     }
 }
 
+[PublicAPI]
 public class CompProperties_SpawnerFromThingSetOnWater : CompProperties
 {
     public CompProperties_SpawnerFromThingSetOnWater()

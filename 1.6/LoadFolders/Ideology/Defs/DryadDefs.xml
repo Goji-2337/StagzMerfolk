@@ -3,34 +3,11 @@
 	<ThingDef ParentName="DryadBase">
 		<defName>Stagz_Dryad_Squid</defName>
 		<label>inkshooter dryad</label>
-		<description>A caste of dryad which specialise in finding underwater treasures. After spending a certain amount of time on wet tile, this dryad will find a rare item. They can also shoot ink juice to blind enemies. However, it is rather defenceless and requires the gauranlen tree to be planted next to water in order to summon them.</description>
+		<description>A caste of dryad which specialize in finding underwater treasures. After spending a certain amount of time on wet tile, this dryad will find a rare item. They can also shoot ink juice to blind enemies. However, it is rather defenseless and requires the gauranlen tree to be planted next to water in order to summon them.</description>
 		<statBases>
 			<MoveSpeed>3</MoveSpeed>
 		</statBases>
 		<uiIconScale>1</uiIconScale>
-		<verbs>
-			<li MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
-				<verbClass>Verb_Shoot</verbClass>
-				<accuracyTouch>1</accuracyTouch>
-				<accuracyShort>.8</accuracyShort>
-				<accuracyMedium>.75</accuracyMedium>
-				<accuracyLong>.5</accuracyLong>
-				<forcedMissRadius>1</forcedMissRadius>
-				<hasStandardCommand>true</hasStandardCommand>
-				<defaultProjectile>Stagz_InkSpray</defaultProjectile>
-				<warmupTime>2.2</warmupTime>
-				<burstShotCount>1</burstShotCount>
-				<minRange>1.9</minRange>
-				<range>19.9</range>
-				<soundCast>Bow_Recurve</soundCast>
-				<muzzleFlashScale>0</muzzleFlashScale>
-				<label>ink spray</label>
-				<commonality>.8</commonality>
-				<targetParams>
-					<canTargetLocations>true</canTargetLocations>
-				</targetParams>
-			</li>
-		</verbs>
 		<race>
 			<useMeatFrom>Dryad_Basic</useMeatFrom>
 			<lifeStageAges>
@@ -68,6 +45,9 @@
 		<defName>Stagz_Dryad_Squid</defName>
 		<label>inkshooter dryad</label>
 		<race>Stagz_Dryad_Squid</race>
+		<abilities>
+			<li>Stagz_AbilityInkSpray</li>
+		</abilities>
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
@@ -82,26 +62,53 @@
 		</lifeStages>
 	</PawnKindDef>
 	
-	<ThingDef ParentName="BaseBullet">
+	<!-- maybe make it burst, could look more fun -->
+	<AbilityDef>
+		<defName>Stagz_AbilityInkSpray</defName>
+		<label>ink spray</label>
+		<description>Spray ink over an area.</description>
+		<iconPath>StagzMerfolk/Things/Projectiles/InkSpray</iconPath> <!-- todo: should be unique icon -->
+		<warmupStartSound>FoamSpray_Warmup</warmupStartSound>
+		<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+		<cooldownTicksRange>90</cooldownTicksRange>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_AbilityShoot</verbClass>
+			<label>ink spray</label>
+			<defaultProjectile>Stagz_InkSpray</defaultProjectile>
+			<soundCast>FoamSpray_Resolve</soundCast>
+			<warmupTime>1</warmupTime>
+			<burstShotCount>3</burstShotCount>
+			<ai_IsWeapon>false</ai_IsWeapon>
+			<range>19.9</range>
+			<muzzleFlashScale>0</muzzleFlashScale>
+			<commonality>0.8</commonality>
+			<targetParams>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>			
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Stagz_CoveredInDye</hediffDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	
+	<ThingDef ParentName="ProjectileFoamBase">
 		<defName>Stagz_InkSpray</defName>
 		<label>ink spray</label>
 		<graphicData>
 			<texPath>StagzMerfolk/Things/Projectiles/InkSpray</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
-		<thingClass>Projectile_Explosive</thingClass>
 		<projectile>
 			<speed>40</speed>
-			<damageDef>Smoke</damageDef>
-			<damageAmountBase>2</damageAmountBase>
-			<armorPenetrationBase>0.75</armorPenetrationBase>
-			<stoppingPower>1.1</stoppingPower>
-			<explosionRadius>1.5</explosionRadius>
+			<damageDef>Extinguish</damageDef>
 			<postExplosionGasType>BlindSmoke</postExplosionGasType>
-			<ai_IsIncendiary>true</ai_IsIncendiary>
 			<arcHeightFactor>0.2</arcHeightFactor>
 			<shadowSize>0.6</shadowSize>
-			<screenShakeFactor>0.5</screenShakeFactor>
 			<preExplosionSpawnThingDef>Filth_FireFoam</preExplosionSpawnThingDef>
 			<preExplosionSpawnChance>0.6</preExplosionSpawnChance>
 		</projectile>
@@ -110,7 +117,7 @@
     <GauranlenTreeModeDef>
 	    <defName>Stagz_Squid</defName>
 	    <label>Inkshooter</label>
-	    <description>A caste of dryad which specialise in finding underwater treasures. After spending a certain amount of time on wet tile, this dryad will find a rare item. They can also shoot ink juice to blind enemies. However, it is rather defenceless and requires the gauranlen tree to be planted next to water in order to summon them.</description>
+	    <description>A caste of dryad which specialize in finding underwater treasures. After spending a certain amount of time on wet tile, this dryad will find a rare item. They can also shoot ink juice to blind enemies. However, it is rather defenseless and requires the gauranlen tree to be planted next to water in order to summon them.</description>
 	    <pawnKindDef>Stagz_Dryad_Squid</pawnKindDef>
 		<drawPosition>(0.833, 1)</drawPosition>
 	    <displayedStats>
@@ -123,16 +130,4 @@
 		    <ThingDef>Stagz_Dryad_Squid</ThingDef>
 	    </hyperlinks>
     </GauranlenTreeModeDef>
-	
-    <MVCF.ModDef MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
-	    <defName>Stagz_DryadSquid</defName>
-	    <label>Goji's Squid Dryad</label>
-	    <description>Adding animal ranged attacks for the Dryad Squid in Goji's Merren Race</description>
-	    <ActivateFeatures>
-		    <li>RangedAnimals</li>
-		    <li>HediffVerbs</li>
-		    <li>IntegratedToggle</li>
-	    </ActivateFeatures>
-    </MVCF.ModDef>
-
 </Defs>
