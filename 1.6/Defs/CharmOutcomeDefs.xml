@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <StagzMerfolk.CharmOutcomeDef>
+        <defName>Stagz_Trustworthy</defName>
+        <label>trustworthy</label>
+        <weight>1</weight>
+    </StagzMerfolk.CharmOutcomeDef>
+    
+    <StagzMerfolk.CharmOutcomeDef>
+        <defName>Stagz_Depart</defName>
+        <label>leaves</label>
+        <weight>1</weight>
+        <workerClass>StagzMerfolk.CharmOutcomeWorker_Depart</workerClass>
+        <!-- original creeps had it at 9~30, decided to make it shorter -->
+        <triggersAfterDays>7~15</triggersAfterDays>
+    </StagzMerfolk.CharmOutcomeDef>
+
+    <StagzMerfolk.CharmOutcomeDef>
+        <defName>Stagz_Aggressive</defName>
+        <label>aggressive</label>
+        <weight>1</weight>
+        <workerClass>StagzMerfolk.CharmOutcomeWorker_Aggressive</workerClass>
+        <!-- original creeps had it at 9~30, decided to make it shorter -->
+        <triggersAfterDays>7~15</triggersAfterDays>
+        <canOccurWhenImprisoned>true</canOccurWhenImprisoned>
+    </StagzMerfolk.CharmOutcomeDef>
+</Defs>

@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 3564924556
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e1bb58c5760e5e7b653897cd3836e2c0
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0df1dec30b5d061d422d3e6493d27647
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: e1bb58c5760e5e7b653897cd3836e2c0
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Data/Arquebus.StagzMerfolk/Materials/StagzTransparentComplex.shader
+Dependencies: []

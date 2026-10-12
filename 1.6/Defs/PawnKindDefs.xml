@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+    <PawnKindDef Abstract="True" Name="Stagz_MerrenJoinerBase">
+        <race>Human</race>
+        <defaultFactionDef>Stagz_WaywardMerren</defaultFactionDef>
+        <combatPower>45</combatPower>
+        <minGenerationAge>20</minGenerationAge>
+        <maxGenerationAge>40</maxGenerationAge>
+        <apparelMoney>0~0</apparelMoney> <!-- Forces to spawn only with req apparel. Of which I have none atm because I don't like vanilla options. -->
+        <apparelTags>
+            <li>Neolithic</li>
+        </apparelTags>
+        <weaponMoney>170~300</weaponMoney>
+        <weaponTags>
+            <li>Stagz_MerrenJoiner</li>
+        </weaponTags>
+        <techHediffsChance>0</techHediffsChance> <!-- nuclear option to prevent pawngen messing with tail -->
+        <initialWillRange>0~0</initialWillRange>
+        <initialResistanceRange>0~2</initialResistanceRange>
+        <invNutrition>3.0</invNutrition>
+        <invFoodDef>Pemmican</invFoodDef>
+        <apparelIgnorePollution MayRequire="Ludeon.RimWorld.Biotech">true</apparelIgnorePollution>
+        <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+        <apparelRequired>
+            <!--
+            <li>Apparel_Sash</li>
+            <li>Apparel_TribalHeaddress</li>
+            -->
+        </apparelRequired>
+    </PawnKindDef>
+
+
+
+    <PawnKindDef ParentName="Stagz_MerrenJoinerBase">
+        <defName>Stagz_Ariel</defName>
+        <label>wayward merren</label>
+        <xenotypeSet Inherit="False">
+            <xenotypeChances>
+                <Stagz_Merfolk_Coastal>50</Stagz_Merfolk_Coastal>
+                <Stagz_Merfolk_Abyssal>10</Stagz_Merfolk_Abyssal>
+            </xenotypeChances>
+        </xenotypeSet>
+        <requiredWorkTags>
+            <li>Caring</li>
+        </requiredWorkTags>
+        <inventoryOptions>
+            <subOptionsChooseOne>
+                <li>
+                    <thingDef>MedicineHerbal</thingDef>
+                    <countRange>5</countRange>
+                </li>
+            </subOptionsChooseOne>
+        </inventoryOptions>
+        <skills>
+            <li>
+                <skill>Medicine</skill>
+                <range>6~12</range> <!-- toned down version of man in black numbers - incident tends the downed pawn using this stat -->
+            </li>
+        </skills>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="Stagz_MerrenJoinerBase" MayRequireAnyOf="Ludeon.RimWorld.Royalty">
+        <defName>Stagz_Virtuoso</defName>
+        <label>merren virtuoso</label>
+        <xenotypeSet Inherit="False">
+            <xenotypeChances>
+                <Stagz_Merfolk_Coastal>10</Stagz_Merfolk_Coastal>
+                <Stagz_Merfolk_Abyssal>50</Stagz_Merfolk_Abyssal>
+            </xenotypeChances>
+        </xenotypeSet>
+        <requiredWorkTags>
+            <li>Artistic</li>
+        </requiredWorkTags>
+    </PawnKindDef>
+    
+    <HediffDef>
+        <defName>Stagz_Mute</defName>
+        <label>mute</label>
+        <description>Through an unfortunate twist of fate this character has lost their voice.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>1800000~3600000</disappearsAfterTicks>
+                <showRemainingTime>true</showRemainingTime>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <postFactor>0</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+    
+</Defs>

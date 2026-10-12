@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Unused right now -->
+    <SoundDef>
+        <defName>Stagz_SirenSongSound1</defName>
+        <context>MapOnly</context>
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>Pawn/Abilities/SirenSong/StagzMerfolk_Siren_Song4</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>70~100</volumeRange>
+                <distRange>10~70</distRange>
+                <pitchRange>0.85~1.15</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <!-- Siren Call -->
+    <SoundDef>
+        <defName>Stagz_SirenSongSound2</defName>
+        <context>MapOnly</context>
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>Pawn/Abilities/SirenSong/StagzMerfolk_Siren_Song5</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>70~100</volumeRange>
+                <distRange>10~70</distRange>
+                <pitchRange>0.8~1.1</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <!-- Charm -->
+    <SoundDef>
+        <defName>Stagz_SirenSongSound3</defName>
+        <context>MapOnly</context>
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>Pawn/Abilities/SirenSong/StagzMerfolk_Siren_Song6</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>70~100</volumeRange>
+                <distRange>10~70</distRange>
+                <pitchRange>0.85~1.15</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+    
+    <SoundDef>
+        <defName>Stagz_DeepDiveSubmergeSound</defName>
+        <context>MapOnly</context>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>Pawn/Abilities/DeepDive/StagzMerfolk_Deepdive</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>20~40</volumeRange>
+                <pitchRange>0.85~1.15</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+    
+    <SoundDef>
+        <defName>Stagz_DeepDiveEmergeSound</defName>
+        <context>MapOnly</context>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>Pawn/Abilities/DeepDive/StagzMerfolk_Deepdive2</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>20~40</volumeRange>
+                <pitchRange>0.85~1.15</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+</Defs>

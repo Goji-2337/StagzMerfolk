@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Template for the ephemeral hidden faction used for Ariel/Virtuoso incidents -->
+    <!-- It's slightly more fleshed out than needed in case I'd like to use it as base for a custom scenario or a real faction sometime -->
+    <!-- I used Sanguophage faction from Biotech as base -->
+    <FactionDef ParentName="FactionBase">
+        <defName>Stagz_WaywardMerren</defName>
+        <categoryTag>Stagz_WaywardMerren</categoryTag>
+        <label>wayward merren</label>
+        <fixedName>wayward merren</fixedName>
+        <pawnSingular>merren</pawnSingular>
+        <pawnsPlural>merren</pawnsPlural>
+        <canSiege>false</canSiege>
+        <canStageAttacks>false</canStageAttacks>
+        <hidden>true</hidden>
+        <description>A wayward merren.</description>
+        <factionIconPath>World/WorldObjects/Expanding/SettlementTemporary</factionIconPath>
+        <factionNameMaker>NamerFactionTribal</factionNameMaker>
+        <settlementNameMaker>NamerSettlementTribal</settlementNameMaker>
+        <colorSpectrum>
+            <li>(0, 1, 1)</li>
+            <li>(0, 0.6, 1)</li>
+            <li>(0.2, 1, 0.6)</li>
+            <li>(0.2, 0.8, 1)</li>
+            <li>(0.2, 1, 0.8)</li>
+        </colorSpectrum>
+        <apparelStuffFilter>
+            <thingDefs>
+                <li>Cloth</li>
+                <li>Leather_Lizard</li>
+                <li>Leather_Bird</li>
+                <li MayRequire="Ludeon.RimWorld.Odyssey">Leather_Sealskin</li>
+                <li MayRequire="Ludeon.RimWorld.Odyssey">Leather_Hippo</li>
+            </thingDefs>
+        </apparelStuffFilter>
+        <generateNewLeaderFromMapMembersOnly>true</generateNewLeaderFromMapMembersOnly>
+        <leaderTitle>leader</leaderTitle>
+        <requiredCountAtGameStart>0</requiredCountAtGameStart>
+        <mustStartOneEnemy>false</mustStartOneEnemy>
+        <techLevel>Neolithic</techLevel>
+        <basicMemberKind>Stagz_Ariel</basicMemberKind>
+        <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+        <backstoryFilters>
+            <li>
+                <categories>
+                    <li>Stagz_Coastal</li>
+                </categories>
+            </li>
+        </backstoryFilters>
+        <xenotypeSet>
+            <xenotypeChances>
+                <Stagz_Merfolk_Coastal>50</Stagz_Merfolk_Coastal>
+                <Stagz_Merfolk_Abyssal>50</Stagz_Merfolk_Abyssal>
+            </xenotypeChances>
+        </xenotypeSet>
+        <!-- ideo is overriden by the incident code, but I threw in some definition just for fun -->
+        <styles>
+            <li MayRequire="GM.Nautian.Style">GM_Ocean</li> <!-- doesn't currently work unless fixedIdeo and required at worldgen -->
+        </styles>
+        <requiredMemes>
+            <li MayRequire="Ludeon.RimWorld.Ideology">Nudism</li>
+        </requiredMemes>
+    </FactionDef>
+</Defs>

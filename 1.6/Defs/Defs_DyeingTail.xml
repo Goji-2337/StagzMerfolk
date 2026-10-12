@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <JobDef>
+        <defName>Stagz_OpenDialog_ColorPickerForGenesWithScales</defName>
+        <driverClass>StagzMerfolk.JobDriver_OpenDialog_ColorPickerForGenesWithScales</driverClass>
+        <reportString>picking scale color at TargetA.</reportString>
+    </JobDef>
+
+    <JobDef>
+        <defName>Stagz_ChangeScaleColorAtComp</defName>
+        <driverClass>StagzMerfolk.JobDriver_ChangeScaleColorAtComp</driverClass>
+        <reportString>changing scale color at TargetA.</reportString>
+    </JobDef>
+
+    <JobDef>
+        <defName>Stagz_ChangeScaleColorAtDye</defName>
+        <driverClass>StagzMerfolk.JobDriver_ChangeScaleColorAtDye</driverClass>
+        <reportString>changing scale color with dye.</reportString>
+    </JobDef>
+
+    <EffecterDef>
+        <defName>Stagz_DyeingTail</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+                <spawnLocType>OnSource</spawnLocType>
+                <scale>0.2~0.4</scale>
+                <ticksBetweenMotes>10</ticksBetweenMotes>
+                <positionOffset>(0, 0, -0.3)</positionOffset>
+                <positionDimensions>(0.5, 0, 0.3)</positionDimensions>
+                <positionLerpFactor>0.2</positionLerpFactor>
+                <fleckDef>Stagz_DyeingTailFleck</fleckDef>
+            </li>
+            <li>
+                <subEffecterClass>SubEffecter_Sustainer</subEffecterClass>
+                <soundDef>Interact_Paint</soundDef>
+            </li>
+        </children>
+    </EffecterDef>
+
+    <FleckDef ParentName="FleckBase_RandomGraphic_Thrown">
+        <defName>Stagz_DyeingTailFleck</defName>
+        <randomGraphics>
+            <li>
+                <texPath>Things/Filth/Spatter/SpatterA</texPath>
+                <shaderType>Mote</shaderType>
+                <graphicClass>Graphic_Fleck</graphicClass>
+                <drawSize>(1.5,1.5)</drawSize>
+            </li>
+            <li>
+                <texPath>Things/Filth/Spatter/SpatterB</texPath>
+                <shaderType>Mote</shaderType>
+                <graphicClass>Graphic_Fleck</graphicClass>
+                <drawSize>(1.5,1.5)</drawSize>
+            </li>
+            <li>
+                <texPath>Things/Filth/Spatter/SpatterC</texPath>
+                <shaderType>Mote</shaderType>
+                <graphicClass>Graphic_Fleck</graphicClass>
+                <drawSize>(1.5,1.5)</drawSize>
+            </li>
+        </randomGraphics>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>0.075</fadeInTime>
+        <solidTime>1</solidTime>
+        <fadeOutTime>0.4</fadeOutTime>
+    </FleckDef>
+
+    <ThingDef ParentName="BaseFilth" Name="FilthDye">
+        <defName>Stagz_Filth_Dye</defName>
+        <thingClass>StagzMerfolk.FilthWithColor</thingClass>
+        <label>dye</label>
+        <statBases>
+            <Beauty>-1</Beauty> <!-- dye smears are prettier than other filth -->
+            <Cleanliness>-10</Cleanliness>
+        </statBases>
+        <graphicData>
+            <graphicClass>StagzMerfolk.Graphic_DyeCluster</graphicClass>
+            <texPath>Things/Filth/Spatter</texPath>
+        </graphicData>
+        <filth>
+            <ignoreFilthMultiplierStat>true</ignoreFilthMultiplierStat>
+            <disappearsInDays>35~40</disappearsInDays>
+            <cleaningWorkToReduceThickness>100</cleaningWorkToReduceThickness> <!-- but hard to clean. Rain also doesn't wash it away -->
+            <cleaningSound>Interact_CleanFilth_Fluid</cleaningSound>
+        </filth>
+    </ThingDef>
+
+    <ThingDef ParentName="FilthDye">
+        <defName>Stagz_Filth_DyeSmear</defName>
+        <label>dye smear</label>
+        <graphicData>
+            <graphicClass>StagzMerfolk.Graphic_DyeClusterTight</graphicClass>
+            <texPath>Things/Filth/CrawlSmear</texPath>
+            <drawSize>0.7</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <HediffDef>
+        <defName>Stagz_CoveredInDye</defName>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>Dripping dye.</description>
+        <label>covered in dye</label>
+        <comps>
+            <li Class="StagzMerfolk.HediffCompProperties_DropsDyeFilth">
+                <disappearsAfterTicks>500</disappearsAfterTicks>
+                <directionalFilthTicks>150</directionalFilthTicks>
+            </li>
+        </comps>
+    </HediffDef>
+</Defs>

@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <EffecterDef>
+        <defName>Stagz_SirenCall_Warmup</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+                <moteDef>Mote_AnimalWarcallTarget</moteDef>
+                <spawnLocType>OnSource</spawnLocType>
+            </li>
+            <li>
+                <!-- Cloud of music notes around the caster -->
+                <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+                <fleckDef>Stagz_SongFleck</fleckDef>
+                <chancePerTick>0.15</chancePerTick>
+                <scale>0.6~0.7</scale>
+                <rotation>-20~20</rotation>
+                <rotationRate>-20~20</rotationRate>
+                <speed>0.2~0.6</speed>
+                <spawnLocType>OnSource</spawnLocType>
+                <positionLerpFactor>2.5</positionLerpFactor>
+                <positionRadius>2</positionRadius>
+            </li>
+            <li>
+                <!-- Cloud of music notes spread through the whole radius -->
+                <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+                <fleckDef>Stagz_SongFleck</fleckDef>
+                <chancePerTick>0.75</chancePerTick>
+                <burstCount>1~3</burstCount>
+                <scale>0.3~0.5</scale>
+                <rotation>-20~20</rotation>
+                <rotationRate>-20~20</rotationRate>
+                <speed>0.2~0.6</speed>
+                <spawnLocType>OnSource</spawnLocType>
+                <positionLerpFactor>1.5</positionLerpFactor>
+                <positionRadius>17</positionRadius>
+            </li>
+        </children>
+    </EffecterDef>
+
+    <EffecterDef Abstract="True" Name="Stagz_SongGlow">
+        <offsetMode>Free</offsetMode>
+        <children>
+            <li>
+                <!-- Pink glow on target -->
+                <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+                <fleckDef>Stagz_SongGlowWobble</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+                <chancePeriodTicks>30</chancePeriodTicks>
+                <chancePerTick>1</chancePerTick>
+                <scale>0.2~0.4</scale>
+            </li>
+            <li>
+                <!-- Also glow -->
+                <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+                <fleckDef>Stagz_SongGlowBacklight</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+                <ticksBetweenMotes>61</ticksBetweenMotes>
+            </li>
+        </children>
+    </EffecterDef>
+    
+    <EffecterDef ParentName="Stagz_SongGlow">
+        <defName>Stagz_Infatuated</defName>
+        <children>
+            <li>
+                <!-- Music notes hanging over the head-->
+                <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+                <fleckDef>Stagz_SongFleckStatic</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+                <ticksBetweenMotes>60</ticksBetweenMotes>
+                <scale>0.4~0.6</scale>
+                <rotation>-10~10</rotation>
+                <rotationRate>-10~10</rotationRate>
+                <speed>0.05</speed>
+                <fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+                <absoluteAngle>true</absoluteAngle>
+                <positionOffset>(0, 0, 0.4)</positionOffset>
+                <positionDimensions>(0.4, 0, 0.2)</positionDimensions>
+            </li>
+        </children>
+    </EffecterDef>
+
+    <!-- Raincall, charm -->
+    <EffecterDef ParentName="Stagz_SongGlow">
+        <defName>Stagz_Singing</defName>
+        <children>
+            <li>
+                <!-- Trail of music notes -->
+                <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+                <fleckDef>Stagz_SongFleck</fleckDef>
+                <spawnLocType>OnSource</spawnLocType>
+                <scale>0.5~0.6</scale>
+                <rotation>-10~10</rotation>
+                <rotationRate>-10~10</rotationRate>
+                <speed>0.2~0.6</speed>
+                <absoluteAngle>true</absoluteAngle>
+                <positionOffset>(0.4, 0, 0.4)</positionOffset>
+                <positionRadius>0.3</positionRadius>
+            </li>
+        </children>
+    </EffecterDef>
+
+    <!-- Used together. Based off RevenantHypnosis and RageSpeedState -->
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>Stagz_SongGlowWobble</defName>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>0.5</fadeInTime>
+        <fadeOutTime>0.5</fadeOutTime>
+        <solidTime>0</solidTime>
+        <useAttachLink>true</useAttachLink>
+        <attachedToHead>true</attachedToHead>
+        <graphicData>
+            <texPath>Things/Mote/HeatDiffusion</texPath>
+            <graphicClass>Graphic_Fleck</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+            <shaderParameters>
+                <_Color2>(1, 0.3, 0.7, 0.4)</_Color2>
+            </shaderParameters>
+            <drawSize>(2, 2)</drawSize>
+        </graphicData>
+    </FleckDef>
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>Stagz_SongGlowBacklight</defName>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <useAttachLink>true</useAttachLink>
+        <attachedToHead>true</attachedToHead>
+        <graphicData>
+            <texPath>Things/Mote/HeatDiffusion</texPath>
+            <graphicClass>Graphic_Fleck</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+            <shaderParameters>
+                <_Color2>(0.7, 0.3, 1, 0.3)</_Color2>
+            </shaderParameters>
+            <drawSize>(1, 1)</drawSize>
+        </graphicData>
+    </FleckDef>
+
+    <FleckDef ParentName="FleckBase_RandomGraphic_Thrown" Name="Stagz_SongFleck">
+        <defName>Stagz_SongFleck</defName>
+        <randomGraphics>
+            <li>
+                <texPath>StagzMerfolk/Things/Motes/SirenCall/Note_a</texPath>
+                <shaderType>MoteGlow</shaderType>
+                <graphicClass>Graphic_Fleck</graphicClass>
+                <drawSize>(1,1)</drawSize>
+            </li>
+            <li>
+                <texPath>StagzMerfolk/Things/Motes/SirenCall/Note_b</texPath>
+                <shaderType>MoteGlow</shaderType>
+                <graphicClass>Graphic_Fleck</graphicClass>
+                <drawSize>(1,1)</drawSize>
+            </li>
+        </randomGraphics>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>0.05</fadeInTime>
+        <solidTime>1.25</solidTime>
+        <fadeOutTime>0.2</fadeOutTime>
+    </FleckDef>
+
+    <FleckDef ParentName="Stagz_SongFleck">
+        <defName>Stagz_SongFleckStatic</defName>
+        <useAttachLink>True</useAttachLink>
+        <attachedToHead>True</attachedToHead>
+        <fadeInTime>0.5</fadeInTime>
+        <solidTime>1.5</solidTime>
+        <fadeOutTime>0.5</fadeOutTime>
+    </FleckDef>    
+    
+    <!-- Originally Mote_WarmupNeuroquake, but tweaked. Lifespan tied to warmup in ability -->
+    <ThingDef ParentName="MoteBase">
+        <defName>Stagz_RaincallWarmupMote</defName>
+        <thingClass>MoteAttached</thingClass>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <mote>
+            <fadeInTime>8</fadeInTime>
+            <solidTime>1.5</solidTime>
+            <fadeOutTime>0.5</fadeOutTime>
+            <needsMaintenance>true</needsMaintenance>
+        </mote>
+        <graphicData>
+            <graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
+            <shaderType>MotePsychicWarmupNeuroquake</shaderType>
+            <texPath>Things/Mote/PsychicDistortionCurrents</texPath>
+            <shaderParameters>
+                <_distortionIntensity>0.5</_distortionIntensity>
+                <_brightnessMultiplier>1.3</_brightnessMultiplier>
+                <_pulseSpeed>2</_pulseSpeed>
+            </shaderParameters>
+            <drawSize>6.0</drawSize>
+        </graphicData>
+    </ThingDef>
+</Defs>

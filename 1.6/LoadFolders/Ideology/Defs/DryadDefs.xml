@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="DryadBase">
+		<defName>Stagz_Dryad_Squid</defName>
+		<label>inkshooter dryad</label>
+		<description>A caste of dryad which specialize in finding underwater treasures. After spending a certain amount of time on wet tile, this dryad will find a rare item. They can also shoot ink juice to blind enemies. However, it is rather defenseless and requires the gauranlen tree to be planted next to water in order to summon them.</description>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<race>
+			<useMeatFrom>Dryad_Basic</useMeatFrom>
+			<lifeStageAges>
+				<li>
+					<def>AnimalAdult</def>
+					<soundWounded>Pawn_Dryad_Barkskin_Wounded</soundWounded>
+					<soundCall>Pawn_Dryad_Barkskin_Call</soundCall>
+				</li>
+			</lifeStageAges>
+			<baseBodySize>0.667</baseBodySize>
+			<baseHealthScale>0.6</baseHealthScale>
+			<trainability>Intermediate</trainability>
+			<trainableTags>
+				<li>Basic</li>
+				<li>Combat</li>
+			</trainableTags>
+			<untrainableTags>
+				<li>Work</li>
+				<li>Help</li>
+			</untrainableTags>
+			<waterCellCost>1</waterCellCost>
+			<waterSeeker>true</waterSeeker>
+		</race>
+		<comps>
+			<li Class="StagzMerfolk.CompProperties_SpawnerFromThingSetOnWater">
+				<thingSetMakerDef>MapGen_AncientTempleContents</thingSetMakerDef>
+				<ticksToSpawnRange>900000~1800000</ticksToSpawnRange>
+				<marketValueRange>750~2000</marketValueRange>
+				<thingsToSpawn>1~1</thingsToSpawn>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<PawnKindDef ParentName="DryadKindBase">
+		<defName>Stagz_Dryad_Squid</defName>
+		<label>inkshooter dryad</label>
+		<race>Stagz_Dryad_Squid</race>
+		<abilities>
+			<li>Stagz_AbilityInkSpray</li>
+		</abilities>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>StagzMerfolk/Things/Pawn/Animal/DryadSquid/DryadSquid</texPath>
+					<drawSize>1</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>StagzMerfolk/Things/Pawn/Animal/DryadSquid/Dessicated_DryadSquid</texPath>
+					<drawSize>1</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+	
+	<!-- maybe make it burst, could look more fun -->
+	<AbilityDef>
+		<defName>Stagz_AbilityInkSpray</defName>
+		<label>ink spray</label>
+		<description>Spray ink over an area.</description>
+		<iconPath>StagzMerfolk/Things/Projectiles/InkSpray</iconPath> <!-- todo: should be unique icon -->
+		<warmupStartSound>FoamSpray_Warmup</warmupStartSound>
+		<displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+		<cooldownTicksRange>90</cooldownTicksRange>
+		<aiCanUse>true</aiCanUse>
+		<verbProperties>
+			<verbClass>Verb_AbilityShoot</verbClass>
+			<label>ink spray</label>
+			<defaultProjectile>Stagz_InkSpray</defaultProjectile>
+			<soundCast>FoamSpray_Resolve</soundCast>
+			<warmupTime>1</warmupTime>
+			<burstShotCount>3</burstShotCount>
+			<ai_IsWeapon>false</ai_IsWeapon>
+			<range>19.9</range>
+			<muzzleFlashScale>0</muzzleFlashScale>
+			<commonality>0.8</commonality>
+			<targetParams>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>			
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Stagz_CoveredInDye</hediffDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	
+	<ThingDef ParentName="ProjectileFoamBase">
+		<defName>Stagz_InkSpray</defName>
+		<label>ink spray</label>
+		<graphicData>
+			<texPath>StagzMerfolk/Things/Projectiles/InkSpray</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<speed>40</speed>
+			<damageDef>Extinguish</damageDef>
+			<postExplosionGasType>BlindSmoke</postExplosionGasType>
+			<arcHeightFactor>0.2</arcHeightFactor>
+			<shadowSize>0.6</shadowSize>
+			<preExplosionSpawnThingDef>Filth_FireFoam</preExplosionSpawnThingDef>
+			<preExplosionSpawnChance>0.6</preExplosionSpawnChance>
+		</projectile>
+	</ThingDef>
+	
+    <GauranlenTreeModeDef>
+	    <defName>Stagz_Squid</defName>
+	    <label>Inkshooter</label>
+	    <description>A caste of dryad which specialize in finding underwater treasures. After spending a certain amount of time on wet tile, this dryad will find a rare item. They can also shoot ink juice to blind enemies. However, it is rather defenseless and requires the gauranlen tree to be planted next to water in order to summon them.</description>
+	    <pawnKindDef>Stagz_Dryad_Squid</pawnKindDef>
+		<drawPosition>(0.833, 1)</drawPosition>
+	    <displayedStats>
+		    <li>MaxHitPoints</li>
+		    <li>MoveSpeed</li>
+		    <li>ArmorRating_Blunt</li>
+		    <li>ArmorRating_Sharp</li>
+	    </displayedStats>
+	    <hyperlinks>
+		    <ThingDef>Stagz_Dryad_Squid</ThingDef>
+	    </hyperlinks>
+    </GauranlenTreeModeDef>
+</Defs>

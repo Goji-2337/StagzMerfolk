@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <StagzMerfolk_ConditionalStatEffector_Water>in water</StagzMerfolk_ConditionalStatEffector_Water>
+    <StagzMerfolk_ConditionalStatEffector_WaterOrRain>in water or rain</StagzMerfolk_ConditionalStatEffector_WaterOrRain>
+    <StagzMerfolk_ConditionalStatEffector_NotWater>not in water</StagzMerfolk_ConditionalStatEffector_NotWater>
+    <StagzMerfolk_ConditionalStatEffector_Rain>in rain</StagzMerfolk_ConditionalStatEffector_Rain>
+    <StagzMerfolk_AbilityDisabledNotOnWater>must be standing on a water tile</StagzMerfolk_AbilityDisabledNotOnWater>
+    <StagzMerfolk_CannotWearBecauseOfTail>{0} tried to wear clothing that covers legs, but could not because they have a tail.</StagzMerfolk_CannotWearBecauseOfTail>
+    <StagzMerfolk_RainCall>{0} has called forth a {1}. It will begin shortly...</StagzMerfolk_RainCall>
+    <StagzMerfolk_ForcedWeatherActive>an even stronger force is controlling the weather.</StagzMerfolk_ForcedWeatherActive>
+
+    <!-- TODO: Obsolete, both keys should be removed in 1.7 -->
+    <StagzMerfolk_LetterLabelCharmedJoins>Charmed {PAWN_title}: {PAWN_nameDef}</StagzMerfolk_LetterLabelCharmedJoins>
+    <StagzMerfolk_LetterCharmedJoins>After being charmed, a {PAWN_title} named {PAWN_nameDef} wishes to turn a new leaf and wants to join the colony.\n\n{PAWN_pronoun} is willing to contribute, but will soon exile themselves in shame. You can choose to turn {PAWN_objective} down and send {PAWN_objective} away. However, your colonists will be disturbed at sending someone away in need.</StagzMerfolk_LetterCharmedJoins>
+
+    <StagzMerfolk_AbilityMustBeDifferentFaction>{0_labelShort} must be of a different faction than {1_labelShort}.</StagzMerfolk_AbilityMustBeDifferentFaction>
+    <StagzMerfolk_LetterLabel_CharmedHumanlike>Charmed {PAWN_title}: {PAWN_nameDef}</StagzMerfolk_LetterLabel_CharmedHumanlike>
+    <StagzMerfolk_LetterText_CharmedHumanlike>Compelled by the irresistible power of the psychic song, a {PAWN_title} named {PAWN_nameDef} forsakes {PAWN_possessive} previous allegiances and joins the colony! But beware: as the spell fades over time, there may yet be consequences for bringing {PAWN_objective} into the fold by force.</StagzMerfolk_LetterText_CharmedHumanlike>
+    <StagzMerfolk_LetterLabel_CharmedAnimal>Charmed {PAWN_kindBase}: {PAWN_nameDef}</StagzMerfolk_LetterLabel_CharmedAnimal>
+    <StagzMerfolk_LetterText_CharmedAnimal>Compelled by the irresistible power of the psychic song, a {PAWN_kindBase} named {PAWN_nameDef} forsakes {PAWN_possessive} previous allegiances and joins the colony! As an animal, {PAWN_possessive} eternal loyalty is assured.</StagzMerfolk_LetterText_CharmedAnimal>
+    <StagzMerfolk_WasPreviouslyCharmed>This happened because {PAWN} was previously charmed into joining the colony.</StagzMerfolk_WasPreviouslyCharmed>
+    
+    <StagzMerfolk_UnlockedByGene>Has gene:</StagzMerfolk_UnlockedByGene>
+
+    <StagzMerfolk_KeenReflexes>Keen Reflexes</StagzMerfolk_KeenReflexes>
+    <StagzMerfolk_KeenReflexes_Value>Melee dodge applies to ranged attacks</StagzMerfolk_KeenReflexes_Value>
+    <StagzMerfolk_KeenReflexes_Description>Converts melee dodge chance to ranged dodge chance at 1:1 ratio</StagzMerfolk_KeenReflexes_Description>
+    
+    <StagzMerfolk_StatsReport_Powered>Powered</StagzMerfolk_StatsReport_Powered>
+    <StagzMerfolk_StatsReport_Powering>Moving</StagzMerfolk_StatsReport_Powering>
+    <StagzMerfolk_MeditationFocusPerHydroponicsBasinAbstract>{1} per nearby powered hydroponics (up to {0})</StagzMerfolk_MeditationFocusPerHydroponicsBasinAbstract>
+    <StagzMerfolk_MeditationFocusPerHydroponicsBasin>{2} per nearby powered hydroponics ({0} / {1})</StagzMerfolk_MeditationFocusPerHydroponicsBasin>
+
+    <StagzMerfolk_DehydrationEstimationOnTooltip>At the current fall rate, {PAWN_nameDef} will start dehydrating in {DURATION}.</StagzMerfolk_DehydrationEstimationOnTooltip>
+    <StagzMerfolk_Dehydration>Skin dehydration</StagzMerfolk_Dehydration>
+    <StagzMerfolk_DehydrationDesc>These colonists are aquatic but have been out of water for too long:\n{0}\n\nIf left unaddressed, dehydration will eventually kill them. Get them to water. Even a toxic puddle is fine.</StagzMerfolk_DehydrationDesc>
+    <StagzMerfolk_DehydrationPrisoners>Skin dehydration (prisoners)</StagzMerfolk_DehydrationPrisoners>
+    <StagzMerfolk_DehydrationPrisonersDesc>These prisoners are aquatic but have been out of water for too long:\n{0}\n\nIf left unaddressed, dehydration will eventually kill them. Get them to water. Even a toxic puddle is fine.</StagzMerfolk_DehydrationPrisonersDesc>
+    
+    <StagzMerfolk_UI_GeneticColor>genetic color</StagzMerfolk_UI_GeneticColor>
+    <StagzMerfolk_FloatMenu_ChangeMerrenScaleColor>change scale color</StagzMerfolk_FloatMenu_ChangeMerrenScaleColor>
+    <StagzMerfolk_FloatMenu_NoReachableDye>no reachable dye</StagzMerfolk_FloatMenu_NoReachableDye>
+
+    <StagzMerfolk_Settings_Category>Goji's Fantasy Race: Merren</StagzMerfolk_Settings_Category>
+    <StagzMerfolk_Settings_DbhCleaningCountsAsHydrationLabel>Dub's Bad Hygiene cleaning counts as hydration</StagzMerfolk_Settings_DbhCleaningCountsAsHydrationLabel>
+    <StagzMerfolk_Settings_DbhCleaningCountsAsHydrationTooltip>Enables aquatic hydration needs to be met when a pawn cleans themselves in Dub's Bad Hygiene.</StagzMerfolk_Settings_DbhCleaningCountsAsHydrationTooltip>
+</LanguageData>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/*[defName="SoakingWet"]/nullifyingGenes</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/*[defName="SoakingWet"]</xpath>
+            <value>
+                <nullifyingGenes/>
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/*[defName="SoakingWet"]/nullifyingGenes</xpath>
+        <value>
+            <li>Stagz_Aquatic</li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/*[nullifyingTraits="Nudist"]/nullifyingGenes</xpath>
+        <value>
+            <li>Stagz_Gene_Tail_Fish_Teal</li>
+            <li>Stagz_Gene_Tail_Fish_Orange</li>
+            <li>Stagz_Gene_Tail_Fish_Black</li>
+            <li>Stagz_Gene_Tail_Fish_White</li>
+            <li>Stagz_Gene_Tail_Fish_Cyan</li>
+            <li>Stagz_Gene_Tail_Fish_Magenta</li>
+            <li>Stagz_Gene_Tail_Fish_Salmon</li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationInsert">
+        <xpath>Defs/ThinkTreeDef//li[@Class="JobGiver_SatifyChemicalDependency"]</xpath>
+        <value>
+            <li Class="StagzMerfolk.JobGiver_SeekHydration"/>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/StorytellerDef[@Name="BaseStoryteller"]/comps</xpath>
+        <value>
+            <li Class="StagzMerfolk.StorytellerCompProperties_Ariel">
+                <incident>Stagz_ArielSummoned</incident>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- I admit, partially those were selected just because they have graphics in Nautian style -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="MeleeWeapon_Spear" or defName="Pila"]/weaponTags</xpath>
+        <value>
+            <li>Stagz_MerrenJoiner</li>
+        </value>
+    </Operation>
+
+    
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[defName="Dye"]/comps</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="Dye"]</xpath>
+            <value>
+                <comps />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Dye"]/comps</xpath>
+        <value>
+            <li>
+                <compClass>StagzMerfolk.Comp_CanBeUsedToChangeScaleColor</compClass>
+            </li>
+        </value>
+    </Operation>
+</Patch>

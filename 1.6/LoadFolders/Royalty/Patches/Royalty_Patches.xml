@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Brazier" or defName="Darktorch" or defName="DarktorchFungus"]/comps/li[@Class="CompProperties_MeditationFocus"]/offsets/li[@Class="FocusStrengthOffset_BuildingDefsLit"]/defs</xpath>
+        <value>
+            <li>Stagz_WaterCandle</li>
+        </value>
+    </Operation>
+    
+    <!--Technically requires also Ideology to appear in-game but because of load order quirks works as is-->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="DarklightBrazier"]/comps/li[@Class="CompProperties_MeditationFocus"]/offsets/li[@Class="FocusStrengthOffset_BuildingDefsLit"]/defs</xpath>
+        <value>
+            <li>Stagz_WaterCandle</li>
+        </value>
+    </Operation>
+
+    <!--These patches won't throw errors without Royalty, but are pointless without it, so I moved them here-->
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[defName="HydroponicsBasin"]/placeWorkers</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="HydroponicsBasin"]</xpath>
+            <value>
+                <placeWorkers />
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="HydroponicsBasin"]/placeWorkers</xpath>
+        <value>
+            <li>PlaceWorker_MeditationOffsetBuildingsNear</li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="WatermillGenerator" or defName="HydroponicsBasin"]/statBases</xpath>
+        <value>
+            <MeditationFocusStrength>0.0</MeditationFocusStrength>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="WatermillGenerator"]/comps</xpath>
+        <value>
+            <li Class="CompProperties_MeditationFocus">
+                <statDef>MeditationFocusStrength</statDef>
+                <focusTypes>
+                    <li>Stagz_Water</li>
+                </focusTypes>
+                <offsets>
+                    <li Class="StagzMerfolk.FocusStrengthOffset_Powering">
+                        <offset>0.28</offset>
+                    </li>
+                </offsets>
+            </li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="HydroponicsBasin"]/comps</xpath>
+        <value>
+            <li Class="CompProperties_MeditationFocus">
+                <statDef>MeditationFocusStrength</statDef>
+                <focusTypes>
+                    <li>Stagz_Water</li>
+                </focusTypes>
+                <offsets>
+                    <li Class="StagzMerfolk.FocusStrengthOffset_Powered">
+                        <offset>0.1</offset>
+                    </li>
+                    <li Class="StagzMerfolk.FocusStrengthOffset_BuildingDefsPowered">
+                        <defs>
+                            <li>HydroponicsBasin</li>
+                        </defs>
+                        <offsetPerBuilding>0.02</offsetPerBuilding>
+                        <radius>9.9</radius>
+                        <maxBuildings>4</maxBuildings>
+                        <explanationKey>StagzMerfolk_MeditationFocusPerHydroponicsBasin</explanationKey>
+                        <explanationKeyAbstract>StagzMerfolk_MeditationFocusPerHydroponicsBasinAbstract</explanationKeyAbstract>
+                        <drawRingRadius>false</drawRingRadius>
+                    </li>
+                </offsets>
+            </li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[@Name="TorchBase" or defName="Campfire" or defName="TorchWallLamp"]/comps/li[@Class="CompProperties_MeditationFocus"]/offsets/li[@Class="FocusStrengthOffset_BuildingDefsLit"]/defs</xpath>
+        <value>
+            <li>Stagz_WaterCandle</li>
+        </value>
+    </Operation>
+</Patch>
