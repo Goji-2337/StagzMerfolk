@@ -4,5 +4,6 @@
     <exclude>.git</exclude>
     <exclude>.vscode</exclude>
     <exclude>Source</exclude>
+    <exclude>ModPage</exclude>
   </Excluded>
 </Configuration>
