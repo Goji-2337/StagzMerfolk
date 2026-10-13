@@ -1,24 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net48</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <RootNamespace>StagzMerfolk</RootNamespace>
         <AssemblyName>StagzMerfolk</AssemblyName>
         <LangVersion>latest</LangVersion>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+        <GenerateDependencyFile>false</GenerateDependencyFile>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
         <Optimize>true</Optimize>
-        <OutputPath>..\..\1.6\Assemblies\</OutputPath>
+        <OutputPath>..\..\1.7\Assemblies\</OutputPath>
         <DefineConstants>DEBUG;TRACE</DefineConstants>
         <DebugType>embedded</DebugType>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
         <Optimize>true</Optimize>
-        <OutputPath>..\..\1.6\Assemblies\</OutputPath>
+        <OutputPath>..\..\1.7\Assemblies\</OutputPath>
         <DefineConstants>TRACE</DefineConstants>
         <DebugType>embedded</DebugType>
     </PropertyGroup>
@@ -31,19 +32,11 @@
         Many thanks to Gareth's Rimworld template for that bit btw
         -->
         <Reference Include="Assembly-CSharp">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\Assembly-CSharp.dll</HintPath>
             <Private>False</Private>
         </Reference>
-        <Reference Include="UnityEngine.CoreModule">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-            <Private>False</Private>
-        </Reference>
-        <Reference Include="UnityEngine.IMGUIModule.dll">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
-            <Private>False</Private>
-        </Reference>
-        <Reference Include="UnityEngine.TextRenderingModule.dll">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+        <Reference Include="UnityStubs">
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\UnityStubs.dll</HintPath>
             <Private>False</Private>
         </Reference>
 
@@ -53,43 +46,43 @@
         and apparently have some differences from default MS libraries
         -->
         <Reference Include="mscorlib">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\mscorlib.dll</HintPath>
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\mscorlib.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="System">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\System.dll</HintPath>
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\System.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="System.Core">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\System.Core.dll</HintPath>
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\System.Core.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="System.Data">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\System.Data.dll</HintPath>
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\System.Data.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="System.Drawing">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\System.Drawing.dll</HintPath>
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\System.Drawing.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="System.IO.Compression">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\System.IO.Compression.dll</HintPath>
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\System.IO.Compression.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="System.Numerics">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\System.Numerics.dll</HintPath>
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\System.Numerics.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="System.Runtime.Serialization">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\System.Runtime.Serialization.dll</HintPath>
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\System.Runtime.Serialization.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="System.Xml">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\System.Xml.dll</HintPath>
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\System.Xml.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="System.Linq">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\System.Xml.dll</HintPath>
+            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\System.Xml.dll</HintPath>
             <Private>False</Private>
         </Reference>
     </ItemGroup>
@@ -98,10 +91,10 @@
     If that reference does not exist, it will add Krafs Rimworld Ref to the project. If it does exist, Krafs won't be added
     as a reference. This basically means that Krafs is treated as a fallback if Assembly-CSharp is not found -->
     <ItemGroup Condition="'@(Reference->WithMetadataValue('Identity', 'Assembly-CSharp')->Metadata('HintPath')->Exists())' == ''">
-        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*"/>
+        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.7.*"/>
     </ItemGroup>
     
     <ItemGroup>
-        <PackageReference Include="Lib.Harmony" Version="2.*"/>
+        <PackageReference Include="Lib.Harmony" Version="2.*" />
     </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@ using Verse;
 
 namespace StagzMerfolk;
 
-public class ChoiceLetter_AcceptCharmedJoiner : ChoiceLetter
+public class ChoiceLetter_AcceptVirtuoso : ChoiceLetter
 {
     public Pawn asker;
     

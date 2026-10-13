@@ -81,7 +81,7 @@ public class IncidentWorker_ArielSummoned : IncidentWorker
         TaggedString label = def.letterLabel.Formatted(merrenJoiner.Named("PAWN"), parms.controllerPawn.Named("SUBJECT"));
         TaggedString taggedString = def.letterText.Formatted(merrenJoiner.Named("PAWN"), parms.controllerPawn.Named("SUBJECT"));
         PawnRelationUtility.TryAppendRelationsWithColonistsInfo(ref taggedString, ref label, merrenJoiner);
-        var letter = (ChoiceLetter_AcceptCharmedJoiner) LetterMaker.MakeLetter(label, taggedString, def.letterDef, quest: null);
+        var letter = (ChoiceLetter_AcceptVirtuoso) LetterMaker.MakeLetter(label, taggedString, def.letterDef, quest: null);
         letter.asker = merrenJoiner;
         letter.lookTargets = new LookTargets(merrenJoiner);
         letter.StartTimeout(GenDate.TicksPerDay);

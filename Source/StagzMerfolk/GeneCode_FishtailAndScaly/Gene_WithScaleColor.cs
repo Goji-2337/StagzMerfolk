@@ -22,20 +22,7 @@ public class Gene_WithScaleColor : Gene
     {
         get
         {
-            if (_chosenColor == null)
-            {
-                if (this is Stagz_Gene_Tail_Fish && def.RenderNodeProperties?.FirstOrFallback()?.color != null)
-                {
-                    _chosenColor = def.RenderNodeProperties.FirstOrFallback().color;
-                } else if (pawn?.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>()?._chosenColor != null)
-                {
-                    _chosenColor = pawn.genes.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>()._chosenColor;
-                } else if (pawn?.genes?.GetFirstGeneOfType<Gene_WithScaleColor>()?._chosenColor != null)
-                {
-                    _chosenColor = pawn.genes.GetFirstGeneOfType<Gene_WithScaleColor>()._chosenColor;
-                }
-            }
-            _chosenColor ??= defaultColors.RandomElement(); 
+            _chosenColor ??= pawn?.genes?.GetFirstGeneOfType<Gene_WithScaleColor>()?._chosenColor ?? defaultColors.RandomElement(); 
             return (Color) _chosenColor;
         }
         set
@@ -64,17 +51,6 @@ public class Gene_WithScaleColor : Gene
     public override void PostMake()
     {
         base.PostMake();
-        if (this is Stagz_Gene_Tail_Fish)
-        {
-            if (def.RenderNodeProperties.FirstOrFallback().color is { } color && color != Color.clear)
-            {
-                ChosenColor = color;
-            } else {
-                Log.Error("StagzMerfolk: Incorrectly defined XML, Merren tail has no color, assigning random");
-                ChosenColor = (Color)(_chosenColor = defaultColors.RandomElement());
-            }
-            return;
-        }
         _chosenColor = ChosenColor;
     }
 

@@ -10,7 +10,7 @@ public static class FishtailPatch_ApparelUtility
 {
     public static bool Prefix(Pawn p, ThingDef apparel, ref bool __result)
     {
-        if (p?.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>() == null) return true;
+        if (p?.genes?.GetFirstGeneOfType<Gene_Fishtail>() == null) return true;
         if (apparel.apparel.bodyPartGroups.CoversMoreThanJustLegs()) return true;
         __result = false;
         return false;
@@ -22,7 +22,7 @@ public static class FishtailPatch_PawnTechHediffsGenerator
 {
     public static void Postfix(Pawn pawn)
     {
-        if (pawn?.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>() is null) return;
+        if (pawn?.genes?.GetFirstGeneOfType<Gene_Fishtail>() is null) return;
         
         //If pawn generated with a leg implant, fishtail and bodyfins are removed/not added.
         //For now only skips full leg implants, if e.g. a foot is replaced it still gets overwritten by fishtail.
@@ -32,13 +32,8 @@ public static class FishtailPatch_PawnTechHediffsGenerator
             {
                 var finGene = pawn.genes.GetGene(StagzDefOf.Stagz_BodyFin);
                 if (finGene is not null) pawn.genes.RemoveGene(finGene);
-                foreach (Gene gene in pawn.genes.GenesListForReading)
-                {
-                    if (gene is Stagz_Gene_Tail_Fish tailGene)
-                    {
-                        pawn.genes.RemoveGene(tailGene);
-                    }
-                }
+                var tailGene = pawn.genes.GetFirstGeneOfType<Gene_Fishtail>();
+                pawn.genes.RemoveGene(tailGene);
 
                 return;
             }

@@ -120,15 +120,6 @@ public class Dialog_ColorPickerForGenesWithScales : Window
 			//ColorPalette;
 			using (new TextBlock(TextAnchor.MiddleLeft))
 			{
-				Color? geneticColor = pawn.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>()?.def.RenderNodeProperties.FirstOrFallback().color;
-				if (geneticColor != null)
-				{
-					//the "Genetic Color" box and label at the top of palette
-					RectDivider ColorBoxRowGenetic = rightCol.NewRow(ColorIconSizeWithPadding);
-					RectDivider ColorBoxGenetic = ColorBoxRowGenetic.NewCol(ColorIconSizeWithPadding);
-					Widgets.ColorBox(ColorBoxGenetic.Rect, ref color, (Color) geneticColor);
-					Widgets.Label(ColorBoxRowGenetic.Rect, "StagzMerfolk_UI_GeneticColor".Translate().CapitalizeFirst());
-				}
 				//the "Old Color" box and label at the top of palette
 				RectDivider ColorBoxRow = rightCol.NewRow(ColorIconSizeWithPadding);
 				RectDivider ColorBox = ColorBoxRow.NewCol(ColorIconSizeWithPadding);

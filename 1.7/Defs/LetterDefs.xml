@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>    
     <LetterDef ParentName="CustomChoiceLetterBase">
-        <defName>Stagz_AcceptCharmedJoiner</defName>
-        <letterClass>StagzMerfolk.ChoiceLetter_AcceptCharmedJoiner</letterClass>
+        <defName>Stagz_AcceptVirtuoso</defName>
+        <letterClass>StagzMerfolk.ChoiceLetter_AcceptVirtuoso</letterClass>
         <arriveSound>LetterArrive_Good</arriveSound>
     </LetterDef>
     

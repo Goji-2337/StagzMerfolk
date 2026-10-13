@@ -5,7 +5,7 @@ using Verse;
 
 namespace StagzMerfolk;
 
-public class Stagz_Gene_Tail_Fish : Gene_WithScaleColor
+public class Gene_Fishtail : Gene_WithScaleColor
 {
     public override void PostMake()
     {
@@ -16,7 +16,7 @@ public class Stagz_Gene_Tail_Fish : Gene_WithScaleColor
         
         pawn.RemoveLegOnlyApparel();
         //Only run this on first tail added - otherwise can lead to cursed loop with fishtail hediffcomp
-        if (pawn.genes.GenesListForReading.OfType<Stagz_Gene_Tail_Fish>().Count() == 0)
+        if (pawn.genes.GenesListForReading.OfType<Gene_Fishtail>().Count() == 0)
             foreach (var leg in pawn.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Leg))
             {
                 pawn.health.RestorePart(leg, null, false);
@@ -28,7 +28,7 @@ public class Stagz_Gene_Tail_Fish : Gene_WithScaleColor
     {
         base.PostRemove();
         //Only run this on last tail removed - otherwise can lead to cursed loop with the fishtail hediffcomp
-        if (pawn.genes.GenesListForReading.OfType<Stagz_Gene_Tail_Fish>().Count() == 0)
+        if (pawn.genes.GenesListForReading.OfType<Gene_Fishtail>().Count() == 0)
         {
             List<Hediff> parts = pawn.health.hediffSet.hediffs
                 .Where(h => h.def == StagzDefOf.Stagz_Tail).ToList();

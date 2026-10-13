@@ -46,7 +46,6 @@
         </comps>
     </AbilityDef>
 
-    <!--TODO: wanted to make it a melee ability so pawns could pathfind automatically, but verb change mid-version breaks saves -->
     <AbilityDef>
         <defName>Stagz_SirenCallCharm</defName>
         <label>charm person</label>
@@ -60,7 +59,7 @@
         <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
         <jobDef>CastAbilityOnThingWithoutWeaponInterruptible</jobDef>
         <verbProperties>
-            <verbClass>Verb_CastAbility</verbClass>
+            <verbClass>Verb_CastAbilityTouch</verbClass>
             <label>charm person</label>
             <warmupTime>1</warmupTime>
             <warmupEffecter>Stagz_Singing</warmupEffecter>
@@ -110,30 +109,6 @@
             </li>
         </comps>
     </HediffDef>
-
-    <!-- TODO: Obsolete, to be removed in 1.7 -->
-    <MentalStateDef ParentName="BaseMentalState" Name="Stagz_Charmed">
-        <defName>Stagz_Charmed</defName>
-        <stateClass>StagzMerfolk.MentalState_Charmed</stateClass>
-        <label>charmed</label>
-        <category>Aggro</category>
-        <blockRandomInteraction>true</blockRandomInteraction>
-        <nameColor>(0.9,0.2,0.5)</nameColor>
-        <beginLetter>{0} has been roused by a magic charm.\n\n[PAWN_pronoun] will attack their own faction.</beginLetter>
-        <recoveryMessage>{0}'s charm has come to an end and will join the colony.</recoveryMessage>
-        <baseInspectLine>Mental state: Charmed</baseInspectLine>
-        <stateEffecter>AnimalWarcallMentalState</stateEffecter>
-        <recoverFromSleep>true</recoverFromSleep>
-        <inCaravanCanDo>true</inCaravanCanDo>
-        <minTicksBeforeRecovery>10000</minTicksBeforeRecovery>
-        <maxTicksBeforeRecovery>10000</maxTicksBeforeRecovery>
-    </MentalStateDef>
-
-    <!-- TODO: Obsolete, to be removed in 1.7 -->
-    <MentalStateDef ParentName="Stagz_Charmed">
-        <defName>Stagz_VeryCharmed</defName>
-        <stateClass>StagzMerfolk.MentalState_VeryCharmed</stateClass>
-    </MentalStateDef>
 
     <AbilityDef>
         <defName>Stagz_CallRain</defName>

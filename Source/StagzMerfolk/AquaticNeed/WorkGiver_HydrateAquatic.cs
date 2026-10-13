@@ -25,7 +25,7 @@ public class WorkGiver_HydrateAquatic : WorkGiver_Scanner
     {
         foreach (var potentialTarget in pawn.Map.mapPawns.AllPawnsSpawned)
         {
-            var needAquatic = potentialTarget.needs.TryGetNeed<Stagz_Need_Aquatic>();
+            var needAquatic = potentialTarget.needs.TryGetNeed<Need_Aquatic>();
             if (needAquatic != null && needAquatic.CurLevel < 0.3f)
             {
                 yield return potentialTarget;
@@ -41,7 +41,7 @@ public class WorkGiver_HydrateAquatic : WorkGiver_Scanner
             return false;
         }
 
-        Stagz_Need_Aquatic needAquatic = target.needs.TryGetNeed<Stagz_Need_Aquatic>();
+        Need_Aquatic needAquatic = target.needs.TryGetNeed<Need_Aquatic>();
         return needAquatic != null && needAquatic.CurLevel < 0.3f && WorkGiver_Tend.GoodLayingStatusForTend(target, pawn) && pawn.CanReserve(target, 1, -1, null, forced);
     }
 

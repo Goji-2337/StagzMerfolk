@@ -7,7 +7,6 @@ namespace StagzMerfolk;
 [DefOf]
 public class StagzDefOf
 {
-    public static GeneDef Stagz_KeenReflexes;
     public static GeneDef Stagz_Charming;
     public static GeneDef Stagz_RainVeil;
     public static GeneDef Stagz_Raincaller;
@@ -36,7 +35,6 @@ public class StagzDefOf
     public static HediffDef Stagz_CoveredInDye;
     public static EffecterDef Stagz_DyeingTail;
     
-    public static LetterDef Stagz_AcceptCharmedJoiner;
     [MayRequireRoyalty]
     public static IncidentDef Stagz_VirtuosoSummoned;
     public static EffecterDef Stagz_DeepDiveSubmerge;
@@ -49,6 +47,8 @@ public class StagzDefOf
     public static MentalStateDef GiveUpExit;
     public static HediffDef Stagz_Infatuated;
 
+    public static AbilityDef Stagz_SirenCallCharm;
+    
     static StagzDefOf()
     {
         DefOfHelper.EnsureInitializedInCtor(typeof(StagzDefOf));

@@ -1,54 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <!--  Fishtail Color Randomizer  -->
     <GeneDef>
-        <defName>Stagz_Gene_Tail_Fish_Random</defName>
-        <geneClass>StagzMerfolk.Gene_Fishtail_Randomizer</geneClass>
-        <label>fishtail (random color)</label>
-        <description>Carriers of this gene grow a fish-like tail below their waist instead of human legs.</description>
-        <customEffectDescriptions>
-            <li>Replaced by a random colored tail when added to a pawn</li>
-            <li>The color of the tail can be changed using dye.</li>
-            <li>Replaces the pawn's legs with a fishtail.</li>
-            <li>Prevents the pawn from wearing clothes that only cover leg slots.</li>
-            <li>This gene is lost if the fishtail is destroyed.</li>
-        </customEffectDescriptions>
-        <conditionalStatAffecters>
-            <li Class="StagzMerfolk.ConditionalStatEffector_Water">
-                <statOffsets>
-                    <MoveSpeed>1</MoveSpeed>
-                </statOffsets>
-            </li>
-        </conditionalStatAffecters>
-        <iconPath>StagzMerfolk/UI/Icons/Genes/Gene_FishTail2</iconPath>
-        <prerequisite>Stagz_Aquatic</prerequisite>
-        <displayCategory>Miscellaneous</displayCategory>
-        <biostatMet>-1</biostatMet>
-        <biostatCpx>2</biostatCpx>
-        <displayOrderInCategory>401</displayOrderInCategory>
-        <exclusionTags>
-            <li>Fur</li>
-        </exclusionTags>
-        <fur>Stagz_TailFur</fur>
-        <renderNodeProperties>
-            <li Class="StagzMerfolk.PawnRenderNodeProperties_HasDesiccatedGraphics">
-                <debugLabel>Stagz_Gene_Tail_Fish</debugLabel>
-                <useSkinShader>false</useSkinShader>
-                <colorType>Custom</colorType>
-                <color>(0, 126.5, 126.5)</color>
-                <nodeClass>StagzMerfolk.PawnRenderNode_Fishtail</nodeClass>
-                <workerClass>StagzMerfolk.PawnRenderNodeWorker_Fishtail</workerClass>
-                <baseLayer>5</baseLayer>
-                <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
-                <parentTagDef>Body</parentTagDef>
-                <desiccatedTexPath>StagzMerfolk/Things/Pawn/Humanlike/Bodies/Desiccated/fishtail</desiccatedTexPath>
-            </li>
-        </renderNodeProperties>
-    </GeneDef>
-
-    <!--  Fishtails  -->
-    <GeneDef Name="Stagz_FishTail" Abstract="True">
-        <geneClass>StagzMerfolk.Stagz_Gene_Tail_Fish</geneClass>
+        <defName>Stagz_Fishtail</defName>
+        <geneClass>StagzMerfolk.Gene_Fishtail</geneClass>
         <label>fishtail</label>
         <description>Carriers of this gene grow a fish-like tail below their waist instead of human legs.</description>
         <customEffectDescriptions>
@@ -66,178 +20,22 @@
         </conditionalStatAffecters>
         <iconPath>StagzMerfolk/UI/Icons/Genes/Gene_FishTail2</iconPath>
         <prerequisite>Stagz_Aquatic</prerequisite>
-        <randomChosen>true</randomChosen>
         <displayCategory>Miscellaneous</displayCategory>
         <biostatMet>-1</biostatMet>
-        <biostatCpx>2</biostatCpx>
-        <displayOrderInCategory>402</displayOrderInCategory>
+        <biostatCpx>1</biostatCpx>
+        <displayOrderInCategory>401</displayOrderInCategory>
         <exclusionTags>
             <li>Fur</li>
         </exclusionTags>
-    </GeneDef>
-
-    <!--  Template  -->
-    <!--
-    <GeneDef ParentName="Stagz_FishTail">
-        <defName>Stagz_Gene_Tail_Fish_Template</defName>    rename def
-        <label>fishtail (template)</label>                  rename label
-        <iconColor>(0, 255, 126.5)</iconColor>              rgb values between 0 and 255, accepts decimals 
         <fur>Stagz_TailFur</fur>
         <renderNodeProperties>
             <li Class="StagzMerfolk.PawnRenderNodeProperties_HasDesiccatedGraphics">
-                <debugLabel>Stagz_Gene_Tail_Fish</debugLabel>
-                <useSkinShader>false</useSkinShader>
-                <colorType>Custom</colorType>
-                <color>(0, 126.5, 126.5)</color>            rgb values between 0 and 255, accepts decimals 
-                <nodeClass>StagzMerfolk.PawnRenderNode_Fishtail</nodeClass>
-                <workerClass>StagzMerfolk.PawnRenderNodeWorker_Fishtail</workerClass>
-                <baseLayer>5</baseLayer>
-                <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
-                <parentTagDef>Body</parentTagDef>
-                <desiccatedTexPath>StagzMerfolk/Things/Pawn/Humanlike/Bodies/Desiccated/fishtail</desiccatedTexPath>
-            </li>
-    </GeneDef>
-    -->
-
-    <GeneDef ParentName="Stagz_FishTail">
-        <defName>Stagz_Gene_Tail_Fish_Teal</defName>
-        <label>fishtail (teal)</label>
-        <iconColor>(0, 126.5, 126.5)</iconColor>
-        <fur>Stagz_TailFur</fur>
-        <renderNodeProperties>
-            <li Class="StagzMerfolk.PawnRenderNodeProperties_HasDesiccatedGraphics">
-                <debugLabel>Stagz_Gene_Tail_Fish</debugLabel>
+                <debugLabel>Stagz_Fishtail</debugLabel>
                 <useSkinShader>false</useSkinShader>
                 <colorType>Custom</colorType>
                 <color>(0, 126.5, 126.5)</color>
                 <nodeClass>StagzMerfolk.PawnRenderNode_Fishtail</nodeClass>
-                <workerClass>StagzMerfolk.PawnRenderNodeWorker_Fishtail</workerClass>
-                <baseLayer>5</baseLayer>
-                <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
-                <parentTagDef>Body</parentTagDef>
-                <desiccatedTexPath>StagzMerfolk/Things/Pawn/Humanlike/Bodies/Desiccated/fishtail</desiccatedTexPath>
-            </li>
-        </renderNodeProperties>
-    </GeneDef>
-
-    <GeneDef ParentName="Stagz_FishTail">
-        <defName>Stagz_Gene_Tail_Fish_Orange</defName>
-        <label>fishtail (orange)</label>
-        <iconColor>(241, 99, 35)</iconColor>
-        <fur>Stagz_TailFur</fur>
-        <renderNodeProperties>
-            <li Class="StagzMerfolk.PawnRenderNodeProperties_HasDesiccatedGraphics">
-                <debugLabel>Stagz_Gene_Tail_Fish</debugLabel>
-                <useSkinShader>false</useSkinShader>
-                <colorType>Custom</colorType>
-                <color>(241, 99, 35)</color>
-                <nodeClass>StagzMerfolk.PawnRenderNode_Fishtail</nodeClass>
-                <workerClass>StagzMerfolk.PawnRenderNodeWorker_Fishtail</workerClass>
-                <baseLayer>5</baseLayer>
-                <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
-                <parentTagDef>Body</parentTagDef>
-                <desiccatedTexPath>StagzMerfolk/Things/Pawn/Humanlike/Bodies/Desiccated/fishtail</desiccatedTexPath>
-            </li>
-        </renderNodeProperties>
-    </GeneDef>
-
-    <GeneDef ParentName="Stagz_FishTail">
-        <defName>Stagz_Gene_Tail_Fish_Black</defName>
-        <label>fishtail (black)</label>
-        <iconColor>(43,43,43)</iconColor>
-        <fur>Stagz_TailFur</fur>
-        <renderNodeProperties>
-            <li Class="StagzMerfolk.PawnRenderNodeProperties_HasDesiccatedGraphics">
-                <debugLabel>Stagz_Gene_Tail_Fish</debugLabel>
-                <useSkinShader>false</useSkinShader>
-                <colorType>Custom</colorType>
-                <color>(43,43,43)</color>
-                <nodeClass>StagzMerfolk.PawnRenderNode_Fishtail</nodeClass>
-                <workerClass>StagzMerfolk.PawnRenderNodeWorker_Fishtail</workerClass>
-                <baseLayer>5</baseLayer>
-                <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
-                <parentTagDef>Body</parentTagDef>
-                <desiccatedTexPath>StagzMerfolk/Things/Pawn/Humanlike/Bodies/Desiccated/fishtail</desiccatedTexPath>
-            </li>
-        </renderNodeProperties>
-    </GeneDef>
-
-    <GeneDef ParentName="Stagz_FishTail">
-        <defName>Stagz_Gene_Tail_Fish_White</defName>
-        <label>fishtail (white)</label>
-        <iconColor>(242, 243, 244)</iconColor>
-        <fur>Stagz_TailFur</fur>
-        <renderNodeProperties>
-            <li Class="StagzMerfolk.PawnRenderNodeProperties_HasDesiccatedGraphics">
-                <debugLabel>Stagz_Gene_Tail_Fish</debugLabel>
-                <useSkinShader>false</useSkinShader>
-                <colorType>Custom</colorType>
-                <color>(242, 243, 244)</color>
-                <nodeClass>StagzMerfolk.PawnRenderNode_Fishtail</nodeClass>
-                <workerClass>StagzMerfolk.PawnRenderNodeWorker_Fishtail</workerClass>
-                <baseLayer>5</baseLayer>
-                <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
-                <parentTagDef>Body</parentTagDef>
-                <desiccatedTexPath>StagzMerfolk/Things/Pawn/Humanlike/Bodies/Desiccated/fishtail</desiccatedTexPath>
-            </li>
-        </renderNodeProperties>
-    </GeneDef>
-
-    <GeneDef ParentName="Stagz_FishTail">
-        <defName>Stagz_Gene_Tail_Fish_Cyan</defName>
-        <label>fishtail (cyan)</label>
-        <iconColor>(106, 231, 254)</iconColor>
-        <fur>Stagz_TailFur</fur>
-        <renderNodeProperties>
-            <li Class="StagzMerfolk.PawnRenderNodeProperties_HasDesiccatedGraphics">
-                <debugLabel>Stagz_Gene_Tail_Fish</debugLabel>
-                <useSkinShader>false</useSkinShader>
-                <colorType>Custom</colorType>
-                <color>(106, 231, 254)</color>
-                <nodeClass>StagzMerfolk.PawnRenderNode_Fishtail</nodeClass>
-                <workerClass>StagzMerfolk.PawnRenderNodeWorker_Fishtail</workerClass>
-                <baseLayer>5</baseLayer>
-                <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
-                <parentTagDef>Body</parentTagDef>
-                <desiccatedTexPath>StagzMerfolk/Things/Pawn/Humanlike/Bodies/Desiccated/fishtail</desiccatedTexPath>
-            </li>
-        </renderNodeProperties>
-    </GeneDef>
-
-    <GeneDef ParentName="Stagz_FishTail">
-        <defName>Stagz_Gene_Tail_Fish_Magenta</defName>
-        <label>fishtail (magenta)</label>
-        <iconColor>(180,78,175)</iconColor>
-        <fur>Stagz_TailFur</fur>
-        <renderNodeProperties>
-            <li Class="StagzMerfolk.PawnRenderNodeProperties_HasDesiccatedGraphics">
-                <debugLabel>Stagz_Gene_Tail_Fish</debugLabel>
-                <useSkinShader>false</useSkinShader>
-                <colorType>Custom</colorType>
-                <color>(180,78,175)</color>
-                <nodeClass>StagzMerfolk.PawnRenderNode_Fishtail</nodeClass>
-                <workerClass>StagzMerfolk.PawnRenderNodeWorker_Fishtail</workerClass>
-                <baseLayer>5</baseLayer>
-                <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
-                <parentTagDef>Body</parentTagDef>
-                <desiccatedTexPath>StagzMerfolk/Things/Pawn/Humanlike/Bodies/Desiccated/fishtail</desiccatedTexPath>
-            </li>
-        </renderNodeProperties>
-    </GeneDef>
-
-    <GeneDef ParentName="Stagz_FishTail">
-        <defName>Stagz_Gene_Tail_Fish_Salmon</defName>
-        <label>fishtail (salmon)</label>
-        <iconColor>(212,76,73)</iconColor>
-        <fur>Stagz_TailFur</fur>
-        <renderNodeProperties>
-            <li Class="StagzMerfolk.PawnRenderNodeProperties_HasDesiccatedGraphics">
-                <debugLabel>Stagz_Gene_Tail_Fish</debugLabel>
-                <useSkinShader>false</useSkinShader>
-                <colorType>Custom</colorType>
-                <color>(212,76,73)</color>
-                <nodeClass>StagzMerfolk.PawnRenderNode_Fishtail</nodeClass>
-                <workerClass>StagzMerfolk.PawnRenderNodeWorker_Fishtail</workerClass>
+                <workerClass>PawnRenderNodeWorker_Fur</workerClass>
                 <baseLayer>5</baseLayer>
                 <rotDrawMode>Fresh, Rotting, Dessicated</rotDrawMode>
                 <parentTagDef>Body</parentTagDef>

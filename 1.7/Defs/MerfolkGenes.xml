@@ -1,61 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <GeneCategoryDef>
-        <defName>StagzMerfolk</defName>
-        <label>Merren</label>
-        <displayPriorityInXenotype>511</displayPriorityInXenotype>
-    </GeneCategoryDef>
-
-    <GeneDef>
-        <defName>Stagz_WebbedHands</defName>
-        <label>webbed hands</label>
-        <description>Carriers of this gene have webbed hands.</description>
-        <iconPath>StagzMerfolk/UI/Icons/Genes/Gene_HandsWebbed</iconPath>
-        <displayOrderInCategory>1</displayOrderInCategory>
-        <selectionWeight>0</selectionWeight>
-        <displayCategory>Miscellaneous</displayCategory>
-        <minAgeActive>3</minAgeActive>
-        <biostatCpx>1</biostatCpx>
-        <biostatMet>1</biostatMet>
-        <capMods>
-            <li>
-                <capacity>Manipulation</capacity>
-                <postFactor>0.9</postFactor>
-            </li>
-        </capMods>
-        <conditionalStatAffecters>
-            <li Class="StagzMerfolk.ConditionalStatEffector_Water">
-                <statOffsets>
-                    <MoveSpeed>0.1</MoveSpeed>
-                </statOffsets>
-            </li>
-        </conditionalStatAffecters>
-        <exclusionTags>
-            <li>Hands</li>
-        </exclusionTags>
-    </GeneDef>
-
-    <GeneDef>
-        <defName>Stagz_SwiftSwim</defName>
-        <label>swift swim</label>
-        <description>Carriers of this gene are natural swimmers. When in water, they can move quickly and with grace.</description>
-        <iconPath>StagzMerfolk/UI/Icons/Genes/Gene_SwiftSwim</iconPath>
-        <displayCategory>Movement</displayCategory>
-        <displayOrderInCategory>500</displayOrderInCategory>
-        <conditionalStatAffecters>
-            <li Class="StagzMerfolk.ConditionalStatEffector_WaterOrRain">
-                <statOffsets>
-                    <MeleeDodgeChance>15</MeleeDodgeChance>
-                </statOffsets>
-                <statFactors>
-                    <MoveSpeed>1.3</MoveSpeed>
-                </statFactors>
-            </li>
-        </conditionalStatAffecters>
-        <biostatCpx>1</biostatCpx>
-        <biostatMet>-1</biostatMet>
-    </GeneDef>
-
     <GeneDef>
         <defName>Stagz_RainVeil</defName>
         <label>rain veil</label>
@@ -101,7 +45,6 @@
             <li>Stagz_CallRain</li>
         </abilities>
         <biostatCpx>3</biostatCpx>
-        <biostatMet>-5</biostatMet>
         <biostatArc>1</biostatArc>
     </GeneDef>
 
@@ -126,7 +69,7 @@
             <li>Stagz_SirenCall</li>
         </abilities>
         <biostatCpx>1</biostatCpx>
-        <biostatMet>-1</biostatMet>
+        <biostatMet>-2</biostatMet>
     </GeneDef>
     
     <GeneDef>
@@ -157,27 +100,6 @@
             </li>
         </stages>
     </ThoughtDef>
-
-    <GeneDef>
-        <defName>Stagz_KeenReflexes</defName>
-        <label>keen reflexes</label>
-        <description>Carriers of this gene have extremely fast reflexes. They can even dodge incoming hits from a distance.</description>
-        <customEffectDescriptions>
-            <li>100% of melee dodge chance is applied to ranged dodge chance.</li>
-        </customEffectDescriptions>
-        <iconPath>StagzMerfolk/UI/Icons/Genes/Gene_KeenReflex</iconPath>
-        <displayCategory>Archite</displayCategory>
-        <displayOrderInCategory>500</displayOrderInCategory>
-        <biostatCpx>2</biostatCpx>
-        <biostatMet>-5</biostatMet>
-        <biostatArc>1</biostatArc>
-        <modExtensions>
-            <!-- The % of melee dodge chance to be added as ranged 'dodge' chance -->
-            <li Class="StagzMerfolk.KeenReflexModExtension">
-                <MeleeToRangeCoefficient>1</MeleeToRangeCoefficient>
-            </li>
-        </modExtensions>
-    </GeneDef>
 
     <GeneDef ParentName="GeneEarsBase" Name="Stagz_FinEars">
         <defName>Stagz_FinEars</defName>

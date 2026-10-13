@@ -25,7 +25,7 @@ public class Alert_Dehydration : Alert
             dehydratedPawns.Clear();
             foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_AliveSpawned_FreeColonists_NoSuspended)
             {
-                if (pawn.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic) is Stagz_Need_Aquatic need && need.Dehydrating)
+                if (pawn.needs.TryGetNeed(StagzDefOf.Stagz_NeedAquatic) is Need_Aquatic need && need.Dehydrating)
                 {
                     dehydratedPawns.Add(pawn);
                 }

@@ -50,7 +50,7 @@ public class JobDriver_ChangeScaleColorAtComp : JobDriver
             }
 
             //pawns who don't have tail but can still change color of fins probably shouldn't drip
-            if (pawn?.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>() != null)
+            if (pawn?.genes?.GetFirstGeneOfType<Gene_Fishtail>() != null)
             {
                 pawn.health.AddHediff(StagzDefOf.Stagz_CoveredInDye);
             }

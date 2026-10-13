@@ -25,7 +25,7 @@
         <label>merren virtuoso</label>
         <workerClass>StagzMerfolk.IncidentWorker_VirtuosoSummoned</workerClass>
         <pawnKind>Stagz_Virtuoso</pawnKind>
-        <letterDef>Stagz_AcceptCharmedJoiner</letterDef>
+        <letterDef>Stagz_AcceptVirtuoso</letterDef>
         <letterLabel>Virtuoso's Calling: {PAWN_nameDef}</letterLabel>
         <letterText>As the final notes of {SUBJECT_nameDef}'s recital echo through the map, a {PAWN_title} named {PAWN_nameDef} emerges from the nearby depths. Lured by the captivating melody, {PAWN_pronoun} is eager to sing along to a new song.\n\nYou can choose to turn {PAWN_objective} down and send {PAWN_objective} away.</letterText>
         <modExtensions>

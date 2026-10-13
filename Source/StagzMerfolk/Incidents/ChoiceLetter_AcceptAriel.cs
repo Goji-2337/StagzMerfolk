@@ -3,7 +3,7 @@ using Verse;
 
 namespace StagzMerfolk;
 
-public class ChoiceLetter_AcceptAriel : ChoiceLetter_AcceptCharmedJoiner
+public class ChoiceLetter_AcceptAriel : ChoiceLetter_AcceptVirtuoso
 {
     protected override DiaOption RejectOption => new ("RejectLetter".Translate())
         {

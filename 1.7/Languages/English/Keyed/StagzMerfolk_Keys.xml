@@ -9,10 +9,6 @@
     <StagzMerfolk_RainCall>{0} has called forth a {1}. It will begin shortly...</StagzMerfolk_RainCall>
     <StagzMerfolk_ForcedWeatherActive>an even stronger force is controlling the weather.</StagzMerfolk_ForcedWeatherActive>
 
-    <!-- TODO: Obsolete, both keys should be removed in 1.7 -->
-    <StagzMerfolk_LetterLabelCharmedJoins>Charmed {PAWN_title}: {PAWN_nameDef}</StagzMerfolk_LetterLabelCharmedJoins>
-    <StagzMerfolk_LetterCharmedJoins>After being charmed, a {PAWN_title} named {PAWN_nameDef} wishes to turn a new leaf and wants to join the colony.\n\n{PAWN_pronoun} is willing to contribute, but will soon exile themselves in shame. You can choose to turn {PAWN_objective} down and send {PAWN_objective} away. However, your colonists will be disturbed at sending someone away in need.</StagzMerfolk_LetterCharmedJoins>
-
     <StagzMerfolk_AbilityMustBeDifferentFaction>{0_labelShort} must be of a different faction than {1_labelShort}.</StagzMerfolk_AbilityMustBeDifferentFaction>
     <StagzMerfolk_LetterLabel_CharmedHumanlike>Charmed {PAWN_title}: {PAWN_nameDef}</StagzMerfolk_LetterLabel_CharmedHumanlike>
     <StagzMerfolk_LetterText_CharmedHumanlike>Compelled by the irresistible power of the psychic song, a {PAWN_title} named {PAWN_nameDef} forsakes {PAWN_possessive} previous allegiances and joins the colony! But beware: as the spell fades over time, there may yet be consequences for bringing {PAWN_objective} into the fold by force.</StagzMerfolk_LetterText_CharmedHumanlike>

@@ -47,7 +47,7 @@ public static class StagzUtils
     
     public static Color? TryGetMerrenScaleColor(this Pawn pawn) {
         
-        return pawn?.genes?.GetFirstGeneOfType<Stagz_Gene_Tail_Fish>()?.ChosenColor
+        return pawn?.genes?.GetFirstGeneOfType<Gene_Fishtail>()?.ChosenColor
                ?? pawn?.genes?.GetFirstGeneOfType<Gene_WithScaleColor>()?.ChosenColor;
     }
     

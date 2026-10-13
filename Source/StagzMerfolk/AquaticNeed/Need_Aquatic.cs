@@ -7,7 +7,7 @@ using Verse;
 namespace StagzMerfolk;
 
 [UsedImplicitly]
-public class Stagz_Need_Aquatic : Need
+public class Need_Aquatic : Need
 {
     private const int needIntervalTicks = 150;
     private const float BaseGainRatePerInterval = 0.0075f;
@@ -43,7 +43,7 @@ public class Stagz_Need_Aquatic : Need
         || pawn.health.hediffSet.HasHediff(StagzDefOf.IntheStandaloneHotSpring)
         || IsInCaravanOnWaterFeatures();
     
-    public Stagz_Need_Aquatic(Pawn pawn) : base(pawn)
+    public Need_Aquatic(Pawn pawn) : base(pawn)
     {
         threshPercents = [0.1f];
     }
