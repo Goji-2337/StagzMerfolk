@@ -8,7 +8,6 @@ namespace StagzMerfolk;
 
 public class BackCompatibilityConverter_1_6 : BackCompatibilityConverter
 {
-    //TODO TODO TODO
     public override bool AppliesToVersion(int majorVer, int minorVer)
     {
         return majorVer switch

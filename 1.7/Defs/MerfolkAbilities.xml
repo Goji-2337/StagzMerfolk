@@ -57,15 +57,17 @@
         <cooldownTicksRange>3600000</cooldownTicksRange> <!-- 60 days -->
         <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
         <canUseAoeToGetTargets>false</canUseAoeToGetTargets>
-        <jobDef>CastAbilityOnThingWithoutWeaponInterruptible</jobDef>
+        <stunTargetWhileCasting>true</stunTargetWhileCasting>
+        <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+        <jobDef>CastAbilityOnThingMelee</jobDef>
         <verbProperties>
             <verbClass>Verb_CastAbilityTouch</verbClass>
             <label>charm person</label>
             <warmupTime>1</warmupTime>
             <warmupEffecter>Stagz_Singing</warmupEffecter>
             <soundCast>Stagz_SirenSongSound3</soundCast>
-            <range>3.9</range>
-            <requireLineOfSight>true</requireLineOfSight>
+            <range>-1</range>
             <targetParams>
                 <canTargetBuildings>false</canTargetBuildings>
                 <canTargetMechs>false</canTargetMechs>
