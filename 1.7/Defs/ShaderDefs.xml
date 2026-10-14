@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
     <ShaderTypeDef>
-        <defName>StagzTransparentComplex</defName>
-        <shaderPath>StagzTransparentComplex</shaderPath>
+        <defName>ScalyGenes</defName>
+        <shaderPath>StagzMerfolk/ScalyGenes</shaderPath>
     </ShaderTypeDef>
+
+    <ShaderDef>
+        <defName>ScalyGenes</defName>
+        <shaderProgram>
+            <fragmentShaderFileName>ScalyGenes.frag.glsl</fragmentShaderFileName>
+            <transparent>true</transparent>
+            <depthWrite>true</depthWrite>
+            <renderQueue>2900</renderQueue>
+        </shaderProgram>
+    </ShaderDef>
 </Defs>

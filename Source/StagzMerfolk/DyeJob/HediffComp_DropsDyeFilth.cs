@@ -1,3 +1,4 @@
+using System;
 using JetBrains.Annotations;
 using RimWorld;
 using UnityEngine;
@@ -34,7 +35,7 @@ public class HediffComp_DropsDyeFilth : HediffComp_Disappears
         if (ticksForSmearing-- > 0 &&
             (!lastSmearDropPos.HasValue || 
             Vector3.Distance(pawn.DrawPos, lastSmearDropPos.Value) > 
-            0.5f * Mathf.Pow(1f - (float) ticksForSmearing / Props.directionalFilthTicks, 2)))
+            0.5f * MathF.Pow(1f - (float) ticksForSmearing / Props.directionalFilthTicks, 2)))
         {
             FilthMaker.TryMakeFilth(pawn.PositionHeld, pawn.MapHeld, StagzDefOf.Stagz_Filth_DyeSmear, out var outFilth, shouldPropagate: false);
             if (outFilth == null) return;

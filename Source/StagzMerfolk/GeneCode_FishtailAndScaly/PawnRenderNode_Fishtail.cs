@@ -17,14 +17,14 @@ public class PawnRenderNode_Fishtail(Pawn pawn, PawnRenderNodeProperties props, 
         }
 
         var skinColor = pawn.story.SkinColor;
-        //if (modOption) {skinColor.a = 0;} - for theoretical bodyreplacer compat
+        //if (StagzMerfolkSettings.transparentSkinWithoutFur) {skinColor.a = 0;} - for theoretical bodyreplacer compat
         
         switch (pawn.Drawer.renderer.CurRotDrawMode)
         {
             case RotDrawMode.Fresh:
                 return GraphicDatabase.Get<Graphic_Multi>(
                     pawn.story.furDef.GetFurBodyGraphicPath(pawn),
-                    StagzDefOf.StagzTransparentComplex.Shader,
+                    StagzDefOf.ScalyGenes.Shader,
                     Vector2.one,
                     skinColor,
                     ColorFor(pawn)
@@ -32,7 +32,7 @@ public class PawnRenderNode_Fishtail(Pawn pawn, PawnRenderNodeProperties props, 
             case RotDrawMode.Rotting:
                 return GraphicDatabase.Get<Graphic_Multi>(
                     pawn.story?.furDef.GetFurBodyGraphicPath(pawn),
-                    StagzDefOf.StagzTransparentComplex.Shader,
+                    StagzDefOf.ScalyGenes.Shader,
                     Vector2.one,
                     PawnRenderUtility.GetRottenColor(skinColor),
                     ColorFor(pawn)

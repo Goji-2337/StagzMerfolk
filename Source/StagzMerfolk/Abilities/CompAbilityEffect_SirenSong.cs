@@ -1,6 +1,6 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 using RimWorld;
-using UnityEngine;
 using Verse;
 
 namespace StagzMerfolk;
@@ -11,7 +11,7 @@ public class CompAbilityEffect_SirenSong : CompAbilityEffect_GiveHediff
 
     protected override bool TryResist(Pawn pawn)
     {
-        var resistChance = Mathf.Min(pawn.GetStatValue(StatDefOf.PsychicSensitivity), pawn.health.capacities.GetLevel(PawnCapacityDefOf.Hearing));
+        var resistChance = MathF.Min(pawn.GetStatValue(StatDefOf.PsychicSensitivity), pawn.health.capacities.GetLevel(PawnCapacityDefOf.Hearing));
         var resistChanceAdjusted = Props.chanceFromCurve.Evaluate(resistChance);
         var roll = Rand.Chance(1f - resistChanceAdjusted);
         return roll;

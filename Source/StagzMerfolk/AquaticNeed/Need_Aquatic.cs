@@ -1,7 +1,7 @@
+using System;
 using JetBrains.Annotations;
 using RimWorld;
 using RimWorld.Planet;
-using UnityEngine;
 using Verse;
 
 namespace StagzMerfolk;
@@ -124,6 +124,6 @@ public class Need_Aquatic : Need
 
     public void Hydrate(float val)
     {
-        CurLevel = Mathf.Min(CurLevel + val, 1f);
+        CurLevel = MathF.Min(CurLevel + val, 1f);
     }
 }

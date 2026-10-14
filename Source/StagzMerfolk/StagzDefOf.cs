@@ -42,7 +42,7 @@ public class StagzDefOf
     [MayRequire("GM.Nautian.Style")]
     public static StyleCategoryDef GM_Ocean;
 
-    public static ShaderTypeDef StagzTransparentComplex; 
+    public static ShaderTypeDef ScalyGenes;
     
     public static MentalStateDef GiveUpExit;
     public static HediffDef Stagz_Infatuated;

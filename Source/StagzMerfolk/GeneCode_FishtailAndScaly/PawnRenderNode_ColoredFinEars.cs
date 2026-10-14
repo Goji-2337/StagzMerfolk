@@ -16,7 +16,7 @@ public class PawnRenderNode_ColoredFinEars(Pawn pawn, PawnRenderNodeProperties p
             case RotDrawMode.Fresh:
                 return GraphicDatabase.Get<Graphic_Multi>(
                     Props.texPath,
-                    StagzDefOf.StagzTransparentComplex.Shader,
+                    StagzDefOf.ScalyGenes.Shader,
                     Vector2.one,
                     pawn.story?.SkinColor ?? Color.white,
                     ColorFor(pawn)
@@ -24,7 +24,7 @@ public class PawnRenderNode_ColoredFinEars(Pawn pawn, PawnRenderNodeProperties p
             case RotDrawMode.Rotting:
                 return GraphicDatabase.Get<Graphic_Multi>(
                     Props.texPath,
-                    StagzDefOf.StagzTransparentComplex.Shader,
+                    StagzDefOf.ScalyGenes.Shader,
                     Vector2.one,
                     PawnRenderUtility.GetRottenColor(pawn.story?.SkinColor ?? Color.white),
                     ColorFor(pawn)
