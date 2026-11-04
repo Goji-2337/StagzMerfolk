@@ -68,8 +68,10 @@ public class BackCompatibilityConverter_1_6 : BackCompatibilityConverter
             Ability ability = pawn.abilities?.abilities.FirstOrFallback(x => x.def != null && x.def == StagzDefOf.Stagz_SirenCallCharm);
             if (ability != null)
             {
-                pawn.abilities.RemoveAbility(ability.def);
+                var cooldown = pawn.abilities.GetAbility(StagzDefOf.Stagz_SirenCallCharm).CooldownTicksRemaining;
+                pawn.abilities.RemoveAbility(StagzDefOf.Stagz_SirenCallCharm);
                 pawn.abilities.GainAbility(StagzDefOf.Stagz_SirenCallCharm);
+                pawn.abilities.abilities.FirstOrFallback(x => x.def != null && x.def == StagzDefOf.Stagz_SirenCallCharm).StartCooldown(cooldown);
             }
 
             //Handles edgecase where pawn had several fishtail genes at once.

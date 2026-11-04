@@ -80,6 +80,9 @@
                 <compClass>StagzMerfolk.CompAbilityEffect_Charm</compClass>
                 <goodwillImpact>-75</goodwillImpact>
             </li>
+            <li Class="StagzMerfolk.CompProperties_AbilityStartsOnCooldown">
+                <cooldownTicksRange>60000~600000</cooldownTicksRange> <!-- 1 to 10 days -->
+            </li>
         </comps>
     </AbilityDef>
 
