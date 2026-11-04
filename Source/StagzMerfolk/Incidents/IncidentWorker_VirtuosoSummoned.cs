@@ -8,6 +8,14 @@ namespace StagzMerfolk;
 [UsedImplicitly]
 public class IncidentWorker_VirtuosoSummoned : IncidentWorker_ArielSummoned
 {
+    protected override void SetSkills(Pawn merrenJoiner)
+    {
+        if (merrenJoiner.skills.GetSkill(SkillDefOf.Artistic) is {passion: Passion.None} skill)
+        {
+            skill.passion = Passion.Minor;
+        }
+    }
+    
     protected override void AssignLord(ref IncidentParms parms, Pawn pawn, Map map)
     {
         RCellFinder.TryFindRandomSpotJustOutsideColony(pawn, out var chillSpot);

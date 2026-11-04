@@ -28,6 +28,7 @@
             <li>Apparel_TribalHeaddress</li>
             -->
         </apparelRequired>
+        <humanPregnancyChance>0</humanPregnancyChance>
     </PawnKindDef>
 
 
@@ -52,12 +53,6 @@
                 </li>
             </subOptionsChooseOne>
         </inventoryOptions>
-        <skills>
-            <li>
-                <skill>Medicine</skill>
-                <range>6~12</range> <!-- toned down version of man in black numbers - incident tends the downed pawn using this stat -->
-            </li>
-        </skills>
     </PawnKindDef>
 
     <PawnKindDef ParentName="Stagz_MerrenJoinerBase" MayRequireAnyOf="Ludeon.RimWorld.Royalty">

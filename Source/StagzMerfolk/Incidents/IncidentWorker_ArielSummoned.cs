@@ -12,6 +12,7 @@ namespace StagzMerfolk;
      - trigger condition, handled in trigger code
      - arrival cell, handled in trigger code
      - mute hediff for Ariel
+     - medical skill for Ariel, artistic passion for Virtuoso
      - controller pawn in Ariel version is automatically tended using Ariel's skill
      - loiter spot
      - Letter label and text, handled in incident def
@@ -25,7 +26,7 @@ public class IncidentWorker_ArielSummoned : IncidentWorker
         if (parms.spawnCenter == IntVec3.Invalid)
         {
             parms.spawnCenter = parms.controllerPawn.Position;
-            Log.Warning(GetType() + ": water cell for merren joiner was invalid, using controller pawn's position");
+            Log.Warning($"{GetType()}: water cell for merren joiner was invalid, using controller pawn's position");
         }
         
         Map map = (Map)parms.target;
@@ -45,13 +46,19 @@ public class IncidentWorker_ArielSummoned : IncidentWorker
         tempFaction.ideos.SetPrimary(Faction.OfPlayer.ideos.PrimaryIdeo);
         Find.FactionManager.Add(tempFaction);
         Pawn merrenJoiner = PawnGenerator.GeneratePawn(def.pawnKind, tempFaction);
+        merrenJoiner.guest.Recruitable = false;
+
+        //bandaid: HAR preserves pawnkinds and babies who inherit the pawnkind will throw errors if medical is a required skill
+        //if fixed should be set in pawnkind's <skills>
+        SetSkills(merrenJoiner);
         
-        //spawn pawn
+        //spawn pawn, with SFX
         GenSpawn.Spawn(merrenJoiner, parms.spawnCenter, map);
         StagzDefOf.Stagz_DeepDiveSubmerge.Spawn(merrenJoiner, map);
         StagzDefOf.Stagz_DeepDiveEmergeSound.PlayOneShot(merrenJoiner);
         
-        //Sets Nautian style to joiner's items if Nautian mod is present
+        //bandaid: sets Nautian style to joiner's items if Nautian mod is present
+        //if fixed should be using temp faction's <styles>
         if (StagzDefOf.GM_Ocean != null)
         {
             foreach (var item in merrenJoiner.EquippedWornOrInventoryThings)
@@ -88,6 +95,12 @@ public class IncidentWorker_ArielSummoned : IncidentWorker
         Find.LetterStack.ReceiveLetter(letter);
 
         return true;
+    }
+
+    protected virtual void SetSkills(Pawn merrenJoiner)
+    {
+        //toned down version of man in black numbers - incident tends the downed pawn using this stat
+        merrenJoiner.skills.GetSkill(SkillDefOf.Medicine).Level = Rand.RangeInclusive(6, 12);
     }
 
     protected virtual void AssignLord(ref IncidentParms parms, Pawn merrenJoiner, Map map)
