@@ -64,3 +64,16 @@ public static class FishtailPatch_CompStatue
         }
     }
 }
+
+//not just for anomaly obelisk but some mods use it
+[HarmonyPatch(typeof(GameComponent_PawnDuplicator), "Duplicate")]
+public static class FishtailPatch_Duplicate
+{
+    public static void Postfix(Pawn pawn, ref Pawn __result)
+    {
+        if (pawn.MerrenScaleColor != null)
+        {
+            __result.MerrenScaleColor = pawn.MerrenScaleColor;
+        }
+    }
+}
