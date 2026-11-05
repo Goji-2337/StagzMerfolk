@@ -5,24 +5,18 @@
     <title>lighthouse keeper</title>
     <defName>Stagz_LighthouseKeeper</defName>
     <titleShort>lightkeeper</titleShort>
-    <baseDesc>[PAWN_nameDef] lived away from the crowd in a lighthouse. Every evening, [PAWN_pronoun] tended the lanterns to make sure its warm glow illuminates the harbour. [PAWN_pronoun] enjoyed [PAWN_possessive] solitary life by the sea.</baseDesc>
+    <baseDesc>[PAWN_nameDef] lived away from the crowd in a lighthouse. Every evening, [PAWN_pronoun] tended the lanterns to make sure its warm glow illuminates the harbor. [PAWN_pronoun] enjoyed [PAWN_possessive] solitary life by the sea.</baseDesc>
     <spawnCategories>
       <li>Stagz_Coastal</li>
       <li>Outlander</li>
       <li>Offworld</li>
     </spawnCategories>
-    <bodyTypeMale>Male</bodyTypeMale>
-    <bodyTypeFemale>Female</bodyTypeFemale>
     <skillGains>
       <Crafting>4</Crafting>
       <Medicine>1</Medicine>
       <Social>-2</Social>
     </skillGains>
     <workDisables>None</workDisables>
-    <disallowedTraits>
-    </disallowedTraits>
-    <forcedTraits>
-    </forcedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -30,24 +24,18 @@
     <title>starlight navigator</title>
     <defName>Stagz_StarlightNavigator</defName>
     <titleShort>navigator</titleShort>
-    <baseDesc>[PAWN_nameDef] is an experienced navigator of the sea.  [PAWN_pronoun] and [PAWN_possessive] crew were once able to cross the Death Zone of the ocean. Through nights devoid of wind and currents, [PAWN_nameDef] relied on observations of stars and other celestial bodies to guide the way.</baseDesc>
+    <baseDesc>[PAWN_nameDef] is an experienced navigator of the sea. [PAWN_pronoun] and [PAWN_possessive] crew were once able to cross the Death Zone of the ocean. Through nights devoid of wind and currents, [PAWN_nameDef] relied on observations of stars and other celestial bodies to guide the way.</baseDesc>
     <spawnCategories>
       <li>Stagz_Coastal</li>
       <li>Offworld</li>
       <li>ImperialFighter</li>
     </spawnCategories>
-    <bodyTypeMale>Male</bodyTypeMale>
-    <bodyTypeFemale>Female</bodyTypeFemale>
     <skillGains>
       <Intellectual>6</Intellectual>
       <Crafting>2</Crafting>
       <Cooking>-2</Cooking>
     </skillGains>
     <workDisables>None</workDisables>
-    <disallowedTraits>
-    </disallowedTraits>
-    <forcedTraits>
-    </forcedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -68,8 +56,6 @@
       <Crafting>1</Crafting>
     </skillGains>
     <workDisables>None</workDisables>
-    <disallowedTraits>
-    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -106,8 +92,6 @@
       <li>Stagz_Coastal</li>
       <li>Tribal</li>
     </spawnCategories>
-    <bodyTypeMale>Male</bodyTypeMale>
-    <bodyTypeFemale>Female</bodyTypeFemale>
     <skillGains>
       <Medicine>3</Medicine>
       <Social>2</Social>
@@ -128,16 +112,12 @@
       <li>Tribal</li>
       <li>MedievalCommon</li>
     </spawnCategories>
-    <bodyTypeMale>Male</bodyTypeMale>
-    <bodyTypeFemale>Female</bodyTypeFemale>
     <skillGains>
       <Artistic>3</Artistic>
       <Plants>1</Plants>
       <Crafting>2</Crafting>
     </skillGains>
     <workDisables>None</workDisables>
-    <disallowedTraits>
-    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -200,16 +180,12 @@
       <li>Outlander</li>
       <li>ImperialCommon</li>
     </spawnCategories>
-    <bodyTypeMale>Male</bodyTypeMale>
-    <bodyTypeFemale>Female</bodyTypeFemale>
     <skillGains>
       <Construction>5</Construction>
       <Artistic>1</Artistic>
       <Animals>-2</Animals>
     </skillGains>
     <workDisables>None</workDisables>
-    <disallowedTraits>
-    </disallowedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -243,17 +219,11 @@
       <li>Stagz_Coastal</li>
       <li>Tribal</li>
     </spawnCategories>
-    <bodyTypeMale>Male</bodyTypeMale>
-    <bodyTypeFemale>Female</bodyTypeFemale>
     <skillGains>
       <Construction>2</Construction>
       <Mining>1</Mining>
     </skillGains>
     <workDisables>None</workDisables>
-    <disallowedTraits>
-    </disallowedTraits>
-    <forcedTraits>
-    </forcedTraits>
   </BackstoryDef>
 
   <BackstoryDef>
@@ -269,8 +239,6 @@
       <li>MedievalCommon</li>
       <li>ImperialCommon</li>
     </spawnCategories>
-    <bodyTypeMale>Male</bodyTypeMale>
-    <bodyTypeFemale>Female</bodyTypeFemale>
     <skillGains>
       <Animals>1</Animals>
       <Social>3</Social>
@@ -288,14 +256,10 @@
       <li>Stagz_Coastal</li>
       <li>Outsider</li>
     </spawnCategories>
-    <bodyTypeMale>Male</bodyTypeMale>
-    <bodyTypeFemale>Female</bodyTypeFemale>
     <skillGains>
       <Animals>1</Animals>
     </skillGains>
     <workDisables>Cooking</workDisables>
-    <disallowedTraits>
-    </disallowedTraits>
     <forcedTraits>
       <SpeedOffset>2</SpeedOffset>
       <NaturalMood>2</NaturalMood>

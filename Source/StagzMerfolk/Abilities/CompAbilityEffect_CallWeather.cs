@@ -37,7 +37,7 @@ public class CompAbilityEffect_CallWeather : CompAbilityEffect
         parent.pawn.MapHeld.weatherManager.TransitionTo(weatherToBeCalled);
         
         //forces duration
-        AccessTools.FieldRefAccess<int>(typeof(WeatherDecider),"curWeatherDuration").Invoke(parent.pawn.MapHeld.weatherDecider) = Props.weatherDuration;
+        AccessTools.FieldRefAccess<WeatherDecider, int>("curWeatherDuration").Invoke(parent.pawn.MapHeld.weatherDecider) = Props.weatherDuration;
         
         Messages.Message("StagzMerfolk_RainCall".Translate(parent.pawn.LabelShort, weatherToBeCalled.label) , parent.pawn, MessageTypeDefOf.NeutralEvent);
     }
