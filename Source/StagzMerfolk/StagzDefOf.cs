@@ -49,6 +49,7 @@ public class StagzDefOf
     public static HediffDef Stagz_Infatuated;
 
     public static AbilityDef Stagz_SirenCallCharm;
+    public static ThingDef Stagz_WaterCandle;
     
     static StagzDefOf()
     {

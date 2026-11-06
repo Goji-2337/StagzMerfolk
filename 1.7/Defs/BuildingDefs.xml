@@ -1,37 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <ThingDef Name="Stagz_WaterCandle" ParentName="BuildingBase">
+    <ThingDef Name="Stagz_WaterCandle" ParentName="FurnitureBase">
         <defName>Stagz_WaterCandle</defName>
         <label>floating lantern</label>
-        <description>A specially-treated wooden lantern that produces a dim light over a medium area while floating on water. Can be automatically refuelled with wood. Produce a tiny amount of heat.</description>
+        <description>A specially-treated lantern that produces a dim light over a medium area while floating on water. Can be automatically refueled with wood. Produces a tiny amount of heat.</description>
         <category>Building</category>
         <graphicData>
-            <texPath>StagzMerfolk/Things/Building/FloatingLamp/Lamp</texPath>
+            <texPath>StagzMerfolk/Things/Building/FloatingLampStuffable/Lamp</texPath>
             <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
             <drawRotated>false</drawRotated>
             <damageData>
                 <rect>(0.35,0.35,0.3,0.3)</rect>
             </damageData>
         </graphicData>
-        <uiIconPath>StagzMerfolk/Things/Building/FloatingLamp/LampOn</uiIconPath>
         <uiIconScale>0.85</uiIconScale>
         <rotatable>false</rotatable>
         <altitudeLayer>Building</altitudeLayer>
         <passability>PassThroughOnly</passability>
         <pathCost>14</pathCost>
-        <constructEffect>ConstructWood</constructEffect>
         <terrainAffordanceNeeded>Bridgeable</terrainAffordanceNeeded>
         <tickerType>Normal</tickerType>
         <drawerType>RealtimeOnly</drawerType>
         <fillPercent>0.15</fillPercent>
         <statBases>
-            <MaxHitPoints>75</MaxHitPoints>
+            <MaxHitPoints>115</MaxHitPoints> <!-- with wood Stuff HP reduction equals 75 HP (how much it was before it was made stuffable) -->
             <WorkToBuild>100</WorkToBuild>
             <Flammability>0</Flammability>
             <Beauty>2</Beauty>
             <MeditationFocusStrength>0.0</MeditationFocusStrength>
+            <Mass>1</Mass> <!-- like sanguophage torch -->
         </statBases>
         <selectable>true</selectable>
+        <defaultStuff>WoodLog</defaultStuff>
+        <stuffCategories>
+            <li>Woody</li>
+        </stuffCategories>
+        <costStuffCount>10</costStuffCount>
         <costList>
             <WoodLog>20</WoodLog>
         </costList>
@@ -39,14 +44,16 @@
             <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
         </building>
         <soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
-        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-        <resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
         <placeWorkers>
             <li>PlaceWorker_GlowRadius</li>
             <li>PlaceWorker_Heater</li>
             <li>PlaceWorker_MeditationOffsetBuildingsNear</li>
         </placeWorkers>
-        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+        <uiOrder>2800</uiOrder>
+        <building>
+            <paintable>true</paintable>
+        </building>
         <comps>
             <li Class="CompProperties_Refuelable">
                 <fuelConsumptionRate>2.0</fuelConsumptionRate>
@@ -105,8 +112,5 @@
                 </offsets>
             </li>
         </comps>
-        <designationCategory>Furniture</designationCategory>
-        <uiOrder>2800</uiOrder>
-        <designationHotKey>Misc10</designationHotKey>
     </ThingDef>
 </Defs>

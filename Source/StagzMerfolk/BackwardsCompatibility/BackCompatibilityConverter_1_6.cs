@@ -89,5 +89,13 @@ public class BackCompatibilityConverter_1_6 : BackCompatibilityConverter
                 }
             }
         }
+
+        if (Scribe.mode == LoadSaveMode.PostLoadInit && obj is Blueprint_Build blueprint)
+        {
+            if (blueprint.BuildDef == StagzDefOf.Stagz_WaterCandle)
+            {
+                blueprint.stuffToUse = ThingDefOf.WoodLog;
+            }
+        }
     }
 }
