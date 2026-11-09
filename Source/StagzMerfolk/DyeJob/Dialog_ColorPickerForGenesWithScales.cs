@@ -67,7 +67,7 @@ public class Dialog_ColorPickerForGenesWithScales : Window
 	    if (color != oldColor)
 	    {
 		    pawn.MerrenScaleColor = oldColor;
-		    pawn.genes?.GetFirstGeneOfType<Gene_WithScaleColor>()?.PendingColor = color;
+		    pawn.PendingMerrenScaleColor = color;
 		    if (parentOfComp.def == ThingDefOf.Dye && !parentOfComp.IsForbidden(pawn) && pawn.CanReserve(parentOfComp, 1, 1))
 		    {
 			    Job job = JobMaker.MakeJob(StagzDefOf.Stagz_ChangeScaleColorAtDye, parentOfComp);

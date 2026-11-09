@@ -12,6 +12,7 @@ public class StagzDefOf
     public static GeneDef Stagz_Raincaller;
     public static GeneDef Stagz_BodyFin;
     public static GeneDef Stagz_Aquatic;
+    public static GeneDef Stagz_Fishtail;
 
     public static MeditationFocusDef Stagz_Water;
 

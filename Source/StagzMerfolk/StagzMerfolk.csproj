@@ -2,57 +2,59 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <_RimWorldVersion>1.7</_RimWorldVersion>
-        <TargetFramework>net10.0</TargetFramework>
+        
+        <!-- props unique to this project -->
         <RootNamespace>StagzMerfolk</RootNamespace>
         <AssemblyName>StagzMerfolk</AssemblyName>
-        <LangVersion>latest</LangVersion>
+        <DocumentationFile>..\..\$(_RimWorldVersion)\Assemblies\StagzMerfolk.xml</DocumentationFile>
+        <OutputPath>..\..\$(_RimWorldVersion)\Assemblies\</OutputPath>
+        
         <!-- reminder that if I forget what any of these mean or what their defaults are I can check
         https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props -->
+        <LangVersion>latest</LangVersion>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <GenerateDependencyFile>false</GenerateDependencyFile>
         <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-        <OutputPath>..\..\$(_RimWorldVersion)\Assemblies\</OutputPath>
         <DebugType>embedded</DebugType>
         <Configurations>Release</Configurations>
         <Platforms>AnyCPU</Platforms>
-        <DocumentationFile>..\..\$(_RimWorldVersion)\Assemblies\StagzMerfolk.xml</DocumentationFile>
     </PropertyGroup>
-    
-        <!--
-        royallyTipsy:
-        I define explicit paths to dlls because I use Rider which allows to decompile directly from IDE.
-        Krafs reference is defined below and should be automatically picked if there is a need for fallbacks.
-        Many thanks to Gareth's Rimworld template for that bit btw
-        -->
-    <ItemGroup>
-        <Reference Include="Assembly-CSharp">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\Assembly-CSharp.dll</HintPath>
-            <Private>False</Private>
-        </Reference>
-        <Reference Include="UnityStubs">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\UnityStubs.dll</HintPath>
-            <Private>False</Private>
-        </Reference>
-        <Reference Include="UnityStubs">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\Waylith.dll</HintPath>
-            <Private>False</Private>
-        </Reference>
-        <Reference Include="RimWorld">
-            <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorld.dll</HintPath>
-            <Private>False</Private>
-        </Reference>
-    </ItemGroup>
 
-<!-- The below condition will check if you've defined a reference called "Assembly-CSharp" and if that reference exists on disk.
-    If that reference does not exist, it will add Krafs Rimworld Ref to the project. If it does exist, Krafs won't be added
-    as a reference. This basically means that Krafs is treated as a fallback if Assembly-CSharp is not found -->
-    <ItemGroup Condition="'@(Reference->WithMetadataValue('Identity', 'Assembly-CSharp')->Metadata('HintPath')->Exists())' == ''">
-        <PackageReference Include="Krafs.Rimworld.Ref" Version="$(_RimWorldVersion).*-*"/>
-    </ItemGroup>
-    
-    <ItemGroup>
-        <PackageReference Include="Lib.Harmony.Ref" Version="3.*-*" />
-    </ItemGroup>
+    <Choose>
+        <When Condition="'$(_RimWorldVersion)' == '1.7'">
+            <PropertyGroup>
+                <TargetFramework>net10.0</TargetFramework>
+            </PropertyGroup>
+            <ItemGroup>
+                <PackageReference Include="Lib.Harmony.Ref" Version="3.*-*" />
+                <Reference Include="Assembly-CSharp">
+                    <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\Assembly-CSharp.dll</HintPath>
+                    <Private>False</Private>
+                </Reference>
+                <Reference Include="UnityStubs">
+                    <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\UnityStubs.dll</HintPath>
+                    <Private>False</Private>
+                </Reference>
+                <Reference Include="UnityStubs">
+                    <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\Waylith.dll</HintPath>
+                    <Private>False</Private>
+                </Reference>
+                <Reference Include="RimWorld">
+                    <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorld.dll</HintPath>
+                    <Private>False</Private>
+                </Reference>
+            </ItemGroup>
+        </When>
+        <Otherwise>
+            <PropertyGroup>
+                <TargetFramework>net48</TargetFramework>
+            </PropertyGroup>
+            <ItemGroup>
+                <PackageReference Include="Lib.Harmony.Ref" Version="2.*" />
+                <PackageReference Include="Krafs.Rimworld.Ref" Version="$(_RimWorldVersion).*-*" />
+            </ItemGroup>
+        </Otherwise>
+    </Choose>
 
     <!-- Peak noob code. I am horrified and disgusted this was written by my hand. I should contemplate honorable sudoku to cleanse this stain.
      Unfortunately it seems to be working and I DO need it while PublisherPlus is out for the count. -->

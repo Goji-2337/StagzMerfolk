@@ -27,6 +27,14 @@ public static class Utils
             get => pawn?.genes?.GetFirstGeneOfType<Gene_WithScaleColor>()?.ChosenColor;
             set => pawn?.genes?.GetFirstGeneOfType<Gene_WithScaleColor>()?.ChosenColor = value;
         }
+
+        public Color? PendingMerrenScaleColor
+        {
+            get => pawn?.genes?.GetFirstGeneOfType<Gene_WithScaleColor>()?.PendingColor;
+            set => pawn?.genes?.GetFirstGeneOfType<Gene_WithScaleColor>()?.PendingColor = value;
+        }
+
+        public bool HasActiveFishtail() => pawn?.genes?.HasActiveGene(StagzDefOf.Stagz_Fishtail) == true;
         
         public void RemoveLegOnlyApparel()
         {

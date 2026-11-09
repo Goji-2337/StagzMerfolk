@@ -23,7 +23,7 @@ public class JobDriver_ChangeScaleColorAtComp : JobDriver
         yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.InteractionCell)
             .FailOnDespawnedOrNull(TargetIndex.B);
         
-        Color pendingColor = pawn.genes?.GetFirstGeneOfType<Gene_WithScaleColor>()?.PendingColor ?? Color.white;
+        Color pendingColor = pawn.PendingMerrenScaleColor ?? Color.white;
         yield return Toils_General.WaitWith(TargetIndex.B, 300, true, face: TargetIndex.B)
             .FailOnDespawnedOrNull(TargetIndex.B)
             .WithEffect(StagzDefOf.Stagz_DyeingTail, TargetIndex.B, pendingColor);
@@ -42,15 +42,15 @@ public class JobDriver_ChangeScaleColorAtComp : JobDriver
                 thing.Destroy();
             }
 
-            if (pawn.genes?.GetFirstGeneOfType<Gene_WithScaleColor>()?.PendingColor is { } pendingColor)
+            if (pawn.PendingMerrenScaleColor is { } pendingColor)
             {
                 pawn.MerrenScaleColor = pendingColor;
                 //may not be resetting properly to null after being used, but right now it doesn't matter
-                pawn.genes.GetFirstGeneOfType<Gene_WithScaleColor>()?.PendingColor = null;
+                pawn.PendingMerrenScaleColor = null;
             }
 
             //pawns who don't have tail but can still change color of fins probably shouldn't drip
-            if (pawn?.genes?.GetFirstGeneOfType<Gene_Fishtail>() != null)
+            if (pawn.HasActiveFishtail())
             {
                 pawn.health.AddHediff(StagzDefOf.Stagz_CoveredInDye);
             }

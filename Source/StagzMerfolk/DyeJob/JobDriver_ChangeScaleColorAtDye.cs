@@ -17,7 +17,7 @@ public class JobDriver_ChangeScaleColorAtDye : JobDriver_ChangeScaleColorAtComp
             .FailOnDespawnedNullOrForbidden(TargetIndex.A)
             .FailOnSomeonePhysicallyInteracting(TargetIndex.A);
         
-        Color pendingColor = pawn.genes?.GetFirstGeneOfType<Gene_WithScaleColor>()?.PendingColor ?? Color.white;
+        Color pendingColor = pawn.PendingMerrenScaleColor ?? Color.white;
         yield return Toils_General.WaitWith(TargetIndex.A,300, true, face: TargetIndex.A)
             .FailOnDespawnedOrNull(TargetIndex.A)
             .WithEffect(StagzDefOf.Stagz_DyeingTail, TargetIndex.A, pendingColor);
