@@ -16,6 +16,7 @@
       <Medicine>1</Medicine>
       <Social>-2</Social>
     </skillGains>
+    <bodyTypeGlobal>Fat</bodyTypeGlobal>
     <workDisables>None</workDisables>
   </BackstoryDef>
 
@@ -35,6 +36,7 @@
       <Crafting>2</Crafting>
       <Cooking>-2</Cooking>
     </skillGains>
+    <bodyTypeGlobal>Male</bodyTypeGlobal>
     <workDisables>None</workDisables>
   </BackstoryDef>
 
@@ -48,8 +50,7 @@
       <li>Stagz_Coastal</li>
       <li>Tribal</li>
     </spawnCategories>
-    <bodyTypeMale>Male</bodyTypeMale>
-    <bodyTypeFemale>Female</bodyTypeFemale>
+    <bodyTypeGlobal>Male</bodyTypeGlobal>
     <skillGains>
       <Animals>3</Animals>
       <Melee>1</Melee>
@@ -70,8 +71,7 @@
       <li>ImperialCommon</li>
       <li>ImperialFighter</li>
     </spawnCategories>
-    <bodyTypeMale>Male</bodyTypeMale>
-    <bodyTypeFemale>Female</bodyTypeFemale>
+    <bodyTypeGlobal>Hulk</bodyTypeGlobal>
     <skillGains>
       <Medicine>3</Medicine>
       <Social>3</Social>
@@ -92,6 +92,7 @@
       <li>Stagz_Coastal</li>
       <li>Tribal</li>
     </spawnCategories>
+    <bodyTypeGlobal>Thin</bodyTypeGlobal>
     <skillGains>
       <Medicine>3</Medicine>
       <Social>2</Social>
@@ -112,6 +113,7 @@
       <li>Tribal</li>
       <li>MedievalCommon</li>
     </spawnCategories>
+    <bodyTypeGlobal>Thin</bodyTypeGlobal>
     <skillGains>
       <Artistic>3</Artistic>
       <Plants>1</Plants>
@@ -132,8 +134,7 @@
       <li>Pirate</li>
       <li>Outsider</li>
     </spawnCategories>
-    <bodyTypeMale>Male</bodyTypeMale>
-    <bodyTypeFemale>Female</bodyTypeFemale>
+    <bodyTypeGlobal>Hulk</bodyTypeGlobal>
     <skillGains>
       <Shooting>3</Shooting>
       <Melee>3</Melee>
@@ -155,8 +156,7 @@
       <li>Stagz_Coastal</li>
       <li>Offworld</li>
     </spawnCategories>
-    <bodyTypeMale>Male</bodyTypeMale>
-    <bodyTypeFemale>Female</bodyTypeFemale>
+    <bodyTypeGlobal>Male</bodyTypeGlobal>
     <skillGains>
       <Melee>1</Melee>
     </skillGains>
@@ -180,6 +180,7 @@
       <li>Outlander</li>
       <li>ImperialCommon</li>
     </spawnCategories>
+    <bodyTypeGlobal>Fat</bodyTypeGlobal>
     <skillGains>
       <Construction>5</Construction>
       <Artistic>1</Artistic>
@@ -199,8 +200,7 @@
       <li>Pirate</li>
       <li>Offworld</li>
     </spawnCategories>
-    <bodyTypeMale>Male</bodyTypeMale>
-    <bodyTypeFemale>Female</bodyTypeFemale>
+    <bodyTypeGlobal>Male</bodyTypeGlobal>
     <skillGains>
       <Melee>2</Melee>
       <Mining>2</Mining>
