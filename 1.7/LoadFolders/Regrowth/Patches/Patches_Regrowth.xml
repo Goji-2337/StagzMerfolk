@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/ThoughtDef[defName="RG_Wet"]/nullifyingGenes</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/ThoughtDef[defName="RG_Wet"]</xpath>
+            <value>
+                <nullifyingGenes/>
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/ThoughtDef[defName="RG_ExtremelyWet"]/nullifyingGenes</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/ThoughtDef[defName="RG_ExtremelyWet"]</xpath>
+            <value>
+                <nullifyingGenes/>
+            </value>
+        </nomatch>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThoughtDef[defName="RG_Wet" or defName="RG_ExtremelyWet"]/nullifyingGenes</xpath>
+        <value>
+            <li>Stagz_Aquatic</li>
+            <li>Stagz_Raincaller</li>
+            <li>Stagz_RainVeil</li>
+        </value>
+    </Operation>
+</Patch>

@@ -51,6 +51,16 @@
     <MeditationFocusDef>
         <defName>Stagz_Water</defName>
         <label>water</label>
+        <requiredBackstoriesAny>
+            <li>
+                <categoryName>Stagz_Coastal</categoryName>
+                <slot>Adulthood</slot>
+            </li>
+            <li>
+                <categoryName>Stagz_Coastal</categoryName>
+                <slot>Childhood</slot>
+            </li>
+        </requiredBackstoriesAny>
         <modExtensions>
             <li MayRequire="VanillaExpanded.VPsycastsE" Class="VanillaPsycastsExpanded.MeditationFocusExtension">
                 <icon>StagzMerfolk/UI/Icons/Psyfocus/PsyfocusWater</icon>

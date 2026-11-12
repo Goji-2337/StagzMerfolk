@@ -1,18 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
     <Operation Class="PatchOperationConditional">
-        <xpath>Defs/*[defName="SoakingWet"]/nullifyingGenes</xpath>
+        <xpath>Defs/ThoughtDef[defName="SoakingWet"]/nullifyingGenes</xpath>
         <nomatch Class="PatchOperationAdd">
-            <xpath>Defs/*[defName="SoakingWet"]</xpath>
+            <xpath>Defs/ThoughtDef[defName="SoakingWet"]</xpath>
             <value>
                 <nullifyingGenes/>
             </value>
         </nomatch>
     </Operation>
     <Operation Class="PatchOperationAdd">
-        <xpath>Defs/*[defName="SoakingWet"]/nullifyingGenes</xpath>
+        <xpath>Defs/ThoughtDef[defName="SoakingWet"]/nullifyingGenes</xpath>
         <value>
             <li>Stagz_Aquatic</li>
+            <li>Stagz_Raincaller</li>
+            <li>Stagz_RainVeil</li>
         </value>
     </Operation>
 

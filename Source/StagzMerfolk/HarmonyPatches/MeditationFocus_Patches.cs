@@ -13,7 +13,8 @@ public class MeditationFocusDef_EnablingThingsExplanation_Patch
     {
         if (__instance == StagzDefOf.Stagz_Water && pawn.genes?.HasActiveGene(StagzDefOf.Stagz_Raincaller) == true)
         {
-            __result += $" - {"StagzMerfolk_UnlockedByGene".Translate()} {StagzDefOf.Stagz_Raincaller.LabelCap}.";
+            if (!__result.NullOrEmpty()) __result += "\n";
+            __result += $"  - {"StagzMerfolk_UnlockedByGene".Translate()} {StagzDefOf.Stagz_Raincaller.LabelCap}.";
         }
     }
 }
@@ -25,9 +26,9 @@ public class MeditationFocusTypeAvailabilityCache_PawnCanUseInt_Patch
 
     public static void Postfix(Pawn p, MeditationFocusDef type, ref bool __result)
     {
-        if (type == StagzDefOf.Stagz_Water)
+        if (type == StagzDefOf.Stagz_Water && p.genes?.HasActiveGene(StagzDefOf.Stagz_Raincaller) == true)
         {
-            __result = p.genes?.HasActiveGene(StagzDefOf.Stagz_Raincaller) == true;
+            __result = true;
         }
     }
 }

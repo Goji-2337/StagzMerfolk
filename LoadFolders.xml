@@ -24,5 +24,8 @@
         <li IfModActive="VanillaExpanded.VPlantsEMore,royallyTipsy.PanaquaticZone">1.7/LoadFolders/AquaticZoneMods</li>
         <li IfModActive="gravtide.mod">1.7/LoadFolders/GravTide</li>
         <li IfModActive="horizons.deepsea">1.7/LoadFolders/DeepSea</li>
+        <li IfModActive="ReGrowth.BOTR.Core">1.7/LoadFolders/Regrowth</li>
+        <li IfModActive="VanillaExpanded.VanillaTraitsExpanded">1.7/LoadFolders/VanillaTraitsExpanded</li>
+        <li IfModActive="VanillaExpanded.VCEF">1.7/LoadFolders/VanillaFishingExpanded</li>
     </v1.7>
 </loadFolders>
