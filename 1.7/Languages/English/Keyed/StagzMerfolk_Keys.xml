@@ -22,6 +22,7 @@
     <StagzMerfolk_StatsReport_Powering>Moving</StagzMerfolk_StatsReport_Powering>
     <StagzMerfolk_MeditationFocusPerHydroponicsBasinAbstract>{1} per nearby powered hydroponics (up to {0})</StagzMerfolk_MeditationFocusPerHydroponicsBasinAbstract>
     <StagzMerfolk_MeditationFocusPerHydroponicsBasin>{2} per nearby powered hydroponics ({0} / {1})</StagzMerfolk_MeditationFocusPerHydroponicsBasin>
+    <StagzMerfolk_MessageMustBePlacedOnWater>Must be placed over water.</StagzMerfolk_MessageMustBePlacedOnWater>
 
     <StagzMerfolk_DehydrationEstimationOnTooltip>At the current fall rate, {PAWN_nameDef} will start dehydrating in {DURATION}.</StagzMerfolk_DehydrationEstimationOnTooltip>
     <StagzMerfolk_Dehydration>Skin dehydration</StagzMerfolk_Dehydration>

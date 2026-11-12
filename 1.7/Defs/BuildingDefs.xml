@@ -19,7 +19,7 @@
         <altitudeLayer>Building</altitudeLayer>
         <passability>PassThroughOnly</passability>
         <pathCost>14</pathCost>
-        <terrainAffordanceNeeded>Bridgeable</terrainAffordanceNeeded>
+        <terrainAffordanceNeeded>Walkable</terrainAffordanceNeeded>
         <tickerType>Normal</tickerType>
         <drawerType>RealtimeOnly</drawerType>
         <fillPercent>0.15</fillPercent>
@@ -49,6 +49,7 @@
             <li>PlaceWorker_GlowRadius</li>
             <li>PlaceWorker_Heater</li>
             <li>PlaceWorker_MeditationOffsetBuildingsNear</li>
+            <li>StagzMerfolk.PlaceWorker_OnlyOverWater</li>
         </placeWorkers>
         <uiOrder>2800</uiOrder>
         <building>
@@ -77,9 +78,9 @@
                 <heatPerSecond>3.5</heatPerSecond>
                 <heatPushMaxTemperature>23</heatPushMaxTemperature>
             </li>
-            <li Class="CompProperties_FireOverlay">
-                <fireSize>0.4</fireSize>
-                <offset>(0,0,0.2)</offset>
+            <li Class="StagzMerfolk.CompProperties_ToggleableFireOverlay">
+                <fireSize>0.22</fireSize>
+                <offset>(0,0,0.16)</offset>
             </li>
             <li Class="CompProperties_MeditationFocus">
                 <statDef>MeditationFocusStrength</statDef>
