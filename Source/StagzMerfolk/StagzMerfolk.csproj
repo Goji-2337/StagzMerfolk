@@ -55,31 +55,4 @@
             </ItemGroup>
         </Otherwise>
     </Choose>
-
-    <!-- Peak noob code. I am horrified and disgusted this was written by my hand. I should contemplate honorable sudoku to cleanse this stain.
-     Unfortunately it seems to be working and I DO need it while PublisherPlus is out for the count. -->
-    <Target Name="CopyModFiles" AfterTargets="CopyFilesToOutputDirectory">
-        <PropertyGroup>
-            <_ModFilesDestination>D:\SteamLibrary\steamapps\common\RimWorld\Mods\StagzMerfolk</_ModFilesDestination>
-        </PropertyGroup>
-        <ItemGroup>
-            <_ModFilesSource14 Include="..\..\1.4\**\*.*;" />
-            <_ModFilesSource15 Include="..\..\1.5\**\*.*;" />
-            <_ModFilesSource16 Include="..\..\1.6\**\*.*;" />
-            <_ModFilesSource17 Include="..\..\1.7\**\*.*;" />
-            <_ModFilesSourceTextures Include="..\..\Textures\**\*.*;" />
-            <_ModFilesSourceSounds Include="..\..\Sounds\**\*.*;" />
-            <_ModFilesSourceAbout Include="..\..\About\**\*.*;" />
-        </ItemGroup>
-        <RemoveDir Directories="$(_ModFilesDestination)"/>
-        <Copy SourceFiles="@(_ModFilesSource14)" DestinationFolder="$(_ModFilesDestination)\1.4\%(RecursiveDir)"/>
-        <Copy SourceFiles="@(_ModFilesSource15)" DestinationFolder="$(_ModFilesDestination)\1.5\%(RecursiveDir)"/>
-        <Copy SourceFiles="@(_ModFilesSource16)" DestinationFolder="$(_ModFilesDestination)\1.6\%(RecursiveDir)"/>
-        <Copy SourceFiles="@(_ModFilesSource17)" DestinationFolder="$(_ModFilesDestination)\1.7\%(RecursiveDir)"/>
-        <Copy SourceFiles="@(_ModFilesSourceTextures)" DestinationFolder="$(_ModFilesDestination)\Textures\%(RecursiveDir)"/>
-        <Copy SourceFiles="@(_ModFilesSourceSounds)" DestinationFolder="$(_ModFilesDestination)\Sounds\%(RecursiveDir)"/>
-        <Copy SourceFiles="@(_ModFilesSourceAbout)" DestinationFolder="$(_ModFilesDestination)\About\%(RecursiveDir)"/>
-        <Copy SourceFiles="..\..\LoadFolders.xml;..\..\LICENSE" DestinationFolder="$(_ModFilesDestination)"/>
-        <Message Importance="High" Text="Copied mod files to $(_ModFilesDestination)" />
-    </Target>
 </Project>
